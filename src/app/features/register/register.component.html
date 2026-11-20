@@ -1,0 +1,267 @@
+<main class="register-page">
+  <!-- LEFT: EDITORIAL VISUAL -->
+  <section class="editorial-panel">
+    <img
+      class="editorial-image"
+      src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=90"
+      alt="NOVA fashion editorial"
+    />
+
+    <div class="image-overlay"></div>
+
+    <!-- Brand -->
+    <a routerLink="/" class="brand-logo"> NOVA<span>.</span> </a>
+
+    <!-- Editorial Content -->
+    <div class="editorial-content">
+      <span class="editorial-eyebrow"> THE NOVA EXPERIENCE — EST. 2026 </span>
+
+      <h1>
+        NOT JUST<br />
+        A PURCHASE.<br />
+        <span>A STATEMENT.</span>
+      </h1>
+
+      <p>Discover a world where design meets identity. Explore pieces that reflect who you are.</p>
+
+      <div class="editorial-bottom">
+        <span>01 / 03</span>
+        <div class="editorial-line"></div>
+        <span>BEYOND SHOPPING</span>
+      </div>
+    </div>
+
+    <!-- Image Footer -->
+    <div class="editorial-footer">
+      <span>CURATED FOR THE UNCOMMON.</span>
+      <span>© NOVA 2026</span>
+    </div>
+  </section>
+
+  <!-- RIGHT: REGISTER FORM -->
+  <section class="form-panel">
+    <!-- Top Navigation -->
+    <div class="form-topbar">
+      <a routerLink="/home" class="mobile-logo"> NOVA<span>.</span> </a>
+
+      <p>
+        Already a member?
+        <a routerLink="/sign-in">Sign in <span>↗</span></a>
+      </p>
+    </div>
+
+    <!-- Form Content -->
+    <div class="form-content">
+      <div class="form-heading">
+        <span class="form-eyebrow"> JOIN THE NOVA WORLD </span>
+        <h2>
+          Create your<br />
+          <span>account.</span>
+        </h2>
+        <p>Your next favorite thing starts here. Let's make it personal.</p>
+      </div>
+
+      <!-- Register Form -->
+      <form (ngSubmit)="submitRegisterForm()" class="register-form" [formGroup]="registerForm">
+        <!-- Name -->
+        <div class="form-group">
+          <label for="name">Full name</label>
+          <div class="input-icon-field">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+            <input
+              formControlName="name"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Wagih"
+              autocomplete="name"
+              [class.input-invalid]="registerForm.controls.name.touched && registerForm.controls.name.invalid"
+            />
+          </div>
+          @if (registerForm.controls.name.invalid && registerForm.controls.name.touched) {
+            <div class="validation-messages" aria-live="polite">
+              @if (registerForm.controls.name.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name is required.</span></small>
+              } @else if (registerForm.controls.name.hasError('minlength')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name must be at least 3 characters.</span></small>
+              } @else if (registerForm.controls.name.hasError('maxlength')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name cannot exceed 80 characters.</span></small>
+              } @else if (registerForm.controls.name.hasError('pattern')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a first and last name using Arabic or English letters.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+
+          <div class="input-icon-field">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            <input
+              formControlName="email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              [class.input-invalid]="registerForm.controls.email.touched && registerForm.controls.email.invalid"
+            />
+          </div>
+          @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
+            <div class="validation-messages" aria-live="polite">
+              @if (registerForm.controls.email.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Email is required.</span></small>
+              } @else if (registerForm.controls.email.hasError('email')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a valid email address.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+
+          <div class="input-icon-field">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <input
+              formControlName="phone"
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+20 100 000 0000"
+              autocomplete="tel"
+              [class.input-invalid]="registerForm.controls.phone.touched && registerForm.controls.phone.invalid"
+            />
+          </div>
+          @if (registerForm.controls.phone.invalid && registerForm.controls.phone.touched) {
+            <div class="validation-messages" aria-live="polite">
+              @if (registerForm.controls.phone.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Phone number is required.</span></small>
+              } @else if (registerForm.controls.phone.hasError('pattern')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a valid Egyptian mobile number, e.g. 01010700701 or +201010700701.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="password"><i class="fa-solid fa-lock" aria-hidden="true"></i> Password</label>
+
+          <div class="password-field">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            <input
+              formControlName="password"
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+              autocomplete="new-password"
+              [class.input-invalid]="registerForm.controls.password.touched && registerForm.controls.password.invalid"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePassword()"
+              [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+            >
+              <i
+                [class]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          @if (registerForm.controls.password.invalid && registerForm.controls.password.touched) {
+            <div class="validation-messages" aria-live="polite">
+              @if (registerForm.controls.password.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password is required.</span></small>
+              } @else if (registerForm.controls.password.hasError('minlength')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password must be at least 8 characters.</span></small>
+              } @else if (registerForm.controls.password.hasError('pattern')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password must include an uppercase letter, a lowercase letter, a number, and a special character.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <label for="rePassword"
+            ><i class="fa-solid fa-lock" aria-hidden="true"></i> Confirm password</label
+          >
+
+          <div class="input-icon-field password-field">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            <input
+              formControlName="rePassword"
+              [type]="showConfirmPassword ? 'text' : 'password'"
+              id="rePassword"
+              name="rePassword"
+              placeholder="Repeat your password"
+              autocomplete="new-password"
+              [class.input-invalid]="registerForm.controls.rePassword.touched && (registerForm.controls.rePassword.invalid || registerForm.hasError('mismatch'))"
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="toggleConfirmPassword()"
+              [attr.aria-label]="
+                showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'
+              "
+            >
+              <i
+                [class]="showConfirmPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          @if (registerForm.controls.rePassword.touched && (registerForm.controls.rePassword.invalid || registerForm.hasError('mismatch'))) {
+            <div class="validation-messages" aria-live="polite">
+              @if (registerForm.controls.rePassword.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Confirm password is required.</span></small>
+              } @else if (registerForm.hasError('mismatch')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Passwords do not match.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Terms -->
+        <div class="terms-row">
+          <span>
+            By creating an account, you agree to our
+            <a href="#">Terms of Service</a>
+            and
+            <a href="#">Privacy Policy</a>.
+          </span>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="register-button">
+          <span>CREATE ACCOUNT</span>
+          <span class="button-arrow">↗</span>
+        </button>
+      </form>
+
+      <div class="form-divider">
+        <span>YOUR WORLD STARTS HERE</span>
+      </div>
+
+      <p class="form-bottom-text">A little more you. A little more NOVA.</p>
+    </div>
+
+    <!-- Bottom Footer -->
+    <footer class="form-footer">
+      <span>© 2026 NOVA STUDIO</span>
+
+      <div>
+        <span>DESIGNED TO STAND OUT</span>
+        <span class="footer-dot"></span>
+      </div>
+    </footer>
+  </section>
+</main>

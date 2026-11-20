@@ -1,0 +1,378 @@
+<main class="product-page">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a routerLink="/home">Home</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <a routerLink="/shop">Shop</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <span>{{ productesList().category.name }}</span>
+  </nav>
+
+  <!-- Main Product Section -->
+  <section class="product-layout">
+    <!-- Product Gallery -->
+    <div class="gallery-section">
+      <div class="gallery-heading">
+        <span>NOVA / PRODUCT COLLECTION</span>
+        <span> GALLERY</span>
+      </div>
+
+      <div class="main-gallery-wrapper">
+        <swiper-container
+          init="false"
+          #mainSwiper
+          class="product-main-swiper"
+          thumbs-swiper=".product-thumbs-swiper"
+          loop="true"
+          navigation="true"
+          space-between="10"
+          speed="650"
+        >
+          @for (photo of productesList().images; track $index) {
+            <swiper-slide>
+              <div class="swiper-image">
+                <img [src]="photo" [alt]="productesList().title" />
+              </div>
+            </swiper-slide>
+          }
+        </swiper-container>
+
+        <span class="image-label">NOVA SELECTION</span>
+      </div>
+
+      <!-- Thumbnails -->
+      <swiper-container
+        #thumbsSwiper
+        class="product-thumbs-swiper"
+        slides-per-view="4"
+        space-between="12"
+        free-mode="true"
+        watch-slides-progress="true"
+      >
+        @for (photo of productesList().images; track $index) {
+          <swiper-slide>
+            <img [src]="photo" [alt]="productesList().title" />
+          </swiper-slide>
+        }
+      </swiper-container>
+
+      <!-- <div class="gallery-footer">
+        <span>SELECTED WITH INTENTION.</span>
+        <span>DESIGNED TO STAND OUT.</span>
+      </div> -->
+    </div>
+
+    <!-- Product Information -->
+    <aside class="product-information">
+      <!-- Category & Wishlist -->
+      <div class="product-topline">
+        <span class="product-category">
+          {{ productesList().category.name }}
+        </span>
+
+        <button  (click)="addWishlist(productesList()._id)"
+        class="wishlist-button" aria-label="Add to wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- Brand -->
+      <div class="product-brand">
+        <span class="brand-line"></span>
+        {{ productesList().brand.name }}
+      </div>
+
+      <!-- Product Title -->
+      <h1 class="product-title">
+        {{ productesList().title.split(' ')[0] }}
+        <span>
+          {{ productesList().title.split(' ').slice(1).join(' ') }}
+        </span>
+      </h1>
+
+      <!-- Description -->
+      <p class="product-description">
+        {{ productesList().description }}
+      </p>
+
+      <!-- Rating -->
+      <div class="product-rating">
+        <div class="rating-stars">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i>
+        </div>
+
+        <strong class="rating-value">
+          {{ productesList().ratingsAverage }}
+        </strong>
+
+        <span class="rating-reviews"> {{ productesList().ratingsQuantity }} Reviews </span>
+      </div>
+
+      <!-- Price -->
+      <div class="product-price-card">
+        <div class="price-information">
+          <span class="price-label">CURRENT PRICE</span>
+
+          <div class="product-price">
+            {{ productesList().price }}
+            <span>EGP</span>
+          </div>
+        </div>
+
+        <div class="stock-status">
+          <span class="stock-dot"></span>
+          In Stock
+        </div>
+      </div>
+
+      <!-- Availability -->
+      <div class="product-availability">
+        <div class="availability-icon">
+          <i class="fa-solid fa-box"></i>
+        </div>
+
+        <div class="availability-information">
+          <span>Availability</span>
+          <strong>{{ productesList().quantity }} Pieces Available</strong>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="product-actions">
+        <button (click)="addToCart(productesList()._id)" class="add-to-cart-button">
+          <span>Add to Cart</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <!-- Secure Checkout -->
+      <div class="product-note">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Secure checkout. Shop with confidence.</span>
+      </div>
+
+      <!-- Quick Services -->
+      <div class="product-services">
+        <div class="service-item">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Delivery</span>
+        </div>
+
+        <div class="service-item">
+          <i class="fa-solid fa-arrow-rotate-left"></i>
+          <span>Easy Returns</span>
+        </div>
+
+        <div class="service-item">
+          <i class="fa-solid fa-lock"></i>
+          <span>Secure Payment</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+  <!-- =========================================
+     PRODUCT DETAILS TABS
+========================================= -->
+
+  <section class="product-details-section">
+    <!-- Section Heading -->
+    <div class="details-section-heading">
+      <div>
+        <span class="section-eyebrow">THE DETAILS MATTER</span>
+        <h2>Everything you need <span>to know.</span></h2>
+      </div>
+
+      <span class="section-index">02 / PRODUCT INFO</span>
+    </div>
+
+    <!-- CSS Tabs -->
+    <div class="product-tabs">
+      <input type="radio" name="product-tab" id="tab-details" checked />
+
+      <input type="radio" name="product-tab" id="tab-reviews" />
+
+      <input type="radio" name="product-tab" id="tab-shipping" />
+
+      <!-- Tab Navigation -->
+      <div class="tabs-navigation">
+        <label for="tab-details">
+          <i class="fa-regular fa-rectangle-list"></i>
+          Product Details
+        </label>
+
+        <label for="tab-reviews">
+          <i class="fa-regular fa-star"></i>
+          Reviews
+          <span>{{ productesList().ratingsQuantity }}</span>
+        </label>
+
+        <label for="tab-shipping">
+          <i class="fa-solid fa-truck-fast"></i>
+          Shipping & Returns
+        </label>
+      </div>
+
+      <!-- Tabs Content -->
+      <div class="tabs-content">
+        <!-- PRODUCT DETAILS -->
+        <div class="tab-panel details-panel">
+          <div class="details-description">
+            <span class="panel-eyebrow"> OVERVIEW</span>
+
+            <h3>About this <span>product.</span></h3>
+
+            <p>
+              {{ productesList().description }}
+            </p>
+          </div>
+
+          <div class="details-information">
+            <span class="panel-eyebrow">02 — INFORMATION</span>
+
+            <h3>Product information</h3>
+
+            <div class="information-list">
+              <div class="information-row">
+                <span>Category</span>
+                <strong>{{ productesList().category.name }}</strong>
+              </div>
+
+              <div class="information-row">
+                <span>Brand</span>
+                <strong>{{ productesList().brand.name }}</strong>
+              </div>
+
+              <div class="information-row">
+                <span>Availability</span>
+                <strong>{{ productesList().quantity }} Pieces</strong>
+              </div>
+
+              <div class="information-row">
+                <span>Customer Rating</span>
+                <strong> {{ productesList().ratingsAverage }} / 5 </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REVIEWS -->
+        <div class="tab-panel reviews-panel">
+          <div class="reviews-overview">
+            <span class="panel-eyebrow">CUSTOMER EXPERIENCE</span>
+
+            <h3>What people <span>think.</span></h3>
+
+            <div class="reviews-rating">
+              <strong>{{ productesList().ratingsAverage }}</strong>
+
+              <div class="reviews-rating-info">
+                <div class="rating-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+
+                <span> Based on {{ productesList().ratingsQuantity }} ratings </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reviews-empty-state">
+            <div class="empty-review-icon">
+              <i class="fa-regular fa-comment-dots"></i>
+            </div>
+
+            <h4>Customer reviews</h4>
+
+            <p>
+              Individual customer reviews are not available yet. Check back later for more
+              experiences.
+            </p>
+          </div>
+        </div>
+
+        <!-- SHIPPING & RETURNS -->
+        <div class="tab-panel shipping-panel">
+          <div class="shipping-intro">
+            <span class="panel-eyebrow">SHOP WITH CONFIDENCE</span>
+
+            <h3>Delivery made <span>simple.</span></h3>
+
+            <p>
+              Everything you need to know about receiving your order and getting support after your
+              purchase.
+            </p>
+          </div>
+
+          <div class="shipping-services">
+            <article class="shipping-card">
+              <div class="shipping-icon">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+
+              <div>
+                <h4>Delivery Information</h4>
+
+                <p>Your order will be delivered to the address provided during checkout.</p>
+              </div>
+
+              <span>01</span>
+            </article>
+
+            <article class="shipping-card">
+              <div class="shipping-icon">
+                <i class="fa-solid fa-box-open"></i>
+              </div>
+
+              <div>
+                <h4>Order Packaging</h4>
+
+                <p>Your items are prepared and packaged before being handed over for delivery.</p>
+              </div>
+
+              <span>02</span>
+            </article>
+
+            <article class="shipping-card">
+              <div class="shipping-icon">
+                <i class="fa-solid fa-arrow-rotate-left"></i>
+              </div>
+
+              <div>
+                <h4>Returns & Support</h4>
+
+                <p>
+                  Need help with your order? Contact customer support for assistance with returns
+                  and order-related questions.
+                </p>
+              </div>
+
+              <span>03</span>
+            </article>
+
+            <article class="shipping-card">
+              <div class="shipping-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+
+              <div>
+                <h4>Secure Shopping</h4>
+
+                <p>
+                  Enjoy a shopping experience designed with your security and confidence in mind.
+                </p>
+              </div>
+
+              <span>04</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

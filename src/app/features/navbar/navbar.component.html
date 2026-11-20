@@ -1,0 +1,379 @@
+<header class="nova-header">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span class="announcement-label">NOVA EXCLUSIVE</span>
+      <span>Free shipping on orders above $100</span>
+      <a routerLink="/products">SHOP NOW ↗</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <div class="main-navbar">
+    <div class="navbar-container">
+      <!-- Logo -->
+      <a routerLink="/" class="nova-logo"> NOVA<span>.</span> </a>
+
+      <!-- Search -->
+      <form class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="search" placeholder="Search for products, brands and more..." />
+
+        <span class="search-shortcut">SEARCH</span>
+      </form>
+
+      <!-- Actions -->
+      <div class="navbar-actions">
+        <!-- Support -->
+        <a routerLink="/contact" class="nav-action support-action">
+          <i class="fa-regular fa-circle-question"></i>
+
+          <span>Support</span>
+        </a>
+
+        <!-- Wishlist -->
+        <a routerLink="/wishlist" class="nav-icon" title="Wishlist">
+          <i class="fa-regular fa-heart"></i>
+        </a>
+
+        <!-- Cart -->
+        <a routerLink="/cart" class="nav-icon cart-icon" title="Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count">{{ cartCounter() }}</span>
+        </a>
+        <!-- Account -->
+        @if (!isLogged()) {
+          <a routerLink="/sign-in" class="account-button">
+            <i class="fa-regular fa-user"></i>
+            <span>Sign In</span>
+          </a>
+        }
+        <!-- Account -->
+        @else {
+          <a (click)="signOut()" class=" cursor-pointer account-button">
+            
+            <span>Sign Out</span>
+          </a>
+        }
+
+        <a routerLink="/register" class="create-account-button">
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+          <span>Create account</span>
+        </a>
+
+        <!-- Mobile Menu -->
+        <details class="mobile-menu" #mobileMenu>
+          <summary class="mobile-menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+          </summary>
+
+          <div class="mobile-menu-content">
+            <!-- Main Links -->
+            <a routerLink="/home" (click)="mobileMenu.open = false">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+
+            <a routerLink="/shop" (click)="mobileMenu.open = false">
+              <i class="fa-solid fa-store"></i>
+              <span>Shop All</span>
+            </a>
+
+            <!-- Categories -->
+            <details class="mobile-categories" #mobileCategories>
+              <summary>
+                <span>
+                  <i class="fa-solid fa-layer-group"></i>
+                  Categories
+                </span>
+
+                <i class="fa-solid fa-chevron-down category-arrow"></i>
+              </summary>
+
+              <div class="mobile-categories-list">
+                <a
+                  routerLink="/categories"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  All Categories
+                </a>
+
+                <span class="mobile-category-heading">FASHION & STYLE</span>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d5b90049ad0b52b90048']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Men's Fashion
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d58a0049ad0b52b9003f']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Women's Fashion
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d40367d9aa4ca97064cc']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Baby & Toys
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d30b67d9aa4ca97064b1']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Beauty & Health
+                </a>
+
+                <span class="mobile-category-heading"> TECH & ENTERTAINMENT </span>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d2d167d9aa4ca970649f']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Electronics
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d2f467d9aa4ca97064a8']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Mobiles
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d61c0049ad0b52b90051']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Music
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d3c867d9aa4ca97064ba']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Books
+                </a>
+
+                <span class="mobile-category-heading">LIFESTYLE</span>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d3e067d9aa4ca97064c3']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  Home
+                </a>
+
+                <a
+                  [routerLink]="['/Special-Categories/', '6439d41c67d9aa4ca97064d5']"
+                  (click)="mobileCategories.open = false; mobileMenu.open = false"
+                >
+                  SuperMarket
+                </a>
+              </div>
+            </details>
+
+            <a routerLink="/brands" (click)="mobileMenu.open = false">
+              <i class="fa-solid fa-tags"></i>
+              <span>Brands</span>
+            </a>
+
+            <a routerLink="/wishlist" (click)="mobileMenu.open = false">
+              <i class="fa-regular fa-heart"></i>
+              <span>Wishlist</span>
+            </a>
+
+            <a routerLink="/cart" (click)="mobileMenu.open = false">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span>Cart</span>
+            </a>
+
+            <a routerLink="/contact" (click)="mobileMenu.open = false">
+              <i class="fa-regular fa-circle-question"></i>
+              <span>Support</span>
+            </a>
+
+            <div class="mobile-menu-divider"></div>
+
+            <a routerLink="/sign-in" (click)="mobileMenu.open = false">
+              <i class="fa-regular fa-user"></i>
+              <span>Sign In</span>
+            </a>
+
+            <a
+              routerLink="/register"
+              class="mobile-register-link"
+              (click)="mobileMenu.open = false"
+            >
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Create Account</span>
+            </a>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Navigation -->
+  <nav class="category-navbar">
+    <div class="category-container">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="category-link"
+      >
+        Home
+      </a>
+
+      <a routerLink="/shop" routerLinkActive="active" class="category-link"> Shop All </a>
+
+      <!-- Mega Menu -->
+      <details class="category-dropdown" #categoryDropdown>
+        <summary class="category-link">
+          All Categories
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+
+        <div class="mega-menu">
+          <!-- All Categories Link -->
+          <a
+            routerLink="/categories"
+            class="all-categories-link"
+            (click)="categoryDropdown.open = false"
+          >
+            <div class="hiiii">
+              <span>EXPLORE EVERYTHING</span>
+              <strong>All Categories</strong>
+              <p>Discover our complete collection of products.</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <!-- Column 1 -->
+          <div class="mega-menu-column">
+            <span class="mega-heading">FASHION & STYLE</span>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d5b90049ad0b52b90048']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Men's Fashion</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d58a0049ad0b52b9003f']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Women's Fashion</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d40367d9aa4ca97064cc']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Baby & Toys</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d30b67d9aa4ca97064b1']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Beauty & Health</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="mega-menu-column">
+            <span class="mega-heading">TECH & ENTERTAINMENT</span>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d2d167d9aa4ca970649f']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Electronics</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d2f467d9aa4ca97064a8']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Mobiles</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d61c0049ad0b52b90051']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Music</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d3c867d9aa4ca97064ba']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Books</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="mega-menu-column">
+            <span class="mega-heading">LIFESTYLE</span>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d3e067d9aa4ca97064c3']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>Home</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              [routerLink]="['/Special-Categories/', '6439d41c67d9aa4ca97064d5']"
+              (click)="categoryDropdown.open = false"
+            >
+              <span>SuperMarket</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Feature -->
+          <div class="mega-menu-feature">
+            <span class="feature-label">THE NOVA COLLECTION</span>
+
+            <div>
+              <h3>
+                Find your
+                <span>own style.</span>
+              </h3>
+
+              <p>Discover something made for you.</p>
+            </div>
+
+            <a routerLink="/products" (click)="categoryDropdown.open = false">
+              EXPLORE COLLECTION
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <i class="fa-solid fa-bag-shopping feature-icon"></i>
+          </div>
+        </div>
+      </details>
+
+      <a routerLink="/brands" routerLinkActive="active" class="category-link"> Brands </a>
+    </div>
+  </nav>
+</header>

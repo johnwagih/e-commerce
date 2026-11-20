@@ -1,0 +1,94 @@
+@if (listProducts().length > 0) {
+  <div class="products-grid">
+    @for (item of listProducts(); track item._id) {
+      <article class="product-card">
+        <!-- Product Image -->
+        <div class="product-image-wrapper">
+          <img [src]="item.imageCover" [alt]="item.title" class="product-image" />
+
+          <!-- Product Badge -->
+          <span class="product-badge">{{ item.brand.name }}</span>
+
+          <!-- Wishlist Button -->
+          <button (click)="addWishlist(item._id)" class="wishlist-btn" aria-label="Add to wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button>
+
+          <!-- More Details -->
+          <button [routerLink]="[`/Product-Detailes`, item.id]" class="quick-add-btn">
+            More Details
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </button>
+        </div>
+
+        <!-- Product Details -->
+        <div class="product-details">
+          <span class="product-category">{{ item.category.name }}</span>
+          <h3 class="product-name">{{ item.title }}</h3>
+          <p class="product-description">{{ item.description }}</p>
+
+          <!-- Rating -->
+          <div class="product-rating">
+            <div class="rating-stars">
+              <i class="fa-solid fa-star"></i>
+              <span>{{ item.ratingsAverage }}</span>
+            </div>
+
+            <span class="review-count">({{ item.ratingsQuantity }} reviews)</span>
+          </div>
+
+          <!-- Price -->
+          <div class="product-price">
+            <span class="current-price">{{ item.price }} EGP</span>
+          </div>
+
+          <!-- Add to Cart -->
+          <button (click)="addToCart(item._id)" class="add-to-cart-btn">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Add to Cart
+          </button>
+        </div>
+      </article>
+    }
+  </div>
+} @else {
+  <!-- EMPTY STATE -->
+  <section
+    class="flex min-h-[65vh] flex-col items-center justify-center bg-[#FAFAF7] px-5 py-20 text-center"
+  >
+    <div
+      class="relative mb-8 flex h-28 w-28 items-center justify-center rounded-full bg-[#193C35]/5"
+    >
+      <div class="absolute inset-2 rounded-full border border-[#193C35]/10"></div>
+      <i class="fa-solid fa-bag-shopping text-4xl text-[#193C35]"></i>
+
+      <span
+        class="absolute -right-1 -top-1 flex h-9 w-9 items-center justify-center rounded-full bg-[#D7F36B] text-sm text-[#193C35]"
+      >
+        <i class="fa-solid fa-plus"></i>
+      </span>
+    </div>
+
+    <span class="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#858A82]">
+      NOVA / THE COLLECTION
+    </span>
+
+    <h2 class="text-3xl font-semibold tracking-tight text-[#202521] sm:text-5xl">
+      Nothing here
+      <span class="text-[#193C35]">yet.</span>
+    </h2>
+
+    <p class="mt-5 max-w-md text-sm leading-7 text-[#858A82]">
+      Something exciting is on its way. Our collection is getting ready, so stay tuned for what's
+      next.
+    </p>
+
+    <div class="mt-9 flex items-center gap-3">
+      <span class="h-px w-8 bg-[#193C35]"></span>
+      <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#193C35]">
+        FIND YOUR NEXT FAVORITE
+      </span>
+      <span class="h-px w-8 bg-[#193C35]"></span>
+    </div>
+  </section>
+}

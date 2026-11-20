@@ -1,0 +1,701 @@
+
+/* =========================================
+   NOVA — MODERN EDITORIAL LUXURY
+========================================= */
+:root {
+  /* Backgrounds */
+  --color-bg: #0b0d0c;
+  --color-surface: #151916;
+  --color-surface-hover: #1d231e;
+  --color-surface-elevated: #202720;
+
+  /* Accent */
+  --color-accent: #c6f36a;
+  --color-accent-hover: #d7ff7c;
+  --color-accent-glow: rgba(198, 243, 106, 0.16);
+
+  /* Text */
+  --color-text: #f5f7f0;
+  --color-muted: #a2aaa0;
+  --color-subtle: #747d74;
+
+  /* Borders */
+  --color-border: #303830;
+  --color-border-hover: #59664c;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Transitions */
+  --transition-fast: 200ms;
+  --transition-normal: 350ms;
+  --transition-smooth: 600ms;
+}
+:host {
+  --ivory: #f5f3ed;
+  --white: #ffffff;
+  --black: #171916;
+  --gray: #77796f;
+  --light-gray: #a5a59b;
+  --border: #dddcd3;
+  --lime: #c6f36a;
+
+  display: block;
+  font-family: 'Inter', sans-serif;
+}
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+
+.register-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  background: var(--ivory);
+  overflow: hidden;
+}
+
+/* =========================================
+   EDITORIAL PANEL
+========================================= */
+
+.editorial-panel {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 42px 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  background: #24251f;
+}
+
+.editorial-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.editorial-panel:hover .editorial-image {
+  transform: scale(1.035);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.08) 35%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+}
+
+.brand-logo {
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: white;
+  text-decoration: none;
+}
+
+.brand-logo span,
+.mobile-logo span {
+  color: var(--lime);
+}
+
+/* =========================================
+   EDITORIAL CONTENT
+========================================= */
+
+.editorial-content {
+  position: relative;
+  z-index: 2;
+  max-width: 580px;
+  margin-top: auto;
+  margin-bottom: 55px;
+  animation: revealUp 0.9s ease both;
+}
+
+.editorial-eyebrow {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.editorial-content h1 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(42px, 5.3vw, 76px);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -4px;
+  color: white;
+}
+
+.editorial-content h1 span {
+  color: var(--lime);
+}
+
+.editorial-content p {
+  max-width: 380px;
+  margin-top: 28px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.editorial-bottom {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 45px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.editorial-line {
+  width: 65px;
+  height: 1px;
+  background: var(--lime);
+}
+
+/* =========================================
+   EDITORIAL FOOTER
+========================================= */
+
+.editorial-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================================
+   FORM PANEL
+========================================= */
+
+.form-panel {
+  min-height: 100vh;
+  padding: 35px clamp(35px, 6vw, 100px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--ivory);
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.form-topbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form-topbar p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.form-topbar a:not(.mobile-logo) {
+  margin-left: 5px;
+  color: var(--black);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.form-topbar a:hover {
+  color: #789c32;
+}
+
+.form-topbar a span {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.form-topbar a:hover span {
+  transform: translate(3px, -3px);
+}
+
+.mobile-logo {
+  display: none;
+}
+
+/* =========================================
+   FORM CONTENT
+========================================= */
+
+.form-content {
+  width: 100%;
+  max-width: 440px;
+  margin: 55px auto;
+  animation: revealUp 0.8s ease both;
+}
+
+.form-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: #81846f;
+}
+
+.form-heading h2 {
+  margin: 19px 0 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 4vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -2.8px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.form-heading h2 span {
+  color: #8ca84c;
+}
+
+.form-heading p {
+  margin: 0 0 34px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+/* =========================================
+   FORM FIELDS
+========================================= */
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: 0.2px;
+}
+
+.form-group label i {
+  margin-right: 5px;
+  color: #85877b;
+  font-size: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  height: 49px;
+  padding: 0 15px;
+  outline: none;
+
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--black);
+
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+
+  transition:
+    border-color 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa99f;
+}
+
+.form-group input:hover {
+  border-color: #b7b8a9;
+}
+
+.form-group input:focus {
+  background: white;
+  border-color: #8ca84c;
+  box-shadow: 0 0 0 3px rgba(141, 201, 20, 0.18);
+}
+
+.form-group input.input-invalid,
+.form-group input.input-invalid:focus {
+  border-color: #c96d66;
+  background: #fffafa;
+  box-shadow: 0 0 0 2px rgba(201, 109, 102, 0.1);
+}
+
+.validation-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: -2px;
+}
+
+.validation-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  padding: 7px 9px;
+  border-left: 2px solid #cc716a;
+  border-radius: 0 3px 3px 0;
+  background: rgba(201, 85, 77, 0.07);
+  color: #a8433c;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.45;
+  animation: validation-message-in 180ms ease both;
+}
+
+.validation-message i {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  font-size: 10px;
+}
+
+@keyframes validation-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.input-icon-field,
+.password-field {
+  position: relative;
+}
+
+.input-icon-field > i,
+.password-field > i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  z-index: 1;
+  color: #96988c;
+  font-size: 13px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: color 250ms ease;
+}
+
+.input-icon-field:focus-within > i,
+.password-field:focus-within > i {
+  color: #789c32;
+}
+
+.input-icon-field input,
+.password-field input {
+  padding-left: 42px;
+}
+
+/* =========================================
+   PASSWORD FIELD
+========================================= */
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 65px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #85877b;
+  font-size: 14px;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: color 200ms ease, background-color 200ms ease;
+}
+
+.password-toggle:hover {
+  background: rgba(141, 201, 20, 0.1);
+  color: #789c32;
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid #8ca84c;
+  outline-offset: 2px;
+}
+
+/* =========================================
+   TERMS
+========================================= */
+
+.terms-row {
+  margin-top: 2px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--gray);
+}
+
+.terms-row a {
+  color: var(--black);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: #b4be9a;
+  text-underline-offset: 3px;
+  transition: color 200ms ease;
+}
+
+.terms-row a:hover {
+  color: #789c32;
+}
+
+/* =========================================
+   REGISTER BUTTON
+========================================= */
+
+.register-button {
+  width: 100%;
+  height: 54px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--black);
+  border-radius: 3px;
+
+  background: var(--black);
+  color: white;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+  transition:
+    background 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease;
+}
+
+.button-arrow {
+  font-size: 19px;
+  transition: transform 250ms ease;
+}
+
+.register-button:hover {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: var(--black);
+}
+
+.register-button:hover .button-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.form-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 31px;
+}
+
+.form-divider::before,
+.form-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.form-divider span {
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #99998e;
+}
+
+.form-bottom-text {
+  margin-top: 17px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+  color: var(--gray);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  color: #99998e;
+}
+
+.form-footer div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #9ab954;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1050px) {
+  .register-page {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .editorial-panel {
+    padding: 35px;
+  }
+
+  .form-panel {
+    padding: 30px 40px;
+  }
+
+  .editorial-content h1 {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 760px) {
+  .register-page {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-panel {
+    display: none;
+  }
+
+  .form-panel {
+    min-height: 100vh;
+    padding: 25px 24px;
+  }
+
+  .form-topbar {
+    justify-content: space-between;
+  }
+
+  .mobile-logo {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .form-content {
+    margin: 55px auto;
+  }
+
+  .form-heading h2 {
+    font-size: 45px;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-panel {
+    padding: 22px 19px;
+  }
+
+  .form-content {
+    margin: 45px auto;
+  }
+
+  .form-heading h2 {
+    font-size: 40px;
+  }
+
+  .form-footer {
+    font-size: 7px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+  }
+}

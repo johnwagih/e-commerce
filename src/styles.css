@@ -1,3 +1,275 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Temporary Global Transition Test */
+
+
+/* Keep the global transition rule from affecting loader motion. */
+.nova-loader,
+.nova-loader *,
+.nova-loader *::before,
+.nova-loader *::after {
+  transition: none;
+}
+
+/* =========================================
+   NOVA — 3D PREMIUM LOADER
+========================================= */
+
+.nova-loader {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  font-family: 'Space Grotesk', sans-serif;
+  perspective: 1000px;
+}
+
+/* BACKGROUND GLOW */
+
+.loader-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+
+  background: radial-gradient(
+    circle,
+    rgba(198, 243, 106, 0.22) 0%,
+    rgba(198, 243, 106, 0.08) 40%,
+    transparent 70%
+  );
+
+  filter: blur(15px);
+  opacity: 0.55;
+}
+
+/* 3D SCENE */
+
+.nova-scene {
+  position: relative;
+  width: 240px;
+  height: 200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-style: preserve-3d;
+}
+
+/* LOGO */
+
+.nova-logo-3d {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 62px;
+  font-weight: 800;
+  letter-spacing: -6px;
+
+  color: #171916;
+
+  transform-style: preserve-3d;
+
+  text-shadow:
+    1px 1px 0 #d5d6ce,
+    2px 2px 0 #c4c6bd,
+    3px 3px 0 #b4b7ac,
+    5px 8px 15px rgba(23, 25, 22, 0.15);
+}
+
+.nova-logo-3d span:not(.nova-dot) {
+  display: inline-block;
+}
+
+.nova-logo-3d .nova-dot {
+  color: #c6f36a;
+  text-shadow: 0 0 15px rgba(198, 243, 106, 0.8);
+}
+
+/* ORBIT RINGS */
+
+.nova-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  border: 1px solid rgba(23, 25, 22, 0.15);
+  border-radius: 50%;
+
+  transform-style: preserve-3d;
+}
+
+.orbit-one {
+  width: 155px;
+  height: 155px;
+
+  animation: orbitRotate 6s linear infinite;
+}
+
+.orbit-two {
+  width: 190px;
+  height: 110px;
+
+  border-color: rgba(198, 243, 106, 0.8);
+
+  transform: translate(-50%, -50%) rotateX(65deg);
+}
+
+.orbit-three {
+  width: 205px;
+  height: 205px;
+
+  border-style: dashed;
+  border-color: rgba(23, 25, 22, 0.1);
+
+}
+
+/* ORBIT POINTS */
+
+.orbit-point {
+  position: absolute;
+  top: 0;
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: #c6f36a;
+
+  box-shadow:
+    0 0 8px rgba(198, 243, 106, 0.9),
+    0 0 20px rgba(198, 243, 106, 0.5);
+
+  transform: translate(-50%, -50%);
+}
+
+.orbit-two .orbit-point {
+  background: #171916;
+  width: 7px;
+  height: 7px;
+}
+
+/* GROUND SHADOW */
+
+.nova-ground {
+  position: absolute;
+  bottom: 2px;
+
+  width: 100px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: rgba(23, 25, 22, 0.15);
+  filter: blur(10px);
+
+  opacity: 0.35;
+}
+
+/* LOADING CONTENT */
+
+.nova-loading-content {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+/* LOADING LINE */
+
+.nova-loading-line {
+  width: 170px;
+  height: 3px;
+
+  overflow: hidden;
+  border-radius: 10px;
+
+  background: #e5e4dc;
+}
+
+.nova-loading-line span {
+  display: block;
+  width: 45%;
+  height: 100%;
+
+  border-radius: inherit;
+  background: #c6f36a;
+
+  box-shadow: 0 0 10px rgba(198, 243, 106, 0.8);
+
+  animation: loadingMove 1.5s ease-in-out infinite;
+}
+
+/* TEXT */
+
+.nova-loading-text {
+  margin-top: 20px;
+
+  color: #34382f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+}
+
+.nova-tagline {
+  margin-top: 10px;
+
+  color: #92948a;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes orbitRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes loadingMove {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .nova-loader * {
+    animation: none !important;
+  }
+}

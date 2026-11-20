@@ -1,0 +1,169 @@
+<section class="min-h-screen bg-[#FAFAF7] px-4 py-16 sm:px-8 lg:px-14">
+  <div class="mx-auto max-w-7xl">
+    <!-- HERO HEADER -->
+    <div class="mb-14">
+      <div class="mb-6 flex items-center gap-3">
+        <span class="h-[2px] w-10 bg-[#193C35]"></span>
+
+        <span class="text-[10px] font-bold uppercase tracking-[0.35em] text-[#858A82]">
+          NOVA / DISCOVER
+        </span>
+      </div>
+
+      <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+        <div>
+          <h1
+            class="text-4xl font-semibold leading-tight tracking-tight text-[#202521] sm:text-5xl lg:text-6xl"
+          >
+            Explore every
+            <span class="text-[#193C35]">possibility.</span>
+          </h1>
+
+          <p class="mt-5 max-w-xl text-sm leading-7 text-[#858A82] sm:text-base">
+            From everyday essentials to things you never knew you needed. Discover all our
+            collections in one place.
+          </p>
+        </div>
+
+        <div
+          class="flex items-center gap-4 border-t border-[#E4E5DC] pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0"
+        >
+          <span class="text-5xl font-semibold tracking-tight text-[#193C35]">
+            {{ categoriesList()?.data?.length || 0 }}
+          </span>
+
+          <div>
+            <span class="block text-xs font-bold uppercase tracking-widest text-[#202521]">
+              Collections
+            </span>
+
+            <span class="mt-1 block text-[10px] uppercase tracking-wider text-[#858A82]">
+              Waiting to be explored
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CATEGORY GRID -->
+    @if (categoriesList()?.data?.length) {
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        @for (category of categoriesList()?.data; track category._id; let i = $index) {
+          <article
+            class="group relative isolate cursor-pointer overflow-hidden rounded-2xl bg-white shadow-sm transition-transform transition-shadow duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl"
+          >
+            <!-- IMAGE -->
+            <div class="relative h-[300px] overflow-hidden bg-[#F0F0E9]">
+              <img
+                [src]="category.image"
+                [alt]="category.name"
+                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+
+              <!-- IMAGE OVERLAY -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-[#101A16]/80 via-[#101A16]/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100"
+              ></div>
+
+              <!-- TOP LABEL -->
+              <div class="absolute left-5 top-5">
+                <span
+                  class="rounded-full border border-white/30 bg-white/15 px-4 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur-md"
+                >
+                  NOVA COLLECTION
+                </span>
+              </div>
+
+              <!-- INDEX -->
+              <div class="absolute right-5 top-5">
+                <span class="text-xs font-medium tracking-widest text-white/70">
+                  {{ (i + 1).toString().padStart(2, '0') }}
+                </span>
+              </div>
+
+              <!-- CATEGORY INFO -->
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <span
+                  class="mb-3 block text-[9px] font-semibold uppercase tracking-[0.25em] text-[#D7F36B]"
+                >
+                  DISCOVER MORE
+                </span>
+
+                <div class="flex items-end justify-between gap-3">
+                  <h2
+                    class="text-2xl font-semibold tracking-tight text-white transition-transform duration-500 group-hover:translate-x-1"
+                  >
+                    {{ category.name }}
+                  </h2>
+
+                  <!-- ARROW -->
+                  <span
+                    [routerLink]="[`/Special-Categories`, category._id]"
+                    class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#D7F36B] text-[#193C35] transition-all duration-500 group-hover:rotate-45 group-hover:scale-110"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD FOOTER -->
+            <div class="flex items-center justify-between px-5 py-4">
+              <span class="text-[10px] font-medium uppercase tracking-[0.15em] text-[#858A82]">
+                Explore collection
+              </span>
+
+              <i
+                class="fa-solid fa-arrow-right text-xs text-[#193C35] transition-transform duration-300 group-hover:translate-x-2"
+              >
+              </i>
+            </div>
+          </article>
+        }
+      </div>
+    } @else {
+      <!-- LOADING / EMPTY STATE -->
+      <div
+        class="flex min-h-[350px] items-center justify-center rounded-3xl border border-[#E4E5DC] bg-white"
+      >
+        <div class="text-center">
+          <div
+            class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#193C35]/5 text-[#193C35]"
+          >
+            <i class="fa-solid fa-layer-group text-xl"></i>
+          </div>
+
+          <h3 class="text-xl font-semibold text-[#202521]">No categories available</h3>
+
+          <p class="mt-2 text-sm text-[#858A82]">Please check back later.</p>
+        </div>
+      </div>
+    }
+
+    <!-- BOTTOM BRAND SECTION -->
+    <div class="mt-16 overflow-hidden rounded-3xl bg-[#193C35] px-7 py-10 sm:px-12 sm:py-14">
+      <div class="flex flex-col justify-between gap-8 md:flex-row md:items-center">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D7F36B]">
+            THE NOVA EXPERIENCE
+          </span>
+
+          <h2 class="mt-4 max-w-xl text-3xl font-semibold leading-tight text-white sm:text-4xl">
+            Your world.
+            <span class="text-[#D7F36B]">Your choices.</span>
+          </h2>
+
+          <p class="mt-4 max-w-md text-sm leading-7 text-white/60">
+            Take your time, explore what you love, and discover something worth keeping.
+          </p>
+        </div>
+
+        <div
+          class="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-white/20 text-2xl text-[#D7F36B] transition-all duration-500 hover:rotate-45 hover:border-[#D7F36B] hover:bg-[#D7F36B] hover:text-[#193C35]"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+<!-- Brands Content -->
+@if (isLoading()) {
+  <!-- Loading State -->
+  <div class="flex flex-col items-center justify-center py-24 text-center">
+    <div
+      class="w-12 h-12 border-4 border-[#E4E5DC] border-t-[#193C35] rounded-full animate-spin"
+    ></div>
+
+    <h3 class="mt-6 text-lg font-bold text-[#193C35]">Discovering Brands</h3>
+
+    <p class="mt-2 text-sm text-[#858A82]">We're gathering your favorite brands...</p>
+  </div>
+} @else if (!hasError() && listBrands().length > 0) {
+  <!-- Brands Grid -->
+  <div class="brands-grid">
+    @for (brand of listBrands(); track brand._id; let i = $index) {
+      <a class="brand-card" [routerLink]="['/brands-datailes', brand._id]">
+        <div class="card-top">
+          <span class="brand-index">
+            {{ (i + 1).toString().padStart(2, '0') }}
+          </span>
+
+          <span class="brand-arrow">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+
+        <div class="brand-logo">
+          <img class="brand-logo-image" [src]="brand.image" [alt]="brand.name" loading="lazy" />
+        </div>
+
+        <div class="card-bottom">
+          <div>
+            <h4>{{ brand.name }}</h4>
+            <span>{{ brand.slug }}</span>
+          </div>
+
+          <span class="explore-icon">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+    }
+  </div>
+} @else {
+  <!-- Empty / Error State -->
+  <div class="flex flex-col items-center justify-center py-24 px-6 text-center">
+    <div class="w-20 h-20 rounded-full bg-[#F0F1EB] flex items-center justify-center mb-6">
+      <i class="fa-solid fa-store text-3xl text-[#193C35]"></i>
+    </div>
+
+    <span class="text-[10px] font-bold tracking-[0.2em] text-[#858A82] uppercase">
+      Something went wrong
+    </span>
+
+    <h3 class="text-2xl font-bold text-[#193C35] mt-3">Brands Are Taking a Break.</h3>
+
+    <p class="text-sm text-[#858A82] max-w-md mt-3 leading-7">
+      We couldn't load the brands right now. Please try again in a little while.
+    </p>
+
+    <button
+      type="button"
+      (click)="getAllBrands()"
+      class="mt-7 px-7 py-3 rounded-xl bg-[#193C35] text-white text-sm font-semibold hover:bg-[#D7F36B] hover:text-[#193C35] transition-all duration-300"
+    >
+      <i class="fa-solid fa-rotate-right mr-2"></i>
+      Try Again
+    </button>
+  </div>
+}

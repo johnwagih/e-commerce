@@ -1,0 +1,197 @@
+@if (wishlistList(); as cart) {
+  <main class="wishlist-page">
+    <!-- HERO SECTION -->
+    <section class="wishlist-hero">
+      <div class="hero-top">
+        <div class="hero-brand">
+          <span class="brand-mark">N.</span>
+          <span>NOVA / PERSONAL SPACE</span>
+        </div>
+
+        <span class="hero-status">
+          <span class="status-dot"></span>
+          YOUR SAVED COLLECTION
+        </span>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-eyebrow">YOUR PERSONAL SELECTION</span>
+
+          <h1>
+            Things worth<br />
+            <span>keeping.</span>
+          </h1>
+
+          <p>
+            A collection of products that caught your attention. Your favorites, all in one place.
+          </p>
+        </div>
+
+        <div class="hero-counter">
+          <span class="counter-label">SAVED ITEMS</span>
+
+          <strong>{{ cart.data.length.toString().padStart(2, '0') }}</strong>
+
+          <span class="counter-bottom"> PRODUCTS IN YOUR COLLECTION </span>
+
+          <div class="counter-decoration">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <span>NOVA — YOUR WORLD, YOUR CHOICE.</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+      </div>
+    </section>
+
+    <!-- COLLECTION SECTION -->
+    <section class="wishlist-collection">
+      <div class="collection-header">
+        <div>
+          <span class="section-eyebrow">01 / YOUR COLLECTION</span>
+
+          <h2>Your <span>favorites.</span></h2>
+
+          <p>Every product you liked, gathered in one place.</p>
+        </div>
+
+        <div class="collection-total">
+          <span>COLLECTION SIZE</span>
+          <strong>{{ cart.data.length.toString().padStart(2, '0') }}</strong>
+        </div>
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="wishlist-grid">
+        @for (Product of cart.data; track Product._id; let i = $index) {
+          <article class="wishlist-card">
+            <!-- CARD IMAGE -->
+            <div class="card-image-wrapper">
+              <img [src]="Product.imageCover" [alt]="Product.title" class="card-product-image" />
+
+              <div class="card-image-overlay"></div>
+
+              <span class="card-index"> NO. {{ (i + 1).toString().padStart(2, '0') }} </span>
+
+              <span class="favorite-badge">
+                <i class="fa-solid fa-heart"></i>
+                FAVORITE
+              </span>
+
+              <button
+                (click)="removeProductFromWishlist(Product._id)"
+                class="card-remove-button"
+                aria-label="Remove from wishlist"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+
+              <div class="image-bottom-label">
+                <span>NOVA SELECTION</span>
+                <span>✳</span>
+              </div>
+            </div>
+
+            <!-- CARD CONTENT -->
+            <div class="card-content">
+              <div class="card-meta">
+                <span class="card-brand">
+                  {{ Product.brand?.name }}
+                </span>
+
+                <span class="card-category">
+                  {{ Product.category?.name }}
+                </span>
+              </div>
+
+              <h3 class="card-product-title">
+                {{ Product.title }}
+              </h3>
+
+              <p class="card-description">
+                {{ Product.description }}
+              </p>
+
+              <!-- RATING -->
+              <div class="card-rating">
+                <div class="rating-stars">
+                  @for (star of [1, 2, 3, 4, 5]; track star) {
+                    <span [class.active-star]="star <= Product.ratingsAverage"> ★ </span>
+                  }
+                </div>
+
+                <span class="rating-number"> {{ Product.ratingsAverage }} / 5 </span>
+
+                <span class="rating-reviews"> ({{ Product.ratingsQuantity }} REVIEWS) </span>
+              </div>
+
+              <!-- PRICE -->
+              <div class="card-price-area">
+                <div>
+                  <span class="price-label">CURRENT PRICE</span>
+
+                  <strong class="product-price">
+                    {{ Product.price | number }}
+                    <small>EGP</small>
+                  </strong>
+                </div>
+
+                <span class="price-heart">
+                  <i class="fa-solid fa-heart"></i>
+                </span>
+              </div>
+
+              <!-- CARD ACTIONS -->
+              <div class="card-actions">
+                <button  [routerLink]="[`/Product-Detailes`,Product._id]" class="explore-button">
+                  <span>EXPLORE PRODUCT</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+
+                <button (click)="removeProductFromWishlist(Product._id)" class="remove-button">
+                  <i class="fa-solid fa-trash-can"></i>
+                  <span>REMOVE</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        } @empty {
+          <div class="empty-wishlist">
+            <div class="empty-icon">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <span class="empty-eyebrow">YOUR COLLECTION IS EMPTY</span>
+
+            <h3>Nothing saved <span>yet.</span></h3>
+
+            <p>
+              When something catches your eye, save it here and come back to it whenever you want.
+            </p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section class="wishlist-footer">
+      <div class="footer-line"></div>
+
+      <div class="footer-content">
+        <div>
+          <span class="footer-brand">NOVA.</span>
+          <p>GOOD TASTE STARTS WITH GOOD CHOICES.</p>
+        </div>
+
+        <div class="footer-message">
+          <i class="fa-solid fa-heart"></i>
+          <span>KEEP WHAT YOU LOVE.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+}

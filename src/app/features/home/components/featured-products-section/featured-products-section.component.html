@@ -1,0 +1,167 @@
+<section class="featured-products">
+  <div class="products-container">
+    <!-- Section Heading -->
+    <div class="products-heading">
+      <div>
+        <span class="section-eyebrow">THE NOVA SELECTION</span>
+        <h2>Picked For <span>You.</span></h2>
+        <p>Pieces worth adding to your everyday collection.</p>
+      </div>
+
+      <a routerLink="/shop" class="view-all-link">
+        View All Products
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Category Filters -->
+    <!-- <div class="product-filters">
+      <button class="filter-btn active">All Products</button>
+      <button class="filter-btn">New Arrivals</button>
+      <button class="filter-btn">Best Sellers</button>
+      <button class="filter-btn">On Sale</button>
+    </div> -->
+
+    <!-- Products Grid -->
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <article [routerLink]="[`/Special-Categories` ,`6439d58a0049ad0b52b9003f`]"class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85"
+            alt="Women's fashion outfit"
+          />
+
+          <span class="product-badge new-badge">NEW ARRIVAL</span>
+          <!-- 
+          <button class="wishlist-btn" aria-label="Add to wishlist">
+            <i class="fa-regular fa-heart"></i>
+          </button> -->
+
+          <!-- <button class="quick-add-btn">
+            Quick Add
+            <i class="fa-solid fa-plus"></i>
+          </button> -->
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">WOMEN'S FASHION</div>
+
+          <h3>Modern Everyday Outfit</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-number">(4.8)</span>
+          </div>
+
+          <div class="product-price">
+            <strong>1,250 EGP</strong>
+            <del>1,600 EGP</del>
+            <span class="discount-badge">-22%</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article [routerLink]="[`/Special-Categories` ,`6439d5b90049ad0b52b90048`]" class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85"
+            alt="Red sneakers"
+          />
+
+          <span class="product-badge bestseller-badge">BEST SELLER</span>
+
+
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">SNEAKERS</div>
+
+          <h3>Urban Classic Sneakers</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-number">(4.9)</span>
+          </div>
+
+          <div class="product-price">
+            <strong>2,100 EGP</strong>
+            <del>2,500 EGP</del>
+            <span class="discount-badge">-16%</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article [routerLink]="[`/Special-Categories` ,`6439d5b90049ad0b52b90048`]" class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"
+            alt="Basic cotton t-shirt"
+          />
+
+          <span class="product-badge new-badge">NEW ARRIVAL</span>
+
+
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">MEN'S FASHION</div>
+
+          <h3>Essential Cotton T-Shirt</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-number">(4.6)</span>
+          </div>
+
+          <div class="product-price">
+            <strong>550 EGP</strong>
+            <del>700 EGP</del>
+            <span class="discount-badge">-21%</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article [routerLink]="[`/Special-Categories` ,`6439d58a0049ad0b52b9003f`]" class="product-card">
+        <div class="product-image">
+          <img
+            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=85"
+            alt="Fashion handbag"
+          />
+
+          <span class="product-badge limited-badge">LIMITED</span>
+
+
+        </div>
+
+        <div class="product-info">
+          <div class="product-category">ACCESSORIES</div>
+
+          <h3>Minimal Leather Bag</h3>
+
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-number">(4.7)</span>
+          </div>
+
+          <div class="product-price">
+            <strong>1,450 EGP</strong>
+            <del>1,800 EGP</del>
+            <span class="discount-badge">-19%</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Bottom Link -->
+    <div class="products-bottom">
+      <a routerLink="/shop" class="explore-products-btn">
+        Explore All Products
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>

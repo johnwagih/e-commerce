@@ -1,0 +1,297 @@
+@if (specialBrandList().length > 0) {
+  @if (specialBrandList()[0].brand; as brand) {
+    <main
+      class="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 pt-10 md:pt-14 pb-20 md:pb-28"
+    >
+      <!-- Brand Hero -->
+      <section
+        class="relative overflow-hidden rounded-[2rem] bg-[#193C35] min-h-[340px] md:min-h-[420px]"
+      >
+        <div class="absolute inset-0 opacity-20">
+          <div
+            class="absolute -right-20 -top-32 w-96 h-96 rounded-full border border-[#D7F36B]/40"
+          ></div>
+          <div
+            class="absolute -right-8 -top-20 w-72 h-72 rounded-full border border-[#D7F36B]/30"
+          ></div>
+          <div
+            class="absolute -left-32 -bottom-48 w-96 h-96 rounded-full border border-white/20"
+          ></div>
+        </div>
+
+        <div
+          class="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center min-h-[340px] md:min-h-[420px]"
+        >
+          <!-- Brand Content -->
+          <div class="px-7 py-12 md:px-14 md:py-16 order-2 md:order-1">
+            <div
+              class="inline-flex items-center gap-2 border border-[#D7F36B]/30 rounded-full px-4 py-2 mb-7"
+            >
+              <span class="w-2 h-2 rounded-full bg-[#D7F36B]"></span>
+              <span class="text-[#D7F36B] text-[10px] font-bold tracking-[0.25em] uppercase">
+                Official Brand Collection
+              </span>
+            </div>
+
+            <h1 class="text-white text-5xl md:text-7xl font-bold tracking-tight">
+              {{ brand.name }}
+            </h1>
+
+            <p class="text-white/60 text-sm md:text-base leading-7 mt-5 max-w-md">
+              Explore the latest collection from {{ brand.name }}. Discover products selected to
+              bring quality and style into your everyday life.
+            </p>
+
+            <div class="flex items-center gap-8 mt-9">
+              <div>
+                <p class="text-[#D7F36B] text-3xl font-bold">
+                  {{ specialBrandList().length }}
+                </p>
+                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">Products</p>
+              </div>
+
+              <div class="w-px h-12 bg-white/20"></div>
+
+              <div>
+                <p class="text-white text-lg font-semibold">Premium</p>
+                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">Selection</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Image -->
+          <div
+            class="relative h-64 md:h-full min-h-[280px] order-1 md:order-2 flex items-center justify-center p-8 md:p-12"
+          >
+            <div
+              class="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-[#D7F36B]/10 blur-3xl"
+            ></div>
+
+            <div
+              class="relative w-full max-w-[300px] aspect-square rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center p-8 transition-all duration-700 hover:scale-105 hover:rotate-2"
+            >
+              <img
+                [src]="brand.image"
+                [alt]="brand.name"
+                class="w-full h-full object-contain drop-shadow-2xl"
+              />
+            </div>
+
+            <div
+              class="absolute bottom-8 right-8 md:right-14 bg-[#D7F36B] text-[#193C35] px-5 py-3 rounded-2xl shadow-xl"
+            >
+              <span class="text-xs font-bold tracking-wider"> NOVA EXCLUSIVE </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="mt-16 md:mt-20">
+        <!-- Heading -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-5 mb-9">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-8 h-[2px] bg-[#193C35]"></span>
+              <span class="text-[#858A82] text-[10px] font-bold tracking-[0.3em] uppercase">
+                Curated Collection
+              </span>
+            </div>
+
+            <h2 class="text-3xl md:text-4xl font-bold text-[#193C35] tracking-tight">
+              Discover Products<span class="text-[#B8D94F]">.</span>
+            </h2>
+
+            <p class="text-[#858A82] text-sm mt-3">
+              Find something you'll love from {{ brand.name }}.
+            </p>
+          </div>
+
+          <div
+            class="flex items-center gap-3 bg-white border border-[#E4E5DC] rounded-xl px-5 py-3"
+          >
+            <i class="fa-solid fa-layer-group text-[#193C35]"></i>
+            <span class="text-sm font-semibold text-[#193C35]">
+              {{ specialBrandList().length }} Products Available
+            </span>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-7">
+          @for (product of specialBrandList(); track product._id) {
+            <article
+              class="group bg-white rounded-[1.5rem] border border-[#E4E5DC] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(25,60,53,0.10)] hover:border-[#193C35]/20"
+            >
+              <!-- Image Container -->
+              <div class="relative aspect-[4/4.2] bg-[#F6F4EE] overflow-hidden">
+                <img
+                  [src]="product.imageCover"
+                  [alt]="product.title"
+                  class="w-full h-full object-contain p-7 transition-transform duration-700 ease-out group-hover:scale-110"
+                />
+
+                <!-- Brand Badge -->
+                <div class="absolute top-4 left-4">
+                  <span
+                    class="bg-white/90 backdrop-blur-md text-[#193C35] text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-2 rounded-full shadow-sm"
+                  >
+                    {{ brand.name }}
+                  </span>
+                </div>
+
+                <!-- Wishlist Button -->
+                <button
+                  type="button"
+                  (click)="addWishlist(product._id)"
+                  aria-label="Add to wishlist"
+                  class="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#193C35] shadow-md cursor-pointer hover:bg-[#193C35] hover:text-white active:scale-90 transition-all duration-300"
+                >
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </button>
+
+                <!-- Rating -->
+                <div
+                  class="absolute bottom-4 left-4 flex items-center gap-1.5 bg-white/90 backdrop-blur-md rounded-full px-3 py-2 shadow-sm"
+                >
+                  <i class="fa-solid fa-star text-[#E9B949] text-[10px]"></i>
+                  <span class="text-[#193C35] text-xs font-bold">
+                    {{ product.ratingsAverage }}
+                  </span>
+                  <span class="text-[#858A82] text-[10px]"> ({{ product.ratingsQuantity }}) </span>
+                </div>
+
+                <!-- View Details -->
+                <div
+                  class="absolute inset-x-4 bottom-4 translate-y-0 opacity-100 md:translate-y-16 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500"
+                >
+                  <button
+                    [routerLink]="[`/Product-Detailes`, product._id]"
+                    type="button"
+                    class="w-full bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wider hover:bg-[#D7F36B] hover:text-[#193C35] transition-colors duration-300"
+                  >
+                    VIEW PRODUCT
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Product Information -->
+              <div class="p-5">
+                <div class="flex items-center justify-between gap-3 mb-3">
+                  <span
+                    class="text-[10px] uppercase tracking-[0.15em] text-[#858A82] font-semibold truncate"
+                  >
+                    {{ product.category.name }}
+                  </span>
+
+                  @if (product.quantity > 0) {
+                    <span
+                      class="flex items-center gap-1.5 text-[9px] font-bold text-green-700 whitespace-nowrap"
+                    >
+                      <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                      IN STOCK
+                    </span>
+                  } @else {
+                    <span class="text-[9px] font-bold text-red-500 whitespace-nowrap">
+                      OUT OF STOCK
+                    </span>
+                  }
+                </div>
+
+                <h3
+                  class="text-[#202521] text-sm font-semibold leading-6 line-clamp-2 min-h-12 group-hover:text-[#193C35] transition-colors duration-300"
+                >
+                  {{ product.title }}
+                </h3>
+
+                <!-- Price & Sold -->
+                <div class="mt-5 pt-4 border-t border-[#E4E5DC] flex items-end justify-between">
+                  <div>
+                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">Price</p>
+
+                    <p class="text-[#193C35] text-xl font-bold">
+                      {{ product.price | currency: 'EGP ' }}
+                    </p>
+                  </div>
+
+                  <div class="text-right">
+                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">Sold</p>
+
+                    <p class="text-[#202521] text-sm font-semibold">
+                      {{ product.sold }}
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Add To Cart -->
+                <button
+                  type="button"
+                  (click)="addToCart(product._id)"
+                  class="w-full mt-5 flex items-center justify-center gap-2 bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wide hover:bg-[#D7F36B] hover:text-[#193C35] active:scale-[0.98] transition-all duration-300"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  ADD TO CART
+                </button>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+    </main>
+  }
+} @else {
+  <section
+    class="flex min-h-[75vh] items-center justify-center overflow-hidden bg-[#FAFAF7] px-5 py-20"
+  >
+    <div
+      class="relative mx-auto w-full max-w-5xl overflow-hidden rounded-[2.5rem] bg-[#193C35] px-7 py-16 text-center sm:px-14 sm:py-24"
+    >
+      <!-- DECORATIVE CIRCLES -->
+      <div class="absolute -right-20 -top-24 h-72 w-72 rounded-full border border-white/10"></div>
+
+      <div
+        class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full border border-[#D7F36B]/20"
+      ></div>
+
+      <div class="absolute right-20 top-20 h-32 w-32 rounded-full bg-[#D7F36B]/10 blur-3xl"></div>
+
+      <!-- CONTENT -->
+      <div class="relative z-10">
+        <div
+          class="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 text-3xl text-[#D7F36B] backdrop-blur-lg"
+        >
+          <i class="fa-solid fa-store"></i>
+        </div>
+
+        <span class="text-[10px] font-bold uppercase tracking-[0.35em] text-[#D7F36B]">
+          NOVA / BRAND EXPERIENCE
+        </span>
+
+        <h2 class="mt-7 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
+          Something
+          <span class="text-[#D7F36B]">is coming.</span>
+        </h2>
+
+        <p class="mx-auto mt-6 max-w-md text-sm leading-8 text-white/65 sm:text-base">
+          We're preparing something special for you. Our brand collection will be available soon.
+          Stay tuned for what's next.
+        </p>
+
+        <div class="mx-auto mt-10 flex max-w-xs items-center justify-center gap-3">
+          <span class="h-px flex-1 bg-white/20"></span>
+
+          <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D7F36B]">
+            COMING SOON
+          </span>
+
+          <span class="h-px flex-1 bg-white/20"></span>
+        </div>
+
+        <div class="mt-12 text-xs font-medium tracking-[0.2em] text-white/40">
+          NOVA<span class="text-[#D7F36B]">.</span> YOUR WORLD. YOUR CHOICE.
+        </div>
+      </div>
+    </div>
+  </section>
+}

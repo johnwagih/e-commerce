@@ -1,0 +1,210 @@
+<main class="signin-page" [class.light-on]="isLightOn">
+  <!-- Background Effects -->
+  <div class="ambient-background"></div>
+  <div class="light-beam"></div>
+  <div class="background-grid"></div>
+  <!-- Main Experience -->
+  <section class="experience-container">
+    <!-- Interactive Lamp -->
+    <div class="lamp-scene" [class.lamp-active]="isLightOn">
+      <div class="lamp-glow"></div>
+
+      <!-- Lamp -->
+      <div class="lamp-button">
+        <div class="lamp-shade">
+          <div class="lamp-eye">
+            <div class="lamp-iris">
+              <span class="lamp-pupil"><i class="fa-solid fa-sparkles" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <span class="lamp-brand"><i class="fa-solid fa-eye" aria-hidden="true"></i> NOVA</span>
+        </div>
+        <div class="lamp-light"></div>
+        <div class="lamp-neck"></div>
+        <div class="lamp-joint"></div>
+        <div class="lamp-base"></div>
+
+        <button
+          type="button"
+          class="lamp-pull-control"
+          (click)="toggleLamp()"
+          [attr.aria-label]="isLightOn ? 'Pull to close the NOVA lamp eye' : 'Pull to open the NOVA lamp eye'"
+        >
+          <span class="lamp-pull-chain"></span>
+          <span class="lamp-pull-handle"></span>
+        </button>
+      </div>
+
+      <!-- Lamp Ground -->
+      <div class="lamp-shadow"></div>
+
+      <!-- Click Hint -->
+      <div class="lamp-hint" [class.hide-hint]="isLightOn">
+        <span class="hint-dot"></span>
+
+        <span>PULL TO WAKE NOVA</span>
+      </div>
+
+      <!-- Light Status -->
+      <div class="light-status" [class.show-status]="isLightOn">
+        <span></span>
+        NOVA EYE · LIGHT ON
+      </div>
+    </div>
+
+    <!-- Intro and Form Share One Panel -->
+    <div class="experience-panel">
+      <div class="experience-intro" [class.hide-intro]="isLightOn" [attr.aria-hidden]="isLightOn">
+        <span class="intro-eyebrow">A DIFFERENT WAY TO SIGN IN</span>
+
+        <h1>
+          YOUR WORLD<br />
+          IS <span>WAITING.</span>
+        </h1>
+
+        <p>A little light. A whole new world. Switch on your NOVA experience.</p>
+
+        <div class="intro-register-prompt">
+          <span>New to NOVA?</span>
+          <a routerLink="/register">Create an account <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Sign In Card -->
+      <div class="signin-card" [class.show-card]="isLightOn" [attr.aria-hidden]="!isLightOn">
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="card-icon">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i>
+        </div>
+
+        <span class="card-eyebrow">WELCOME BACK TO NOVA</span>
+
+        <h2>
+          Good to see<br />
+          <span>you again.</span>
+        </h2>
+
+        <p>Sign in and pick up where your style left off.</p>
+      </div>
+
+      <!-- Sign In Form -->
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <!-- Email -->
+        <div class="input-group">
+          <label for="email">EMAIL ADDRESS</label>
+
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope"></i>
+
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              (input)="signInError = ''"
+              [class.input-invalid]="signInForm.controls.email.touched && signInForm.controls.email.invalid"
+            />
+          </div>
+
+          @if (signInForm.controls.email.touched && signInForm.controls.email.invalid) {
+            <div class="validation-messages" aria-live="polite">
+              @if (signInForm.controls.email.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Email is required.</span></small>
+              } @else if (signInForm.controls.email.hasError('email')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Please enter a valid email address.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <div class="password-label">
+            <label for="password">PASSWORD</label>
+
+            <a routerLink="/forgot-password">Forgot password?</a>
+          </div>
+
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock"></i>
+
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              formControlName="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              (input)="signInError = ''"
+              [class.input-invalid]="signInForm.controls.password.touched && signInForm.controls.password.invalid"
+            />
+
+            <button type="button" class="password-toggle" (click)="togglePassword()">
+              <i [class]="showPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          @if (signInForm.controls.password.touched && signInForm.controls.password.invalid) {
+            <div class="validation-messages" aria-live="polite">
+              @if (signInForm.controls.password.hasError('required')) {
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password is required.</span></small>
+              }
+            </div>
+          }
+        </div>
+
+        @if (signInError) {
+          <div class="validation-messages" aria-live="polite">
+            <small class="validation-message" role="alert"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ signInError }}</span></small>
+          </div>
+        }
+
+        <!-- Remember Me -->
+        <div class="remember-row">
+          <label class="remember-label">
+            <input type="checkbox" />
+            <span class="custom-checkbox"></span>
+            <span>Remember me</span>
+          </label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="signin-button">
+          <span>ENTER NOVA</span>
+
+          <span class="button-icon">
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </button>
+      </form>
+
+      <!-- Register Link -->
+      <div class="register-prompt">
+        <span>New to NOVA?</span>
+
+        <a routerLink="/register">
+          Create an account
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="card-footer">
+        <span>YOUR STYLE. YOUR WORLD.</span>
+        <span>© NOVA 2026</span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Footer -->
+  <footer class="signin-footer">
+    <span>FASHION FIRST. EVERYTHING ELSE, CURATED.</span>
+
+    <span class="footer-indicator">
+      <span></span>
+      DESIGNED TO STAND OUT
+    </span>
+  </footer>
+</main>

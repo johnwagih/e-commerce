@@ -1,0 +1,544 @@
+.nova-hero {
+  background: #f5f4ef;
+  padding: 48px 0 65px;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 35px 0;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #77796f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 28px;
+}
+
+.eyebrow-line {
+  width: 32px;
+  height: 2px;
+  background: #c6f36a;
+}
+
+.hero-title {
+  color: #171916;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(54px, 6vw, 88px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -5px;
+  margin: 0;
+}
+
+.hero-title > span:not(.title-last-line) {
+  display: block;
+  color: #193c35;
+}
+
+.title-last-line {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.title-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #193c35;
+}
+
+.title-star {
+  color: #c6f36a;
+  font-size: 55px;
+  -webkit-text-stroke: 0;
+  animation: star-rotate 12s linear infinite;
+}
+
+.hero-description {
+  max-width: 410px;
+  color: #77796f;
+  font-size: 15px;
+  line-height: 1.9;
+  margin-top: 27px;
+}
+
+/* =========================
+   HERO BUTTONS
+========================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 34px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.hero-btn-primary {
+  background: #193c35;
+  color: #ffffff;
+  padding: 17px 22px;
+  min-width: 190px;
+}
+
+.btn-arrow {
+  font-size: 19px;
+  transition: transform 300ms ease;
+}
+
+.hero-btn-primary:hover {
+  background: #c6f36a;
+  color: #171916;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(25, 60, 53, 0.12);
+}
+
+.hero-btn-primary:hover .btn-arrow {
+  transform: translate(4px, -4px);
+}
+
+.hero-btn-secondary {
+  color: #193c35;
+  border-bottom: 1px solid #b8b9ae;
+  padding: 10px 0;
+}
+
+.secondary-arrow {
+  transition: transform 300ms ease;
+}
+
+.hero-btn-secondary:hover {
+  color: #657f27;
+  border-color: #c6f36a;
+}
+
+.hero-btn-secondary:hover .secondary-arrow {
+  transform: translateX(6px);
+}
+
+/* =========================
+   BOTTOM INFO
+========================= */
+
+.hero-bottom-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 430px;
+  margin-top: 75px;
+}
+
+.hero-scroll {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8a8c82;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.scroll-line {
+  width: 35px;
+  height: 1px;
+  background: #c6f36a;
+}
+
+.hero-edition {
+  color: #a3a49a;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+/* =========================
+   HERO VISUAL
+========================= */
+
+.hero-visual {
+  position: relative;
+  min-height: 590px;
+  padding: 0 30px 35px 0;
+}
+
+.hero-main-image {
+  position: relative;
+  width: 100%;
+  height: 555px;
+  overflow: hidden;
+  background: #e5e4dc;
+}
+
+.hero-main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.hero-main-image:hover img {
+  transform: scale(1.045);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 35%);
+  pointer-events: none;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 23px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* =========================
+   FLOATING IMAGE
+========================= */
+
+.hero-floating-image {
+  position: absolute;
+  width: 175px;
+  height: 225px;
+  bottom: 0;
+  left: -65px;
+  background: #ffffff;
+  padding: 8px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+  transform: rotate(-5deg);
+  transition:
+    transform 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.hero-floating-image:hover {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.17);
+}
+
+.hero-floating-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.floating-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  padding: 8px 10px;
+  color: #193c35;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.floating-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c6f36a;
+}
+
+/* =========================
+   STICKER
+========================= */
+
+.hero-sticker {
+  position: absolute;
+  top: 35px;
+  right: -15px;
+  width: 105px;
+  height: 105px;
+  background: #c6f36a;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  z-index: 4;
+  transform: rotate(10deg);
+  transition: transform 400ms ease;
+}
+
+.hero-sticker:hover {
+  transform: rotate(-10deg) scale(1.08);
+}
+
+.sticker-text {
+  color: #193c35;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.sticker-symbol {
+  color: #193c35;
+  font-size: 27px;
+  line-height: 1;
+}
+
+/* =========================
+   IMAGE NUMBER
+========================= */
+
+.hero-image-number {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #77796f;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.hero-image-number span:first-child {
+  color: #193c35;
+}
+
+.number-line {
+  width: 35px;
+  height: 1px;
+  background: #c6f36a;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes star-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .hero-container {
+    gap: 35px;
+    padding: 0 4%;
+  }
+
+  .hero-title {
+    font-size: clamp(52px, 6vw, 72px);
+  }
+
+  .hero-visual {
+    min-height: 510px;
+  }
+
+  .hero-main-image {
+    height: 475px;
+  }
+
+  .hero-floating-image {
+    width: 145px;
+    height: 190px;
+    left: -35px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nova-hero {
+    padding: 35px 0 55px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 6%;
+  }
+
+  .hero-content {
+    padding: 10px 0 0;
+  }
+
+  .hero-title {
+    font-size: clamp(58px, 11vw, 82px);
+    letter-spacing: -3.5px;
+  }
+
+  .hero-description {
+    max-width: 480px;
+    font-size: 14px;
+  }
+
+  .hero-bottom-info {
+    margin-top: 45px;
+  }
+
+  .hero-visual {
+    min-height: 480px;
+    padding-right: 20px;
+  }
+
+  .hero-main-image {
+    height: 450px;
+  }
+
+  .hero-floating-image {
+    width: 135px;
+    height: 175px;
+    left: -15px;
+  }
+
+  .hero-sticker {
+    width: 90px;
+    height: 90px;
+    right: -5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0 20px;
+  }
+
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.4px;
+  }
+
+  .hero-title {
+    font-size: 56px;
+    letter-spacing: -3px;
+  }
+
+  .title-star {
+    font-size: 38px;
+  }
+
+  .hero-actions {
+    gap: 18px;
+  }
+
+  .hero-btn-primary {
+    min-width: 165px;
+    padding: 15px 16px;
+    gap: 12px;
+  }
+
+  .hero-btn-secondary {
+    font-size: 11px;
+  }
+
+  .hero-visual {
+    min-height: 380px;
+  }
+
+  .hero-main-image {
+    height: 360px;
+  }
+
+  .hero-floating-image {
+    width: 110px;
+    height: 145px;
+    left: -10px;
+  }
+
+  .hero-sticker {
+    width: 75px;
+    height: 75px;
+    top: 20px;
+  }
+
+  .sticker-text {
+    font-size: 6px;
+  }
+
+  .sticker-symbol {
+    font-size: 20px;
+  }
+
+  .image-caption {
+    font-size: 7px;
+    left: 13px;
+    right: 13px;
+  }
+
+  .hero-edition {
+    display: none;
+  }
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+

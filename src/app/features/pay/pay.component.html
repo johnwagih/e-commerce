@@ -1,0 +1,280 @@
+<main class="min-h-screen bg-[#FAFAF7] px-5 py-14 sm:px-8 lg:py-20">
+  <!-- Page Header -->
+  <section class="max-w-3xl mx-auto text-center mb-12">
+    <span
+      class="inline-flex items-center gap-2 text-[10px] font-black tracking-[0.25em] text-[#193C35] uppercase mb-5"
+    >
+      <span class="w-7 h-px bg-[#D7F36B]"></span>
+      NOVA CHECKOUT
+      <span class="w-7 h-px bg-[#D7F36B]"></span>
+    </span>
+
+    <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-[#202521]">
+      Complete Your
+      <span class="text-[#193C35]">Order.</span>
+    </h1>
+
+    <p class="text-sm text-[#858A82] mt-4 leading-7 max-w-md mx-auto">
+      Just a few details stand between you and your next favorite thing.
+    </p>
+  </section>
+
+  <!-- Checkout Form -->
+  <section class="max-w-2xl mx-auto">
+    <div
+      class="bg-white border border-[#E4E5DC] rounded-[2rem] p-6 sm:p-10 shadow-[0_15px_60px_rgba(25,60,53,0.04)]"
+    >
+      <form [formGroup]="checkoutForm" class="space-y-9">
+        <!-- Delivery Information -->
+        <div>
+          <div class="flex items-center gap-3 mb-7">
+            <span
+              class="w-9 h-9 rounded-xl bg-[#D7F36B]/40 flex items-center justify-center text-xs font-black text-[#193C35]"
+            >
+              01
+            </span>
+
+            <div>
+              <h3 class="text-sm font-black uppercase tracking-wider text-[#202521]">
+                Delivery Information
+              </h3>
+
+              <p class="text-[10px] text-[#858A82] mt-1">Where should we deliver your order?</p>
+            </div>
+
+            <div class="h-px flex-1 bg-[#E4E5DC] ml-2"></div>
+          </div>
+
+          <div class="space-y-5">
+            <!-- Details -->
+            <div>
+              <label for="details" class="block text-xs font-bold mb-3 text-[#202521]">
+                Delivery Details
+              </label>
+
+              <div class="relative group">
+                <i
+                  class="fa-solid fa-location-dot absolute left-5 top-5 text-[#858A82] group-focus-within:text-[#193C35] transition-colors duration-300"
+                ></i>
+
+                <textarea
+                  formControlName="details"
+                  id="details"
+                  name="details"
+                  rows="4"
+                  maxlength="500"
+                  placeholder="Enter your complete delivery address and details..."
+                  required
+                  [attr.aria-invalid]="
+                    checkoutForm.get('details')?.invalid && checkoutForm.get('details')?.touched
+                  "
+                  class="w-full resize-none bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl pl-12 pr-5 py-4 text-sm text-[#202521] placeholder:text-[#A5AAA2] outline-none focus:border-[#193C35] focus:bg-white focus:ring-4 focus:ring-[#193C35]/5 transition-all duration-300"
+                ></textarea>
+              </div>
+              @if (checkoutForm.get('details')?.touched) {
+                @if (checkoutForm.get('details')?.invalid) {
+                  <div class="mt-2 space-y-1">
+                    @if (checkoutForm.get('details')?.hasError('required')) {
+                      <p class="text-xs text-red-500">Delivery details are required.</p>
+                    } @else if (checkoutForm.get('details')?.hasError('minlength')) {
+                      <p class="text-xs text-red-500">Address must be at least 10 characters.</p>
+                    } @else if (checkoutForm.get('details')?.hasError('maxlength')) {
+                      <p class="text-xs text-red-500">Address cannot exceed 500 characters.</p>
+                    } @else if (checkoutForm.get('details')?.hasError('pattern')) {
+                      <p class="text-xs text-red-500">
+                        Please enter a valid address containing letters, not numbers only.
+                      </p>
+                    }
+                  </div>
+                } @else {
+                  <p class="mt-2 text-xs text-green-600">Delivery details look good.</p>
+                }
+              }
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-xs font-bold mb-3 text-[#202521]">
+                Phone Number
+              </label>
+
+              <div class="relative group">
+                <i
+                  class="fa-solid fa-phone absolute left-5 top-1/2 -translate-y-1/2 text-[#858A82] group-focus-within:text-[#193C35] transition-colors duration-300"
+                ></i>
+
+                <input
+                  formControlName="phone"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="01010800921"
+                  autocomplete="tel"
+                  inputmode="numeric"
+                  maxlength="11"
+                  required
+                  [attr.aria-invalid]="
+                    checkoutForm.get('phone')?.invalid && checkoutForm.get('phone')?.touched
+                  "
+                  class="w-full bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl pl-12 pr-5 py-4 text-sm text-[#202521] placeholder:text-[#A5AAA2] outline-none focus:border-[#193C35] focus:bg-white focus:ring-4 focus:ring-[#193C35]/5 transition-all duration-300"
+                />
+              </div>
+              @if (checkoutForm.get('phone')?.touched) {
+                @if (checkoutForm.get('phone')?.invalid) {
+                  <div class="mt-2 space-y-1">
+                    @if (checkoutForm.get('phone')?.hasError('required')) {
+                      <p class="text-xs text-red-500">Phone number is required.</p>
+                    } @else if (checkoutForm.get('phone')?.hasError('pattern')) {
+                      <p class="text-xs text-red-500">
+                        Please enter a valid Egyptian mobile number (e.g. 01012345678).
+                      </p>
+                    }
+                  </div>
+                } @else {
+                  <p class="mt-2 text-xs text-green-600">Phone number looks good.</p>
+                }
+              }
+            </div>
+
+            <!-- City -->
+            <div>
+              <label for="city" class="block text-xs font-bold mb-3 text-[#202521]"> City </label>
+
+              <div class="relative group">
+                <i
+                  class="fa-solid fa-city absolute left-5 top-1/2 -translate-y-1/2 text-[#858A82] group-focus-within:text-[#193C35] transition-colors duration-300"
+                ></i>
+
+                <input
+                  formControlName="city"
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Cairo"
+                  autocomplete="address-level2"
+                  maxlength="50"
+                  required
+                  [attr.aria-invalid]="
+                    checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched
+                  "
+                  class="w-full bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl pl-12 pr-5 py-4 text-sm text-[#202521] placeholder:text-[#A5AAA2] outline-none focus:border-[#193C35] focus:bg-white focus:ring-4 focus:ring-[#193C35]/5 transition-all duration-300"
+                />
+              </div>
+
+              @if (checkoutForm.get('city')?.touched) {
+                @if (checkoutForm.get('city')?.invalid) {
+                  <div class="mt-2 space-y-1">
+                    @if (checkoutForm.get('city')?.hasError('required')) {
+                      <p class="text-xs text-red-500">City is required.</p>
+                    } @else if (checkoutForm.get('city')?.hasError('minlength')) {
+                      <p class="text-xs text-red-500">City must be at least 2 characters.</p>
+                    } @else if (checkoutForm.get('city')?.hasError('maxlength')) {
+                      <p class="text-xs text-red-500">City cannot exceed 50 characters.</p>
+                    }
+                  </div>
+                } @else {
+                  <p class="mt-2 text-xs text-green-600">City looks good.</p>
+                }
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Method -->
+        <div>
+          <div class="flex items-center gap-3 mb-7">
+            <span
+              class="w-9 h-9 rounded-xl bg-[#D7F36B]/40 flex items-center justify-center text-xs font-black text-[#193C35]"
+            >
+              02
+            </span>
+
+            <div>
+              <h3 class="text-sm font-black uppercase tracking-wider text-[#202521]">
+                Payment Method
+              </h3>
+
+              <p class="text-[10px] text-[#858A82] mt-1">Choose how you would like to pay.</p>
+            </div>
+
+            <div class="h-px flex-1 bg-[#E4E5DC] ml-2"></div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <!-- Cash on Delivery -->
+            <button
+              (click)="chechoutCash()"
+              type="button"
+              class="cursor-pointer group relative flex items-center gap-4 p-5 text-left border border-[#E4E5DC] rounded-2xl bg-[#FAFAF7] hover:border-[#193C35] hover:bg-white hover:shadow-[0_8px_25px_rgba(25,60,53,0.07)] transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 shrink-0 rounded-xl bg-[#D7F36B]/40 text-[#193C35] flex items-center justify-center text-lg group-hover:bg-[#193C35] group-hover:text-[#D7F36B] transition-all duration-300"
+              >
+                <i class="fa-solid fa-money-bill-wave"></i>
+              </div>
+
+              <div class="flex-1">
+                <p class="text-xs font-black text-[#202521]">Cash on Delivery</p>
+                <p class="text-[10px] text-[#858A82] mt-1">Pay when your order arrives.</p>
+              </div>
+            </button>
+
+            <!-- Visa -->
+            <button
+              (click)="chechoutVisa()"
+              type="button"
+              class="cursor-pointer group relative flex items-center gap-4 p-5 text-left border border-[#E4E5DC] rounded-2xl bg-[#FAFAF7] hover:border-[#193C35] hover:bg-white hover:shadow-[0_8px_25px_rgba(25,60,53,0.07)] transition-all duration-300"
+            >
+              <div
+                class="w-12 h-12 shrink-0 rounded-xl bg-[#193C35]/5 text-[#193C35] flex items-center justify-center text-xl group-hover:bg-[#193C35] group-hover:text-[#D7F36B] transition-all duration-300"
+              >
+                <i class="fa-brands fa-cc-visa"></i>
+              </div>
+
+              <div class="flex-1">
+                <p class="text-xs font-black text-[#202521]">Pay with Visa</p>
+                <p class="text-[10px] text-[#858A82] mt-1">Secure online payment.</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="flex items-center gap-4 bg-[#FAFAF7] border border-[#E4E5DC] rounded-2xl p-5">
+          <div
+            class="w-11 h-11 shrink-0 rounded-xl bg-[#D7F36B]/40 flex items-center justify-center text-[#193C35]"
+          >
+            <i class="fa-solid fa-shield-halved text-lg"></i>
+          </div>
+
+          <div>
+            <p class="text-xs font-black text-[#202521]">Your information matters.</p>
+
+            <p class="text-[10px] text-[#858A82] mt-1 leading-5">
+              Your delivery information is used only to process your order.
+            </p>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <!-- Back to Cart -->
+        <a
+          routerLink="/cart"
+          class="cursor-pointer flex items-center justify-center gap-2 text-[10px] font-bold text-[#858A82] hover:text-[#193C35] transition-colors duration-300"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Cart
+        </a>
+      </form>
+    </div>
+
+    <!-- Bottom Note -->
+    <div
+      class="flex items-center justify-center gap-2 mt-8 text-[9px] font-bold tracking-widest text-[#858A82] uppercase"
+    >
+      <i class="fa-solid fa-lock text-[#193C35]"></i>
+
+      Secure Checkout Experience
+    </div>
+  </section>
+</main>
