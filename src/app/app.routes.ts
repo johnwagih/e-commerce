@@ -19,5 +19,6 @@ export const routes: Routes = [
     {path:"sign-in" , loadComponent:()=>import('./features/sign-in/sign-in.component').then((c)=>c.SignInComponent), title:'Sign in'},
     {path:"register" , loadComponent:()=>import('./features/register/register.component').then((c)=>c.RegisterComponent), title:'Register'},
     {path:"forgot-password" , loadComponent:()=>import('./features/forgot-password/forgot-password.component').then((c)=>c.ForgotPasswordComponent), title:'Forgot Password'},
+    {path:"Change-Password" , loadComponent:()=>import('./features/update-logged-user-password/update-logged-user-password.component').then((c)=>c.UpdateLoggedUserPasswordComponent), title:'Change Password'},
     {path:"**" , loadComponent:()=>import('./features/not-found/not-found.component').then((c)=>c.NotFoundComponent), title :'NotFound'}
 ];

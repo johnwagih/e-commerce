@@ -43,16 +43,22 @@
           <span class="cart-count">{{ cartCounter() }}</span>
         </a>
         <!-- Account -->
+        <!-- Account -->
         @if (!isLogged()) {
           <a routerLink="/sign-in" class="account-button">
             <i class="fa-regular fa-user"></i>
             <span>Sign In</span>
           </a>
-        }
-        <!-- Account -->
-        @else {
-          <a (click)="signOut()" class=" cursor-pointer account-button">
-            
+        } @else {
+          <!-- Change Password -->
+          <a routerLink="/Change-Password" class="nav-action" title="Change Password">
+            <i class="fa-solid fa-lock"></i>
+            <span>Change Password</span>
+          </a>
+
+          <!-- Sign Out -->
+          <a (click)="signOut()" class="cursor-pointer account-button">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <span>Sign Out</span>
           </a>
         }

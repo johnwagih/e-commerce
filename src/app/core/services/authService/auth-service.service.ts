@@ -33,4 +33,8 @@ export class AuthServiceService {
   submitNewPassword(data:any):Observable<any>{
    return  this.httpClient.put(`${environment.basUrl}auth/resetPassword`,data)
   }
+  // Update Logged user password
+  UpdateLoggedUserPassword(body:any):Observable<any>{
+   return  this.httpClient.put(`${environment.basUrl}users/changeMyPassword`,body)
+  }
 }
