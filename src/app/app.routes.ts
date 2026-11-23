@@ -1,4 +1,3 @@
-import { PayComponent } from './features/pay/pay.component';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
