@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, ɵInternalForm
 import { PayService } from '../../core/services/payService/pay.service';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { CartServiceService } from '../../core/services/cartServices/cart-service.service';
 
 @Component({
   selector: 'app-pay',
@@ -16,6 +17,7 @@ export class PayComponent {
   private readonly payService = inject(PayService)
   private readonly toastr = inject(ToastrService)
   private readonly activatedRoute = inject(ActivatedRoute)
+  private readonly cartServiceService = inject(CartServiceService)
   private readonly router = inject(Router)
 
   cartId = signal("")
@@ -56,6 +58,7 @@ export class PayComponent {
             progressBar: true
           })
           this.router.navigate([`allorders`])
+          this.cartServiceService.cartCounter.set(res.numOfCartItems)
         },
         error: (err) => {
           console.log(err)
@@ -85,6 +88,7 @@ export class PayComponent {
             progressBar: true
           })
           window.open(res.session.url, `_blank`)
+          this.cartServiceService.cartCounter.set(res.numOfCartItems)
         },
         error: (err) => {
           console.log(err)
