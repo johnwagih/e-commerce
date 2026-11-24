@@ -1,5 +1,5 @@
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
-import { Component, computed, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import { Component, computed, ElementRef, HostListener, inject, OnInit, PLATFORM_ID, signal, ViewChild } from '@angular/core';
 import { Router, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { CartServiceService } from '../../core/services/cartServices/cart-service.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -20,6 +20,7 @@ import { ThemeService } from '../../core/theme/theme.service';
   styleUrl: './navbar.component.css',
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('categoryDropdown') private categoryDropdown?: ElementRef<HTMLDetailsElement>;
   private readonly cartServiceService = inject(CartServiceService)
   private readonly authServiceService = inject(AuthServiceService)
   private readonly productsService = inject(ProductsService)
@@ -34,6 +35,14 @@ export class NavbarComponent implements OnInit {
 
   toggleTheme(): void {
     this.theme.toggle();
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeCategoryDropdownOnOutsideClick(event: MouseEvent): void {
+    const target = event.target;
+    if (target instanceof Node && !this.categoryDropdown?.nativeElement.contains(target)) {
+      this.categoryDropdown?.nativeElement.removeAttribute('open');
+    }
   }
 
   cartCounter = computed(() => this.cartServiceService.cartCounter())

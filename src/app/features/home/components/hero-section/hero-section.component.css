@@ -317,14 +317,14 @@
 }
 
 .sticker-text {
-  color: var(--theme-text-193c35);
+  color: #193c35;
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 1px;
 }
 
 .sticker-symbol {
-  color: var(--theme-text-193c35);
+  color: #193c35;
   font-size: 27px;
   line-height: 1;
 }

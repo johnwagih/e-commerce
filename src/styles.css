@@ -88,6 +88,10 @@
   color: #f3f5ef;
 }
 
+:root[data-theme='dark'] app-navbar .all-categories-link:hover > i {
+  color: #171916;
+}
+
 :root[data-theme='dark'] .signin-page {
   --bg: #101512;
   --surface: #1a211c;

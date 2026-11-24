@@ -488,7 +488,7 @@
 
 .all-categories-link:hover > i {
   background: #d7f36b;
-  color: var(--theme-text-193c35);
+  color: #193c35;
   transform: translateX(5px);
 }
 
