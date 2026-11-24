@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import type { ModalOptions, ModalInterface } from 'flowbite'
 import { NavbarComponent } from './features/navbar/navbar.component';
 import { FooterComponent } from './features/footer/footer.component';
 import { NgxSpinnerComponent } from 'ngx-spinner';
+import { ThemeService } from './core/theme/theme.service';
 // import { register } from 'swiper/element/bundle';
 // register();
 @Component({
@@ -13,6 +14,7 @@ import { NgxSpinnerComponent } from 'ngx-spinner';
   styleUrl: './app.css'
 })
 export class App  {
+  readonly theme = inject(ThemeService);
   novaLoaderTemplate = `
   <div class="nova-loader">
 

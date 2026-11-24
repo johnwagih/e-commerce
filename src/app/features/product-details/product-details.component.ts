@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { ProductsService } from './../../core/services/productService/products.service';
 import { ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, OnInit, PLATFORM_ID, signal, ViewChild, WritableSignal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -11,7 +12,7 @@ import { WishlistServiceService } from '../../core/services/wishlistService/wish
 import { platformBrowser } from '@angular/platform-browser';
 @Component({
   selector: 'app-product-details',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

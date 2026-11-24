@@ -2,9 +2,9 @@
   <!-- Announcement Bar -->
   <div class="announcement-bar">
     <div class="announcement-content">
-      <span class="announcement-label">NOVA EXCLUSIVE</span>
-      <span>Free shipping on orders above $100</span>
-      <a routerLink="/shop">SHOP NOW ↗</a>
+      <span class="announcement-label">{{ "NOVA EXCLUSIVE" | translate }}</span>
+      <span>{{ "Free shipping on orders above $100" | translate }}</span>
+      <a routerLink="/shop">{{ "SHOP NOW ↗" | translate }}</a>
     </div>
   </div>
 
@@ -26,10 +26,10 @@
             placeholder="Search for products, brands and more..."
           />
 
-          <span class="search-shortcut">SEARCH</span>
+          <span class="search-shortcut">{{ "SEARCH" | translate }}</span>
         </form>
 
-        Search Dropdown
+        {{ "Search Dropdown" | translate }}
         <div
           class="absolute top-full left-0 w-full z-50 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden"
         >
@@ -66,10 +66,35 @@
 
       <!-- Actions -->
       <div class="navbar-actions">
+        <div class="navbar-preferences" aria-label="Display preferences">
+          <button type="button" class="language-toggle" (click)="toggleLanguage()" [attr.aria-label]="translations.language() === 'en' ? 'Switch to Arabic' : 'Switch to English'">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <span>{{ translations.language() === 'en' ? 'العربية' : 'English' }}</span>
+          </button>
+          <button
+            type="button"
+            class="theme-toggle"
+            (click)="toggleTheme()"
+            [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+            [attr.title]="theme.isDark() ? 'Light mode' : 'Dark mode'"
+          >
+            @if (theme.isDark()) {
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+              </svg>
+            } @else {
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"></path>
+              </svg>
+            }
+          </button>
+        </div>
+
         <!-- Support -->
         <a routerLink="/contact" class="nav-action support-action">
           <i class="fa-regular fa-circle-question"></i>
-          <span>Support</span>
+          <span>{{ "Support" | translate }}</span>
         </a>
 
         <!-- Wishlist -->
@@ -87,25 +112,25 @@
         @if (!isLogged()) {
           <a routerLink="/sign-in" class="account-button">
             <i class="fa-regular fa-user"></i>
-            <span>Sign In</span>
+            <span>{{ "Sign In" | translate }}</span>
           </a>
         }
          @else {
           <a routerLink="/Change-Password" class="nav-action" title="Change Password">
             <i class="fa-solid fa-lock"></i>
-            <span>Change Password</span>
+            <span>{{ "Change Password" | translate }}</span>
           </a>
 
           <a (click)="signOut()" class="cursor-pointer account-button">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            <span>Sign Out</span>
+            <span>{{ "Sign Out" | translate }}</span>
           </a>
         }
 
         @if (!isLogged()) {
           <a routerLink="/register" class="create-account-button">
             <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
-            <span>Create account</span>
+            <span>{{ "Create account" | translate }}</span>
           </a>
         }
 
@@ -119,12 +144,12 @@
             <!-- Main Links -->
             <a routerLink="/home" (click)="mobileMenu.open = false">
               <i class="fa-solid fa-house"></i>
-              <span>Home</span>
+              <span>{{ "Home" | translate }}</span>
             </a>
 
             <a routerLink="/shop" (click)="mobileMenu.open = false">
               <i class="fa-solid fa-store"></i>
-              <span>Shop All</span>
+              <span>{{ "Shop All" | translate }}</span>
             </a>
 
             <!-- Categories -->
@@ -132,7 +157,7 @@
               <summary>
                 <span>
                   <i class="fa-solid fa-layer-group"></i>
-                  Categories
+                  {{ "Categories" | translate }}
                 </span>
 
                 <i class="fa-solid fa-chevron-down category-arrow"></i>
@@ -143,83 +168,83 @@
                   routerLink="/categories"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  All Categories
+                  {{ "All Categories" | translate }}
                 </a>
 
-                <span class="mobile-category-heading">FASHION & STYLE</span>
+                <span class="mobile-category-heading">{{ "FASHION & STYLE" | translate }}</span>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d5b90049ad0b52b90048']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Men's Fashion
+                  {{ "Men's Fashion" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d58a0049ad0b52b9003f']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Women's Fashion
+                  {{ "Women's Fashion" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d40367d9aa4ca97064cc']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Baby & Toys
+                  {{ "Baby & Toys" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d30b67d9aa4ca97064b1']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Beauty & Health
+                  {{ "Beauty & Health" | translate }}
                 </a>
 
-                <span class="mobile-category-heading"> TECH & ENTERTAINMENT </span>
+                <span class="mobile-category-heading"> {{ "TECH & ENTERTAINMENT" | translate }} </span>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d2d167d9aa4ca970649f']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Electronics
+                  {{ "Electronics" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d2f467d9aa4ca97064a8']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Mobiles
+                  {{ "Mobiles" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d61c0049ad0b52b90051']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Music
+                  {{ "Music" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d3c867d9aa4ca97064ba']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Books
+                  {{ "Books" | translate }}
                 </a>
 
-                <span class="mobile-category-heading">LIFESTYLE</span>
+                <span class="mobile-category-heading">{{ "LIFESTYLE" | translate }}</span>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d3e067d9aa4ca97064c3']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  Home
+                  {{ "Home" | translate }}
                 </a>
 
                 <a
                   [routerLink]="['/Special-Categories/', '6439d41c67d9aa4ca97064d5']"
                   (click)="mobileCategories.open = false; mobileMenu.open = false"
                 >
-                  SuperMarket
+                  {{ "SuperMarket" | translate }}
                 </a>
               </div>
             </details>
@@ -227,22 +252,22 @@
             <!-- Other Links -->
             <a routerLink="/brands" (click)="mobileMenu.open = false">
               <i class="fa-solid fa-tags"></i>
-              <span>Brands</span>
+              <span>{{ "Brands" | translate }}</span>
             </a>
 
             <a routerLink="/wishlist" (click)="mobileMenu.open = false">
               <i class="fa-regular fa-heart"></i>
-              <span>Wishlist</span>
+              <span>{{ "Wishlist" | translate }}</span>
             </a>
 
             <a routerLink="/cart" (click)="mobileMenu.open = false">
               <i class="fa-solid fa-bag-shopping"></i>
-              <span>Cart</span>
+              <span>{{ "Cart" | translate }}</span>
             </a>
 
             <a routerLink="/contact" (click)="mobileMenu.open = false">
               <i class="fa-regular fa-circle-question"></i>
-              <span>Support</span>
+              <span>{{ "Support" | translate }}</span>
             </a>
 
             <!-- Account Actions -->
@@ -251,17 +276,17 @@
             @if (isLogged()) {
               <a routerLink="/Change-Password" (click)="mobileMenu.open = false">
                 <i class="fa-solid fa-lock"></i>
-                <span>Change Password</span>
+                <span>{{ "Change Password" | translate }}</span>
               </a>
 
               <a class="mobile-signout-link" (click)="signOut(); mobileMenu.open = false">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span>Sign Out</span>
+                <span>{{ "Sign Out" | translate }}</span>
               </a>
             } @else {
               <a routerLink="/sign-in" (click)="mobileMenu.open = false">
                 <i class="fa-regular fa-user"></i>
-                <span>Sign In</span>
+                <span>{{ "Sign In" | translate }}</span>
               </a>
 
               <a
@@ -270,7 +295,7 @@
                 (click)="mobileMenu.open = false"
               >
                 <i class="fa-solid fa-user-plus"></i>
-                <span>Create Account</span>
+                <span>{{ "Create Account" | translate }}</span>
               </a>
             }
           </div>
@@ -288,15 +313,15 @@
         [routerLinkActiveOptions]="{ exact: true }"
         class="category-link"
       >
-        Home
+        {{ "Home" | translate }}
       </a>
 
-      <a routerLink="/shop" routerLinkActive="active" class="category-link"> Shop All </a>
+      <a routerLink="/shop" routerLinkActive="active" class="category-link"> {{ "Shop All" | translate }} </a>
 
-      <!-- Mega Menu -->
+      <!-- Mega Menu -->  
       <details class="category-dropdown" #categoryDropdown>
         <summary class="category-link">
-          All Categories
+          {{ "All Categories" | translate }}
           <i class="fa-solid fa-chevron-down"></i>
         </summary>
 
@@ -308,9 +333,9 @@
             (click)="categoryDropdown.open = false"
           >
             <div class="hiiii">
-              <span>EXPLORE EVERYTHING</span>
-              <strong>All Categories</strong>
-              <p>Discover our complete collection of products.</p>
+              <span>{{ "EXPLORE EVERYTHING" | translate }}</span>
+              <strong>{{ "All Categories" | translate }}</strong>
+              <p>{{ "Discover our complete collection of products." | translate }}</p>
             </div>
 
             <i class="fa-solid fa-arrow-right"></i>
@@ -318,13 +343,13 @@
 
           <!-- Column 1 -->
           <div class="mega-menu-column">
-            <span class="mega-heading">FASHION & STYLE</span>
+            <span class="mega-heading">{{ "FASHION & STYLE" | translate }}</span>
 
             <a
               [routerLink]="['/Special-Categories/', '6439d5b90049ad0b52b90048']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Men's Fashion</span>
+              <span>{{ "Men's Fashion" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -332,7 +357,7 @@
               [routerLink]="['/Special-Categories/', '6439d58a0049ad0b52b9003f']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Women's Fashion</span>
+              <span>{{ "Women's Fashion" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -340,7 +365,7 @@
               [routerLink]="['/Special-Categories/', '6439d40367d9aa4ca97064cc']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Baby & Toys</span>
+              <span>{{ "Baby & Toys" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -348,20 +373,20 @@
               [routerLink]="['/Special-Categories/', '6439d30b67d9aa4ca97064b1']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Beauty & Health</span>
+              <span>{{ "Beauty & Health" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
 
           <!-- Column 2 -->
           <div class="mega-menu-column">
-            <span class="mega-heading">TECH & ENTERTAINMENT</span>
+            <span class="mega-heading">{{ "TECH & ENTERTAINMENT" | translate }}</span>
 
             <a
               [routerLink]="['/Special-Categories/', '6439d2d167d9aa4ca970649f']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Electronics</span>
+              <span>{{ "Electronics" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -369,7 +394,7 @@
               [routerLink]="['/Special-Categories/', '6439d2f467d9aa4ca97064a8']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Mobiles</span>
+              <span>{{ "Mobiles" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -377,7 +402,7 @@
               [routerLink]="['/Special-Categories/', '6439d61c0049ad0b52b90051']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Music</span>
+              <span>{{ "Music" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -385,20 +410,20 @@
               [routerLink]="['/Special-Categories/', '6439d3c867d9aa4ca97064ba']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Books</span>
+              <span>{{ "Books" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
 
           <!-- Column 3 -->
           <div class="mega-menu-column">
-            <span class="mega-heading">LIFESTYLE</span>
+            <span class="mega-heading">{{ "LIFESTYLE" | translate }}</span>
 
             <a
               [routerLink]="['/Special-Categories/', '6439d3e067d9aa4ca97064c3']"
               (click)="categoryDropdown.open = false"
             >
-              <span>Home</span>
+              <span>{{ "Home" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
 
@@ -406,26 +431,26 @@
               [routerLink]="['/Special-Categories/', '6439d41c67d9aa4ca97064d5']"
               (click)="categoryDropdown.open = false"
             >
-              <span>SuperMarket</span>
+              <span>{{ "SuperMarket" | translate }}</span>
               <i class="fa-solid fa-arrow-right"></i>
             </a>
           </div>
 
           <!-- Feature -->
           <div class="mega-menu-feature">
-            <span class="feature-label">THE NOVA COLLECTION</span>
+            <span class="feature-label">{{ "THE NOVA COLLECTION" | translate }}</span>
 
             <div>
               <h3>
-                Find your
-                <span>own style.</span>
+                {{ "Find your" | translate }}
+                <span>{{ "own style." | translate }}</span>
               </h3>
 
-              <p>Discover something made for you.</p>
+              <p>{{ "Discover something made for you." | translate }}</p>
             </div>
 
             <a routerLink="/products" (click)="categoryDropdown.open = false">
-              EXPLORE COLLECTION
+              {{ "EXPLORE COLLECTION" | translate }}
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
 
@@ -434,7 +459,7 @@
         </div>
       </details>
 
-      <a routerLink="/brands" routerLinkActive="active" class="category-link"> Brands </a>
+      <a routerLink="/brands" routerLinkActive="active" class="category-link"> {{ "Brands" | translate }} </a>
     </div>
   </nav>
 </header>

@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, computed, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { Router, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import { CartServiceService } from '../../core/services/cartServices/cart-service.service';
@@ -10,9 +11,11 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { ProductsService } from '../../core/services/productService/products.service';
 import { of } from 'rxjs';
 import { Iproduct } from '../../modules/iproduct.interface';
+import { TranslationService } from '../../core/i18n/translation.service';
+import { ThemeService } from '../../core/theme/theme.service';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLinkActive, RouterLinkWithHref, ReactiveFormsModule],
+  imports: [RouterLinkActive, RouterLinkWithHref, ReactiveFormsModule, TranslatePipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -22,6 +25,16 @@ export class NavbarComponent implements OnInit {
   private readonly productsService = inject(ProductsService)
   private readonly platformId = inject(PLATFORM_ID)
   private readonly router = inject(Router)
+  readonly translations = inject(TranslationService)
+  readonly theme = inject(ThemeService)
+
+  toggleLanguage(): void {
+    this.translations.toggleLanguage();
+  }
+
+  toggleTheme(): void {
+    this.theme.toggle();
+  }
 
   cartCounter = computed(() => this.cartServiceService.cartCounter())
 

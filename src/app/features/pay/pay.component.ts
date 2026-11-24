@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, ɵInternalFormsSharedModule } from '@angular/forms';
 import { PayService } from '../../core/services/payService/pay.service';
@@ -7,7 +8,7 @@ import { CartServiceService } from '../../core/services/cartServices/cart-servic
 
 @Component({
   selector: 'app-pay',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, RouterLink],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, RouterLink, TranslatePipe],
   templateUrl: './pay.component.html',
   styleUrl: './pay.component.css',
 })

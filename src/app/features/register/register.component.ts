@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -13,7 +14,7 @@ import { AuthServiceService } from '../../core/services/authService/auth-service
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, TranslatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

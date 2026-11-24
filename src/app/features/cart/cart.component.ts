@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CartServiceService } from '../../core/services/cartServices/cart-service.service';
@@ -8,7 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })

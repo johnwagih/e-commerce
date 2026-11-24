@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../../../core/i18n/translate.pipe';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { WishlistServiceService } from '../../../../core/services/wishlistService/wishlist-service.service';
@@ -7,7 +8,7 @@ import { CartServiceService } from '../../../../core/services/cartServices/cart-
 @Component({
   selector: 'app-featured-products-section',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './featured-products-section.component.html',
   styleUrl: './featured-products-section.component.css',
 })

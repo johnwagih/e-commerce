@@ -1,5 +1,5 @@
 .nova-editorial {
-  background: #ffffff;
+  background: var(--theme-background-ffffff);
   padding: 110px 0;
   overflow: hidden;
 }
@@ -27,7 +27,7 @@
   width: 100%;
   height: 550px;
   overflow: hidden;
-  background: #e5e4dc;
+  background: var(--theme-background-e5e4dc);
 }
 
 .editorial-main-image img,
@@ -54,7 +54,7 @@
   height: 240px;
 
   padding: 8px;
-  background: #ffffff;
+  background: var(--theme-background-ffffff);
 
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 
@@ -81,8 +81,8 @@
 
   padding: 11px 14px;
 
-  background: #ffffff;
-  color: #193c35;
+  background: var(--theme-background-ffffff);
+  color: var(--theme-text-193c35);
 
   font-size: 9px;
   font-weight: 800;
@@ -101,7 +101,7 @@
   left: 0;
   bottom: 10px;
 
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -119,7 +119,7 @@
   align-items: center;
   gap: 12px;
 
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -132,7 +132,7 @@
 }
 
 .editorial-content h2 {
-  color: #171916;
+  color: var(--theme-text-171916);
 
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(43px, 5vw, 67px);
@@ -145,13 +145,13 @@
 
 .editorial-content h2 span {
   display: block;
-  color: #193c35;
+  color: var(--theme-text-193c35);
 }
 
 .editorial-description {
   max-width: 440px;
 
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 14px;
   line-height: 1.9;
 
@@ -159,7 +159,7 @@
 }
 
 .secondary-description {
-  color: #92948a;
+  color: var(--theme-text-92948a);
 }
 
 /* Button */
@@ -187,7 +187,7 @@
 
 .editorial-button:hover {
   background: #c6f36a;
-  color: #171916;
+  color: var(--theme-text-171916);
   transform: translateY(-4px);
 }
 
@@ -209,11 +209,11 @@
   margin-top: 75px;
   padding-top: 18px;
 
-  border-top: 1px solid #e5e4dc;
+  border-top: 1px solid var(--theme-border-e5e4dc);
 }
 
 .editorial-bottom span {
-  color: #999b91;
+  color: var(--theme-text-999b91);
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.5px;

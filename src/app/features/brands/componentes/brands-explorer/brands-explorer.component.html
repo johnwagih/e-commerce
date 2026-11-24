@@ -6,9 +6,9 @@
       class="w-12 h-12 border-4 border-[#E4E5DC] border-t-[#193C35] rounded-full animate-spin"
     ></div>
 
-    <h3 class="mt-6 text-lg font-bold text-[#193C35]">Discovering Brands</h3>
+    <h3 class="mt-6 text-lg font-bold text-[#193C35]">{{ "Discovering Brands" | translate }}</h3>
 
-    <p class="mt-2 text-sm text-[#858A82]">We're gathering your favorite brands...</p>
+    <p class="mt-2 text-sm text-[#858A82]">{{ "We're gathering your favorite brands..." | translate }}</p>
   </div>
 } @else if (!hasError() && listBrands().length > 0) {
   <!-- Brands Grid -->
@@ -50,13 +50,13 @@
     </div>
 
     <span class="text-[10px] font-bold tracking-[0.2em] text-[#858A82] uppercase">
-      Something went wrong
+      {{ "Something went wrong" | translate }}
     </span>
 
-    <h3 class="text-2xl font-bold text-[#193C35] mt-3">Brands Are Taking a Break.</h3>
+    <h3 class="text-2xl font-bold text-[#193C35] mt-3">{{ "Brands Are Taking a Break." | translate }}</h3>
 
     <p class="text-sm text-[#858A82] max-w-md mt-3 leading-7">
-      We couldn't load the brands right now. Please try again in a little while.
+      {{ "We couldn't load the brands right now. Please try again in a little while." | translate }}
     </p>
 
     <button
@@ -65,7 +65,7 @@
       class="mt-7 px-7 py-3 rounded-xl bg-[#193C35] text-white text-sm font-semibold hover:bg-[#D7F36B] hover:text-[#193C35] transition-all duration-300"
     >
       <i class="fa-solid fa-rotate-right mr-2"></i>
-      Try Again
+      {{ "Try Again" | translate }}
     </button>
   </div>
 }

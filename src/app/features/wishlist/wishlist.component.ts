@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { WishlistServiceService } from '../../core/services/wishlistService/wishlist-service.service';
@@ -6,7 +7,7 @@ import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-wishlist',
-  imports: [DecimalPipe, RouterLink],
+  imports: [DecimalPipe, RouterLink, TranslatePipe],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css',
 })

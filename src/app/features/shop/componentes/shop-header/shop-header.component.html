@@ -3,9 +3,9 @@
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a routerLink="/">Home</a>
+      <a routerLink="/">{{ "Home" | translate }}</a>
       <span class="breadcrumb-divider">/</span>
-      <span class="breadcrumb-current" aria-current="page">Shop</span>
+      <span class="breadcrumb-current" aria-current="page">{{ "Shop" | translate }}</span>
     </nav>
 
     <!-- Header Content -->
@@ -14,23 +14,22 @@
       <div class="header-text">
         <span class="section-eyebrow">
           <span class="eyebrow-line"></span>
-          THE NOVA COLLECTION
+          {{ "THE NOVA COLLECTION" | translate }}
         </span>
 
         <h1>
-          Find your <span>next</span> favorite.
+          {{ "Find your" | translate }} <span>{{ "next" | translate }}</span> {{ "favorite." | translate }}
         </h1>
 
         <p>
-          Explore a curated collection of everyday essentials,
-          standout styles, and everything in between.
+          {{ "Explore a curated collection of everyday essentials, standout styles, and everything in between." | translate }}
         </p>
       </div>
 
       <div class="header-info">
         <div class="product-count">
           <span class="count-number">40</span>
-          <span class="count-label">Products<br />to explore</span>
+          <span class="count-label">{{ "Products" | translate }}<br />{{ "to explore" | translate }}</span>
         </div>
 
         <div class="header-decoration">

@@ -309,7 +309,7 @@
 
 .form-group label i {
   margin-right: 5px;
-  color: #85877b;
+  color: var(--theme-text-85877b);
   font-size: 10px;
 }
 
@@ -350,7 +350,7 @@
 .form-group input.input-invalid,
 .form-group input.input-invalid:focus {
   border-color: #c96d66;
-  background: #fffafa;
+  background: var(--theme-background-fffafa);
   box-shadow: 0 0 0 2px rgba(201, 109, 102, 0.1);
 }
 
@@ -446,7 +446,7 @@
   border: 0;
   border-radius: 50%;
   background: transparent;
-  color: #85877b;
+  color: var(--theme-text-85877b);
   font-size: 14px;
   cursor: pointer;
   transform: translateY(-50%);
@@ -555,7 +555,7 @@
 .form-divider span {
   font-size: 8px;
   letter-spacing: 2px;
-  color: #99998e;
+  color: var(--theme-text-99998e);
 }
 
 .form-bottom-text {
@@ -579,7 +579,7 @@
   font-size: 8px;
   font-weight: 600;
   letter-spacing: 1.3px;
-  color: #99998e;
+  color: var(--theme-text-99998e);
 }
 
 .form-footer div {

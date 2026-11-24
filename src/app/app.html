@@ -4,7 +4,7 @@
 </div>
 <app-footer></app-footer>
   <ngx-spinner
-    bdColor="rgba(245, 244, 239, 0.97)"
+    [bdColor]="theme.isDark() ? 'rgba(16, 21, 18, 0.97)' : 'rgba(245, 244, 239, 0.97)'"
     [fullScreen]="true"
     [template]="novaLoaderTemplate"
   >

@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../../../core/i18n/translate.pipe';
 import { Iproduct } from './../../../../modules/iproduct.interface';
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { ProductsService } from '../../../../core/services/productService/products.service';
@@ -8,7 +9,7 @@ import { WishlistServiceService } from '../../../../core/services/wishlistServic
 import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-product-card',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.css',
 })

@@ -6,22 +6,22 @@
         <div class="cart-breadcrumb">
           <a routerLink="/home">HOME</a>
           <span>/</span>
-          <span>SHOPPING BAG</span>
+          <span>{{ "SHOPPING BAG" | translate }}</span>
         </div>
 
         <div class="cart-heading">
           <div>
-            <span class="eyebrow">YOUR PERSONAL SELECTION</span>
+            <span class="eyebrow">{{ "YOUR PERSONAL SELECTION" | translate }}</span>
 
             <h1>
-              Shopping<br />
-              <span>bag.</span>
+              {{ "Shopping" | translate }}<br />
+              <span>{{ "bag." | translate }}</span>
             </h1>
           </div>
 
           <div class="cart-header-note">
-            <span>YOUR CART</span>
-            <strong>EMPTY <i class="fa-solid fa-bag-shopping"></i></strong>
+            <span>{{ "YOUR CART" | translate }}</span>
+            <strong>{{ "EMPTY" | translate }} <i class="fa-solid fa-bag-shopping"></i></strong>
           </div>
         </div>
       </section>
@@ -49,26 +49,25 @@
           <span class="art-dot dot-a"></span>
           <span class="art-dot dot-b"></span>
 
-          <span class="art-caption caption-a"> MADE FOR YOUR STYLE </span>
+          <span class="art-caption caption-a"> {{ "MADE FOR YOUR STYLE" | translate }} </span>
 
-          <span class="art-caption caption-b"> 001 / COLLECTION </span>
+          <span class="art-caption caption-b"> {{ "001 / COLLECTION" | translate }} </span>
         </div>
 
         <div class="empty-message">
-          <span class="empty-index"> 01 — A LITTLE SPACE FOR SOMETHING SPECIAL </span>
+          <span class="empty-index"> {{ "01 — A LITTLE SPACE FOR SOMETHING SPECIAL" | translate }} </span>
 
           <h2>
-            Your next<br />
-            <span>favorite</span> is waiting.
+            {{ "Your next" | translate }}<br />
+            <span>{{ "favorite" | translate }}</span> {{ "is waiting." | translate }}
           </h2>
 
           <p>
-            Looks like your bag is taking a little break. Discover something you love, find your
-            next favorite piece, and make it yours.
+            {{ "Looks like your bag is taking a little break. Discover something you love, find your next favorite piece, and make it yours." | translate }}
           </p>
 
           <a routerLink="/shop" class="shop-cta">
-            <span>DISCOVER THE COLLECTION</span>
+            <span>{{ "DISCOVER THE COLLECTION" | translate }}</span>
 
             <span class="cta-arrow">
               <i class="fa-solid fa-arrow-right"></i>
@@ -77,18 +76,18 @@
 
           <div class="empty-note">
             <span></span>
-            GOOD THINGS ARE WORTH THE SEARCH.
+            {{ "GOOD THINGS ARE WORTH THE SEARCH." | translate }}
           </div>
         </div>
       </section>
 
       <!-- FOOTER STRIP -->
       <section class="cart-footer-strip">
-        <span>NOVA / YOUR WORLD</span>
+        <span>{{ "NOVA / YOUR WORLD" | translate }}</span>
 
         <div></div>
 
-        <span>LESS ORDINARY. MORE YOU.</span>
+        <span>{{ "LESS ORDINARY. MORE YOU." | translate }}</span>
       </section>
     </main>
   }
@@ -105,22 +104,22 @@
         <div class="cart-breadcrumb">
           <a routerLink="/home">HOME</a>
           <span>/</span>
-          <span>SHOPPING BAG</span>
+          <span>{{ "SHOPPING BAG" | translate }}</span>
         </div>
 
         <div class="cart-heading">
           <div>
-            <span class="eyebrow">YOUR PERSONAL SELECTION</span>
+            <span class="eyebrow">{{ "YOUR PERSONAL SELECTION" | translate }}</span>
 
             <h1>
-              Shopping<br />
-              <span>bag.</span>
+              {{ "Shopping" | translate }}<br />
+              <span>{{ "bag." | translate }}</span>
             </h1>
           </div>
 
           <div class="cart-header-note">
-            <span>YOUR COLLECTION</span>
-            <strong>{{ cart.products.length }} <small>ITEMS</small></strong>
+            <span>{{ "YOUR COLLECTION" | translate }}</span>
+            <strong>{{ cart.products.length }} <small>{{ "ITEMS" | translate }}</small></strong>
           </div>
         </div>
       </section>
@@ -131,13 +130,13 @@
         <div class="cart-products">
           <div class="products-topbar">
             <div>
-              <span class="eyebrow">YOUR SELECTION</span>
-              <h2>Selected pieces.</h2>
+              <span class="eyebrow">{{ "YOUR SELECTION" | translate }}</span>
+              <h2>{{ "Selected pieces." | translate }}</h2>
             </div>
             @if (cart.products.length > 1) {
               <button (click)="clearCart()" class="remove-product" type="button">
                 <i class="fa-regular fa-trash-can"></i>
-                CLEAR ALL
+                {{ "CLEAR ALL" | translate }}
               </button>
             }
           </div>
@@ -149,7 +148,7 @@
                   [alt]="product.product.category.name"
                   class="cart-product-image"
                 />
-                <span class="image-tag">YOUR PICK</span>
+                <span class="image-tag">{{ "YOUR PICK" | translate }}</span>
               </div>
               <div class="product-information">
                 <div class="product-top">
@@ -160,16 +159,16 @@
                     type="button"
                   >
                     <i class="fa-regular fa-trash-can"></i>
-                    REMOVE
+                    {{ "REMOVE" | translate }}
                   </button>
                 </div>
                 <h3>{{ product.product.category.name }}</h3>
                 <p class="product-description">
-                  A timeless piece designed to complete your everyday look.
+                  {{ "A timeless piece designed to complete your everyday look." | translate }}
                 </p>
                 <div class="product-meta">
-                  <span>BRAND</span>
-                  <strong>NOVA SELECTION</strong>
+                  <span>{{ "BRAND" | translate }}</span>
+                  <strong>{{ "NOVA SELECTION" | translate }}</strong>
                 </div>
                 <div class="product-bottom">
                   <div class="quantity-control">
@@ -190,7 +189,7 @@
                     </button>
                   </div>
                   <div class="product-price">
-                    <span>ITEM TOTAL</span>
+                    <span>{{ "ITEM TOTAL" | translate }}</span>
                     <strong>EGP {{ product.count * product.price }}</strong>
                   </div>
                 </div>
@@ -199,49 +198,49 @@
           }
           <a routerLink="/shop" class="continue-shopping">
             <i class="fa-solid fa-arrow-left"></i>
-            CONTINUE EXPLORING
+            {{ "CONTINUE EXPLORING" | translate }}
           </a>
         </div>
 
         <!-- RIGHT SIDE -->
         <aside class="order-summary">
           <div class="summary-heading">
-            <span>YOUR ORDER</span>
+            <span>{{ "YOUR ORDER" | translate }}</span>
 
             <i class="fa-solid fa-receipt"></i>
           </div>
 
           <div class="summary-title">
-            <h2>Almost<br /><span>yours.</span></h2>
-            <p>A few details and these pieces are yours.</p>
+            <h2>{{ "Almost" | translate }}<br /><span>{{ "yours." | translate }}</span></h2>
+            <p>{{ "A few details and these pieces are yours." | translate }}</p>
           </div>
 
           <div class="summary-divider"></div>
 
           <div class="summary-row">
-            <span>ITEMS</span>
+            <span>{{ "ITEMS" | translate }}</span>
             <strong>{{ cart.products.length }}</strong>
           </div>
 
           <div class="summary-row">
-            <span>SUBTOTAL</span>
+            <span>{{ "SUBTOTAL" | translate }}</span>
             <strong>EGP {{ cart.totalCartPrice }}</strong>
           </div>
 
           <div class="summary-row">
-            <span>DELIVERY</span>
-            <strong class="delivery-status">CALCULATED NEXT</strong>
+            <span>{{ "DELIVERY" | translate }}</span>
+            <strong class="delivery-status">{{ "CALCULATED NEXT" | translate }}</strong>
           </div>
 
           <div class="summary-divider"></div>
 
           <div class="summary-total">
-            <span>TOTAL</span>
+            <span>{{ "TOTAL" | translate }}</span>
             <strong>EGP {{ cart.totalCartPrice }}</strong>
           </div>
 
           <button [routerLink]="[`/pay`, cart._id]" class="checkout-button" type="button">
-            <span>PROCEED TO CHECKOUT</span>
+            <span>{{ "PROCEED TO CHECKOUT" | translate }}</span>
 
             <span class="checkout-arrow">
               <i class="fa-solid fa-arrow-right"></i>
@@ -250,23 +249,23 @@
 
           <div class="secure-checkout">
             <i class="fa-solid fa-shield-halved"></i>
-            SECURE CHECKOUT EXPERIENCE
+            {{ "SECURE CHECKOUT EXPERIENCE" | translate }}
           </div>
 
           <div class="summary-bottom">
-            <span>NOVA PROMISE</span>
-            <p>Good choices deserve a beautiful experience.</p>
+            <span>{{ "NOVA PROMISE" | translate }}</span>
+            <p>{{ "Good choices deserve a beautiful experience." | translate }}</p>
           </div>
         </aside>
       </section>
 
       <!-- FOOTER -->
       <section class="cart-footer-strip">
-        <span>NOVA / YOUR WORLD</span>
+        <span>{{ "NOVA / YOUR WORLD" | translate }}</span>
 
         <div></div>
 
-        <span>LESS ORDINARY. MORE YOU.</span>
+        <span>{{ "LESS ORDINARY. MORE YOU." | translate }}</span>
       </section>
     </main>
   }
@@ -278,23 +277,23 @@
       <div class="cart-breadcrumb">
         <a routerLink="/home">HOME</a>
         <span>/</span>
-        <span>SHOPPING BAG</span>
+        <span>{{ "SHOPPING BAG" | translate }}</span>
       </div>
 
       <div class="cart-heading">
         <div>
-          <span class="eyebrow">YOUR PERSONAL SELECTION</span>
+          <span class="eyebrow">{{ "YOUR PERSONAL SELECTION" | translate }}</span>
 
           <h1>
-            Shopping<br />
-            <span>bag.</span>
+            {{ "Shopping" | translate }}<br />
+            <span>{{ "bag." | translate }}</span>
           </h1>
         </div>
 
         <div class="cart-header-note">
-          <span>YOUR CART</span>
+          <span>{{ "YOUR CART" | translate }}</span>
           <strong>
-            UNAVAILABLE
+            {{ "UNAVAILABLE" | translate }}
             <i class="fa-solid fa-bag-shopping"></i>
           </strong>
         </div>
@@ -324,26 +323,25 @@
         <span class="art-dot dot-a"></span>
         <span class="art-dot dot-b"></span>
 
-        <span class="art-caption caption-a"> YOUR STYLE AWAITS </span>
+        <span class="art-caption caption-a"> {{ "YOUR STYLE AWAITS" | translate }} </span>
 
-        <span class="art-caption caption-b"> NOVA / 001 </span>
+        <span class="art-caption caption-b"> {{ "NOVA / 001" | translate }} </span>
       </div>
 
       <div class="empty-message">
-        <span class="empty-index"> 01 — SOMETHING WENT MISSING </span>
+        <span class="empty-index"> {{ "01 — SOMETHING WENT MISSING" | translate }} </span>
 
         <h2>
-          Your bag is<br />
-          <span>taking a break.</span>
+          {{ "Your bag is" | translate }}<br />
+          <span>{{ "taking a break." | translate }}</span>
         </h2>
 
         <p>
-          We couldn't retrieve your shopping bag right now. Don't worry, your next favorite piece is
-          still waiting for you. Try exploring our collection again.
+          {{ "We couldn't retrieve your shopping bag right now. Don't worry, your next favorite piece is still waiting for you. Try exploring our collection again." | translate }}
         </p>
 
         <a routerLink="/shop" class="shop-cta">
-          <span>EXPLORE THE COLLECTION</span>
+          <span>{{ "EXPLORE THE COLLECTION" | translate }}</span>
 
           <span class="cta-arrow">
             <i class="fa-solid fa-arrow-right"></i>
@@ -352,18 +350,18 @@
 
         <div class="empty-note">
           <span></span>
-          GOOD THINGS ARE WORTH THE SEARCH.
+          {{ "GOOD THINGS ARE WORTH THE SEARCH." | translate }}
         </div>
       </div>
     </section>
 
     <!-- FOOTER STRIP -->
     <section class="cart-footer-strip">
-      <span>NOVA / YOUR WORLD</span>
+      <span>{{ "NOVA / YOUR WORLD" | translate }}</span>
 
       <div></div>
 
-      <span>LESS ORDINARY. MORE YOU.</span>
+      <span>{{ "LESS ORDINARY. MORE YOU." | translate }}</span>
     </section>
   </main>
 }

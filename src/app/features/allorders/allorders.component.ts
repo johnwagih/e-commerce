@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { CurrencyPipe, DatePipe, isPlatformBrowser } from '@angular/common';
 import { OrdersServiceService } from '../../core/services/OrdersService/orders-service.service';
 import { IAllOrders } from '../../modules/iorder-subcategory.interface';
@@ -6,7 +7,7 @@ import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '
 @Component({
   selector: 'app-all-orders',
   standalone: true,
-  imports: [CurrencyPipe, DatePipe],
+  imports: [CurrencyPipe, DatePipe, TranslatePipe],
   templateUrl: './allorders.component.html',
   styleUrl: './allorders.component.css',
 })

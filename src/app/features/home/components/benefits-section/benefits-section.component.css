@@ -1,7 +1,7 @@
 .store-benefits {
-  background: #ffffff;
-  border-top: 1px solid #e5e4dc;
-  border-bottom: 1px solid #e5e4dc;
+  background: var(--theme-background-ffffff);
+  border-top: 1px solid var(--theme-border-e5e4dc);
+  border-bottom: 1px solid var(--theme-border-e5e4dc);
   padding: 27px 0;
 }
 
@@ -33,7 +33,7 @@
   top: 15%;
   height: 70%;
   width: 1px;
-  background: #e5e4dc;
+  background: var(--theme-background-e5e4dc);
 }
 
 .benefit-item:hover {
@@ -49,8 +49,8 @@
   align-items: center;
   justify-content: center;
 
-  background: #f5f4ef;
-  color: #193c35;
+  background: var(--theme-background-f5f4ef);
+  color: var(--theme-text-193c35);
 
   border-radius: 50%;
   font-size: 18px;
@@ -63,13 +63,13 @@
 
 .benefit-item:hover .benefit-icon {
   background: #c6f36a;
-  color: #171916;
+  color: var(--theme-text-171916);
   transform: rotate(-8deg) scale(1.08);
 }
 
 .benefit-content h3 {
   margin: 0;
-  color: #171916;
+  color: var(--theme-text-171916);
 
   font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
@@ -78,7 +78,7 @@
 
 .benefit-content p {
   margin: 5px 0 0;
-  color: #77796f;
+  color: var(--theme-text-77796f);
 
   font-size: 11px;
   line-height: 1.5;

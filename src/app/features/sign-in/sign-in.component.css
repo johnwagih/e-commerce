@@ -152,7 +152,7 @@
 
   gap: 12px;
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 9px;
 
@@ -240,7 +240,7 @@
 
   gap: 10px;
 
-  color: #788278;
+  color: var(--theme-text-788278);
 
   font-size: 9px;
 
@@ -1145,7 +1145,7 @@
 
   gap: 9px;
 
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   font-size: 9px;
 
@@ -1279,7 +1279,7 @@
 
   background: rgba(215, 243, 107, 0.22);
 
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   font-size: 17px;
 
@@ -1295,7 +1295,7 @@
 }
 
 .card-eyebrow {
-  color: #788278;
+  color: var(--theme-text-788278);
 
   font-size: 9px;
 
@@ -1307,7 +1307,7 @@
 .card-header h2 {
   margin: 14px 0 10px;
 
-  color: #202521;
+  color: var(--theme-text-202521);
 
   font-family: 'Space Grotesk', sans-serif;
 
@@ -1321,13 +1321,13 @@
 }
 
 .card-header h2 span {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 }
 
 .card-header p {
   margin: 0;
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 11px;
 
@@ -1400,9 +1400,9 @@
 
   outline: none;
 
-  background: #ffffff;
+  background: var(--theme-background-ffffff);
 
-  color: #202521;
+  color: var(--theme-text-202521);
 
   font-family: inherit;
 
@@ -1434,13 +1434,13 @@
 .input-wrapper input.input-invalid:focus {
   border-color: #b85c57;
 
-  background: #fff5f3;
+  background: var(--theme-background-fff5f3);
 
   box-shadow: 0 0 0 3px rgba(220, 104, 96, 0.1);
 }
 
 .input-wrapper:focus-within > i:first-child {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 }
 
 /* Password Label */
@@ -1454,7 +1454,7 @@
 }
 
 .password-label a {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   font-size: 9px;
 
@@ -1464,7 +1464,7 @@
 }
 
 .password-label a:hover {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 }
 
 /* Password Toggle */
@@ -1498,7 +1498,7 @@
 }
 
 .password-toggle:hover {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   transform: scale(1.12);
 }
@@ -1588,7 +1588,7 @@
 
   gap: 10px;
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 10px;
 
@@ -1614,7 +1614,7 @@
 
   border-radius: 4px;
 
-  background: #ffffff;
+  background: var(--theme-background-ffffff);
 
   transition: all 0.3s ease;
 }
@@ -1768,7 +1768,7 @@
 
   margin-top: 18px;
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 10px;
 }
@@ -1780,7 +1780,7 @@
 
   gap: 5px;
 
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   font-weight: 700;
 
@@ -1792,7 +1792,7 @@
 }
 
 .register-prompt a:hover {
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   gap: 9px;
 }
@@ -1812,9 +1812,9 @@
 
   padding-top: 14px;
 
-  border-top: 1px solid #e4e5dc;
+  border-top: 1px solid var(--theme-border-e4e5dc);
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 8px;
 
@@ -1846,9 +1846,9 @@
 
   padding-top: 14px;
 
-  border-top: 1px solid #e4e5dc;
+  border-top: 1px solid var(--theme-border-e4e5dc);
 
-  color: #858a82;
+  color: var(--theme-text-858a82);
 
   font-size: 8px;
 

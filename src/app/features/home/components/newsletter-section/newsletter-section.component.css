@@ -133,7 +133,7 @@
   border: none;
 
   background: #c6f36a;
-  color: #171916;
+  color: var(--theme-text-171916);
 
   font-size: 12px;
   font-weight: 800;
@@ -148,7 +148,7 @@
 }
 
 .newsletter-submit:hover {
-  background: #ffffff;
+  background: var(--theme-background-ffffff);
   transform: translateY(-3px);
   gap: 22px;
 }
@@ -180,7 +180,7 @@
   height: 440px;
   margin-left: auto;
   overflow: hidden;
-  background: #e5e4dc;
+  background: var(--theme-background-e5e4dc);
 }
 
 .newsletter-image img {
@@ -207,7 +207,7 @@
   height: 125px;
 
   background: #c6f36a;
-  color: #193c35;
+  color: var(--theme-text-193c35);
 
   border-radius: 50%;
 

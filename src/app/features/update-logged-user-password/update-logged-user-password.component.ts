@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-logged-user-password',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, TranslatePipe],
   templateUrl: './update-logged-user-password.component.html',
   styleUrl: './update-logged-user-password.component.css',
 })

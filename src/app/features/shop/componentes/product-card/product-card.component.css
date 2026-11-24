@@ -4,8 +4,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
-  border: 1px solid #e5e4dc;
+  background-color: var(--theme-background-ffffff);
+  border: 1px solid var(--theme-border-e5e4dc);
   border-radius: 14px;
   overflow: hidden;
   transition:
@@ -24,7 +24,7 @@
   position: relative;
   height: 310px;
   overflow: hidden;
-  background-color: #ecebe5;
+  background-color: var(--theme-background-ecebe5);
 }
 
 .product-image {
@@ -46,7 +46,7 @@
   left: 14px;
   padding: 7px 11px;
   background-color: #c6f36a;
-  color: #171916;
+  color: var(--theme-text-171916);
   border-radius: 4px;
   font-size: 10px;
   font-weight: 800;
@@ -65,8 +65,8 @@
   place-items: center;
   border: none;
   border-radius: 50%;
-  background-color: #ffffff;
-  color: #171916;
+  background-color: var(--theme-background-ffffff);
+  color: var(--theme-text-171916);
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -91,8 +91,8 @@
   padding: 13px;
   border: none;
   border-radius: 6px;
-  background-color: #ffffff;
-  color: #171916;
+  background-color: var(--theme-background-ffffff);
+  color: var(--theme-text-171916);
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -120,7 +120,7 @@
 }
 
 .product-category {
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
@@ -129,7 +129,7 @@
 
 .product-name {
   margin: 9px 0 12px;
-  color: #171916;
+  color: var(--theme-text-171916);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -145,7 +145,7 @@
   height: 4.5em;
   margin: 0 0 14px;
   overflow: hidden;
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 12px;
   line-height: 1.5;
   display: -webkit-box;
@@ -166,7 +166,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #171916;
+  color: var(--theme-text-171916);
   font-size: 12px;
   font-weight: 700;
 }
@@ -177,7 +177,7 @@
 }
 
 .review-count {
-  color: #92948a;
+  color: var(--theme-text-92948a);
   font-size: 11px;
 }
 
@@ -193,20 +193,20 @@
 }
 
 .current-price {
-  color: #171916;
+  color: var(--theme-text-171916);
   font-size: 15px;
   font-weight: 800;
 }
 
 .old-price {
-  color: #92948a;
+  color: var(--theme-text-92948a);
   font-size: 12px;
   text-decoration: line-through;
 }
 
 .discount {
   padding: 4px 6px;
-  background-color: #f0f6e5;
+  background-color: var(--theme-background-f0f6e5);
   color: #55712b;
   border-radius: 4px;
   font-size: 10px;
@@ -235,7 +235,7 @@
 .add-to-cart-btn:hover {
   border-color: #c6f36a;
   background-color: #c6f36a;
-  color: #171916;
+  color: var(--theme-text-171916);
 }
 /* lay out grid  */
 /* Products Grid */

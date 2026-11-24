@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { AbstractControl, FormControl, FormGroup, FormGroupName, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
@@ -7,7 +8,7 @@ import { sign } from 'crypto';
 
 @Component({
   selector: 'app-forgot-password',
-  imports: [RouterLink, ReactiveFormsModule,],
+  imports: [RouterLink, ReactiveFormsModule, TranslatePipe],
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css',
 })

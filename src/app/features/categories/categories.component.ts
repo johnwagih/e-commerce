@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { CategoriesServiceService } from './../../core/services/categoriesService/categories-service.service';
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { CategoriesSectionComponent } from '../home/components/categories-section/categories-section.component';
@@ -6,7 +7,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })

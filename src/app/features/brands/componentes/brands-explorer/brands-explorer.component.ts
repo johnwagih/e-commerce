@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../../../core/i18n/translate.pipe';
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { IBrands } from '../../../../modules/ibrands.interface';
@@ -7,7 +8,7 @@ import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-brands-explorer',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './brands-explorer.component.html',
   styleUrl: './brands-explorer.component.css'
 })

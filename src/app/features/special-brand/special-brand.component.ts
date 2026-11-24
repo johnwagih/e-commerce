@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { BrandsService } from '../../core/services/brabdService/brands.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -11,7 +12,7 @@ import { Iproduct } from '../../modules/iproduct.interface';
 
 @Component({
   selector: 'app-special-brand',
-  imports: [CurrencyPipe, RouterLink],
+  imports: [CurrencyPipe, RouterLink, TranslatePipe],
   templateUrl: './special-brand.component.html',
   styleUrl: './special-brand.component.css',
 })

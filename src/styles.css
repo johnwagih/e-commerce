@@ -1,10 +1,413 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
 @import 'flowbite/src/themes/default';
 @plugin "flowbite/plugin";
 @source "../node_modules/flowbite";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root {
+  color-scheme: light;
+  --theme-page: #f5f4ef;
+  --theme-page-soft: #fafaf7;
+  --theme-surface: #ffffff;
+  --theme-surface-soft: #f6f4ee;
+  --theme-surface-low: #e5e4dc;
+  --theme-text-strong: #171916;
+  --theme-text: #202521;
+  --theme-heading: #193c35;
+  --theme-muted: #858a82;
+  --theme-muted-strong: #77796f;
+  --theme-quiet: #92938a;
+  --theme-border: #e4e5dc;
+  --theme-border-light: #e5e4dc;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --theme-page: #101512;
+  --theme-page-soft: #151b17;
+  --theme-surface: #1a211c;
+  --theme-surface-soft: #202822;
+  --theme-surface-low: #283129;
+  --theme-text-strong: #f3f5ef;
+  --theme-text: #e7ece5;
+  --theme-heading: #d7f36b;
+  --theme-muted: #a6b0a5;
+  --theme-muted-strong: #b2bbb0;
+  --theme-quiet: #96a196;
+  --theme-border: #354139;
+  --theme-border-light: #303a33;
+}
+
+:root[data-theme='dark'] app-navbar {
+  --nova-bg: var(--theme-page);
+  --nova-white: var(--theme-surface);
+  --nova-black: var(--theme-text-strong);
+  --nova-muted: var(--theme-muted);
+  --nova-border: var(--theme-border);
+  --nova-accent: #c6f36a;
+}
+
+:root[data-theme='dark'] app-navbar .announcement-bar {
+  background: #111713;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] app-navbar .account-button {
+  background: #d7f36b;
+  border-color: #d7f36b;
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-navbar .account-button:hover,
+:root[data-theme='dark'] app-navbar .create-account-button:hover {
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-navbar .cart-count {
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-navbar .mobile-menu summary {
+  background: #193c35;
+  color: #d7f36b;
+}
+
+:root[data-theme='dark'] app-navbar .theme-toggle {
+  border-color: #465349;
+  background: #202822;
+  color: #d7f36b;
+}
+
+:root[data-theme='dark'] app-navbar .theme-toggle:hover {
+  border-color: #d7f36b;
+  background: #2c382e;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] .signin-page {
+  --bg: #101512;
+  --surface: #1a211c;
+  --text: #f3f5ef;
+  --muted: #a6b0a5;
+}
+
+:root[data-theme='dark'] .wishlist-page {
+  --bg: #101512;
+  --card: #1a211c;
+  --green: #d7f36b;
+  --text: #e7ece5;
+  --muted: #a6b0a5;
+  --border: #354139;
+  --soft: #202822;
+}
+
+:root[data-theme='dark'] app-register {
+  --ivory: #101512;
+  --white: #1a211c;
+  --black: #f3f5ef;
+  --gray: #a6b0a5;
+  --light-gray: #8f9a8e;
+  --border: #354139;
+}
+
+:root[data-theme='dark'] app-register .register-button {
+  background: #d7f36b;
+  border-color: #d7f36b;
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-register .register-button:hover {
+  color: #171916;
+}
+
+/* Keep form controls readable in dark mode without changing page animations. */
+:root[data-theme='dark'] .signin-card {
+  background: rgba(26, 33, 28, 0.96);
+  border-color: #354139;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:root[data-theme='dark'] .signin-card .input-group label,
+:root[data-theme='dark'] .signin-card .password-label label,
+:root[data-theme='dark'] .signin-card .remember-label {
+  color: #c3cbc1;
+}
+
+:root[data-theme='dark'] .signin-card .input-wrapper input {
+  background: #151b17;
+  border-color: #465349;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] .signin-card .input-wrapper input::placeholder {
+  color: #a6b0a5;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] .signin-card .input-wrapper input:focus {
+  background: #202822;
+  border-color: #d7f36b;
+  box-shadow: 0 0 0 4px rgba(215, 243, 107, 0.12);
+}
+
+:root[data-theme='dark'] .signin-card .input-wrapper > i:first-child,
+:root[data-theme='dark'] .signin-card .password-toggle {
+  color: #a6b0a5;
+}
+
+:root[data-theme='dark'] .signin-card .password-toggle:hover,
+:root[data-theme='dark'] .signin-card .password-label a:hover {
+  color: #d7f36b;
+}
+
+:root[data-theme='dark'] app-register .form-group input {
+  background: #151b17;
+  border-color: #465349;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] app-register .form-group input::placeholder {
+  color: #a6b0a5;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] app-register .form-group input:hover {
+  border-color: #84917f;
+}
+
+:root[data-theme='dark'] app-register .form-group input:focus {
+  background: #202822;
+  border-color: #d7f36b;
+}
+
+:root[data-theme='dark'] app-register .input-icon-field > i,
+:root[data-theme='dark'] app-register .password-field > i,
+:root[data-theme='dark'] app-register .password-toggle {
+  color: #a6b0a5;
+}
+
+:root[data-theme='dark'] app-register .password-toggle:hover,
+:root[data-theme='dark'] app-register .terms-row a:hover,
+:root[data-theme='dark'] app-register .form-topbar a:hover {
+  color: #d7f36b;
+}
+
+:root[data-theme='dark'] app-register .validation-message {
+  background: rgba(248, 113, 113, 0.12);
+  border-left-color: #f87171;
+  color: #fecaca;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .password-card {
+  background: rgba(26, 33, 28, 0.96);
+  border-color: #354139;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .input-wrapper:focus-within {
+  border-color: #d7f36b;
+  background: #202822;
+  box-shadow: 0 0 0 4px rgba(215, 243, 107, 0.12);
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .input-wrapper input::placeholder {
+  color: #a6b0a5;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .field-success,
+:root[data-theme='dark'] app-update-logged-user-password .success-icon,
+:root[data-theme='dark'] app-update-logged-user-password .success-message h3 {
+  color: #86efac;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .success-message {
+  border-color: #31583c;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .success-message p {
+  color: #c3cbc1;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .error-alert {
+  border-color: #713b39;
+  color: #fecaca;
+}
+
+:root[data-theme='dark'] app-update-logged-user-password .password-requirements {
+  border-color: #354139;
+}
+
+/* Bright accent hover surfaces need a dark foreground in the dark theme. */
+:root[data-theme='dark'] .add-to-cart-btn:hover,
+:root[data-theme='dark'] .quick-add-btn:hover,
+:root[data-theme='dark'] .wishlist-btn:hover {
+  color: #171916;
+}
+
+:root[data-theme='dark'] [class~='hover:bg-[#D7F36B]']:hover,
+:root[data-theme='dark'] [class~='hover:bg-[#c6f36a]']:hover {
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-contact form input,
+:root[data-theme='dark'] app-contact form textarea,
+:root[data-theme='dark'] app-pay form input,
+:root[data-theme='dark'] app-pay form textarea {
+  background-color: #151b17;
+  border-color: #465349;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] app-navbar .search-box input,
+:root[data-theme='dark'] app-home .newsletter-form input {
+  background-color: #151b17;
+  border-color: #465349;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] app-navbar .search-box input::placeholder,
+:root[data-theme='dark'] app-home .newsletter-form input::placeholder {
+  color: #a6b0a5;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] app-contact form input::placeholder,
+:root[data-theme='dark'] app-contact form textarea::placeholder,
+:root[data-theme='dark'] app-pay form input::placeholder,
+:root[data-theme='dark'] app-pay form textarea::placeholder {
+  color: #a6b0a5;
+  opacity: 1;
+}
+
+:root[data-theme='dark'] app-contact form input:focus,
+:root[data-theme='dark'] app-contact form textarea:focus,
+:root[data-theme='dark'] app-pay form input:focus,
+:root[data-theme='dark'] app-pay form textarea:focus {
+  background-color: #202822;
+  border-color: #d7f36b;
+  outline-color: #d7f36b;
+}
+
+:root[data-theme='dark'] [class~='bg-white'],
+:root[data-theme='dark'] [class~='bg-white/90'],
+:root[data-theme='dark'] [class~='bg-white/70'] {
+  background-color: var(--theme-surface);
+}
+
+:root[data-theme='dark'] [class~='bg-gray-50'],
+:root[data-theme='dark'] [class~='bg-[#FAFAF7]'] {
+  background-color: var(--theme-page-soft);
+}
+
+:root[data-theme='dark'] [class~='bg-[#F6F4EE]'],
+:root[data-theme='dark'] [class~='bg-[#F0F1EB]'],
+:root[data-theme='dark'] [class~='bg-[#F0F0E9]'] {
+  background-color: var(--theme-surface-soft);
+}
+
+:root[data-theme='dark'] [class~='bg-[#E4E5DC]'] {
+  background-color: var(--theme-surface-low);
+}
+
+:root[data-theme='dark'] [class~='text-[#193C35]'] {
+  color: var(--theme-heading);
+}
+
+:root[data-theme='dark'] [class~='text-[#202521]'],
+:root[data-theme='dark'] [class~='text-black'] {
+  color: var(--theme-text-strong);
+}
+
+:root[data-theme='dark'] [class~='text-[#858A82]'],
+:root[data-theme='dark'] [class~='text-[#A0A49D]'],
+:root[data-theme='dark'] [class~='text-[#A5AAA2]'],
+:root[data-theme='dark'] [class~='text-gray-400'],
+:root[data-theme='dark'] [class~='text-gray-500'],
+:root[data-theme='dark'] [class~='text-gray-800'] {
+  color: var(--theme-muted);
+}
+
+:root[data-theme='dark'] [class~='border-[#E4E5DC]'],
+:root[data-theme='dark'] [class~='border-gray-200'] {
+  border-color: var(--theme-border);
+}
+
+:root[data-theme='dark'] [class~='border-[#193C35]'] {
+  border-color: #70806e;
+}
+
+:root[data-theme='dark'] [class~='bg-green-50'] {
+  background-color: #13291b;
+}
+
+:root[data-theme='dark'] [class~='bg-amber-50'] {
+  background-color: #2c2415;
+}
+
+:root[data-theme='dark'] [class~='border-green-100'] {
+  border-color: #245331;
+}
+
+:root[data-theme='dark'] [class~='border-amber-100'] {
+  border-color: #665021;
+}
+
+:root[data-theme='dark'] [class~='text-green-600'],
+:root[data-theme='dark'] [class~='text-green-700'] {
+  color: #86efac;
+}
+
+:root[data-theme='dark'] [class~='text-amber-700'] {
+  color: #fcd34d;
+}
+
+:root[data-theme='dark'] [class~='text-red-500'] {
+  color: #f87171;
+}
+
+:root[data-theme='dark'] [class~='hover:bg-[#FAFAF7]']:hover,
+:root[data-theme='dark'] [class~='hover:bg-gray-50']:hover {
+  background-color: var(--theme-surface-soft);
+}
+
+:root[data-theme='dark'] [class~='hover:bg-white']:hover {
+  background-color: var(--theme-surface);
+}
+
+:root[data-theme='dark'] [class~='hover:text-[#193C35]']:hover,
+:root[data-theme='dark'] [class~='hover:text-[#657A37]']:hover {
+  color: var(--theme-heading);
+}
+
+:root[data-theme='dark'] [class~='ring-[#193C35]/5'] {
+  --tw-ring-color: rgb(215 243 107 / 0.16);
+}
+
+html[dir='rtl'] body {
+  direction: rtl;
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+html[dir='rtl'] .nova-loader {
+  direction: ltr;
+}
+
+html[dir='rtl'] :is(
+  .nova-logo,
+  .nova-logo-3d,
+  .footer-logo,
+  .footer-brand-art,
+  .brand-logo,
+  .mobile-logo,
+  .lamp-brand
+) {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
 /* Temporary Global Transition Test */
 
 
@@ -22,6 +425,8 @@
 .site-container {
   width: min(100% - 40px, 1280px);
   margin-inline: auto;
+  box-sizing: border-box;
+  padding-block-end: clamp(2.5rem, 5vw, 4rem);
 }
 .nova-loader {
   position: relative;
@@ -76,13 +481,17 @@
 .nova-logo-3d {
   position: relative;
   z-index: 5;
+  direction: ltr;
+  unicode-bidi: isolate;
 
   display: flex;
+  flex-direction: row;
   align-items: center;
 
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 62px;
   font-weight: 800;
-  letter-spacing: -6px;
+  letter-spacing: -3.5px;
 
   color: #171916;
 
@@ -275,4 +684,164 @@
   .nova-loader * {
     animation: none !important;
   }
+}
+
+/* Neutral color tokens for the dark theme; component metrics remain unchanged. */
+:root {
+  --theme-text-85867c: #85867c;
+  --theme-text-171916: #171916;
+  --theme-text-a5a69e: #a5a69e;
+  --theme-text-92938b: #92938b;
+  --theme-text-77796f: #77796f;
+  --theme-text-a0a197: #a0a197;
+  --theme-text-202521: #202521;
+  --theme-text-92958d: #92958d;
+  --theme-text-193c35: #193c35;
+  --theme-text-89958c: #89958c;
+  --theme-text-879188: #879188;
+  --theme-text-78867c: #78867c;
+  --theme-text-a1aaa2: #a1aaa2;
+  --theme-text-849187: #849187;
+  --theme-text-999b91: #999b91;
+  --theme-text-92948a: #92948a;
+  --theme-text-a3a399: #a3a399;
+  --theme-text-55574f: #55574f;
+  --theme-text-858a82: #858a82;
+  --theme-text-92938a: #92938a;
+  --theme-text-85877b: #85877b;
+  --theme-text-99998e: #99998e;
+  --theme-text-788278: #788278;
+  --theme-background-faf9f5: #faf9f5;
+  --theme-background-ffffff: #ffffff;
+  --theme-background-f5f4ef: #f5f4ef;
+  --theme-background-faf9f6: #faf9f6;
+  --theme-background-e4e5dc: #e4e5dc;
+  --theme-background-eeeee8: #eeeee8;
+  --theme-background-e5e4dc: #e5e4dc;
+  --theme-background-e9e8e1: #e9e8e1;
+  --theme-background-f1f7e4: #f1f7e4;
+  --theme-background-f7f7f3: #f7f7f3;
+  --theme-background-f4f5ed: #f4f5ed;
+  --theme-background-f6f8f1: #f6f8f1;
+  --theme-background-fff: #fff;
+  --theme-background-f5f7f0: #f5f7f0;
+  --theme-background-eae9e1: #eae9e1;
+  --theme-background-eaeae1: #eaeae1;
+  --theme-background-f0f0e9: #f0f0e9;
+  --theme-background-fffafa: #fffafa;
+  --theme-background-ecebe5: #ecebe5;
+  --theme-background-f0f6e5: #f0f6e5;
+  --theme-background-fff5f3: #fff5f3;
+  --theme-background-fafaf7: #fafaf7;
+  --theme-background-f2faf3: #f2faf3;
+  --theme-background-e0f2e2: #e0f2e2;
+  --theme-background-fff6f6: #fff6f6;
+  --theme-background-f8f9f5: #f8f9f5;
+  --theme-background-f3f3ed: #f3f3ed;
+  --theme-background-f0f3e5: #f0f3e5;
+  --theme-border-e5e4dc: #e5e4dc;
+  --theme-border-e4e5dc: #e4e5dc;
+  --theme-border-c4c9bc: #c4c9bc;
+}
+
+:root[data-theme=dark] {
+  --theme-text-85867c: #a6b0a5;
+  --theme-text-171916: #f3f5ef;
+  --theme-text-a5a69e: #a6b0a5;
+  --theme-text-92938b: #96a196;
+  --theme-text-77796f: #a6b0a5;
+  --theme-text-a0a197: #a6b0a5;
+  --theme-text-202521: #e7ece5;
+  --theme-text-92958d: #96a196;
+  --theme-text-193c35: #d7f36b;
+  --theme-text-89958c: #a6b0a5;
+  --theme-text-879188: #a6b0a5;
+  --theme-text-78867c: #a6b0a5;
+  --theme-text-a1aaa2: #a6b0a5;
+  --theme-text-849187: #a6b0a5;
+  --theme-text-999b91: #a6b0a5;
+  --theme-text-92948a: #96a196;
+  --theme-text-a3a399: #a6b0a5;
+  --theme-text-55574f: #c3cbc1;
+  --theme-text-858a82: #a6b0a5;
+  --theme-text-92938a: #96a196;
+  --theme-text-85877b: #a6b0a5;
+  --theme-text-99998e: #a6b0a5;
+  --theme-text-788278: #a6b0a5;
+  --theme-background-faf9f5: #151b17;
+  --theme-background-ffffff: #1a211c;
+  --theme-background-f5f4ef: #101512;
+  --theme-background-faf9f6: #151b17;
+  --theme-background-e4e5dc: #283129;
+  --theme-background-eeeee8: #242d26;
+  --theme-background-e5e4dc: #283129;
+  --theme-background-e9e8e1: #242d26;
+  --theme-background-f1f7e4: #202822;
+  --theme-background-f7f7f3: #202822;
+  --theme-background-f4f5ed: #202822;
+  --theme-background-f6f8f1: #202822;
+  --theme-background-fff: #1a211c;
+  --theme-background-f5f7f0: #202822;
+  --theme-background-eae9e1: #242d26;
+  --theme-background-eaeae1: #242d26;
+  --theme-background-f0f0e9: #202822;
+  --theme-background-fffafa: #321d1b;
+  --theme-background-ecebe5: #242d26;
+  --theme-background-f0f6e5: #202822;
+  --theme-background-fff5f3: #321d1b;
+  --theme-background-fafaf7: #151b17;
+  --theme-background-f2faf3: #1b2d20;
+  --theme-background-e0f2e2: #203326;
+  --theme-background-fff6f6: #321d1b;
+  --theme-background-f8f9f5: #202822;
+  --theme-background-f3f3ed: #202822;
+  --theme-background-f0f3e5: #202822;
+  --theme-border-e5e4dc: #303a33;
+  --theme-border-e4e5dc: #354139;
+  --theme-border-c4c9bc: #536052;
+}
+
+html[data-theme='dark'],
+html[data-theme='dark'] body,
+html[data-theme='dark'] app-root {
+  background-color: var(--theme-page);
+  color: var(--theme-text);
+}
+
+html[data-theme='dark'] input,
+html[data-theme='dark'] textarea,
+html[data-theme='dark'] select {
+  color-scheme: dark;
+}
+
+html[data-theme='dark'] app-navbar .nav-icon:hover {
+  color: #d7f36b;
+}
+
+html[data-theme='dark'] app-navbar .search-box:focus-within {
+  border-color: #d7f36b;
+}
+
+html[data-theme='dark'] app-navbar .account-button {
+  background-color: #d7f36b;
+  border-color: #d7f36b;
+  color: #171916;
+}
+
+html[data-theme='dark'] app-navbar .account-button:hover,
+html[data-theme='dark'] app-navbar .create-account-button:hover {
+  color: #171916;
+}
+
+html[data-theme='dark'] app-navbar .cart-count,
+html[data-theme='dark'] [class~='bg-[#D7F36B]'][class~='text-[#193C35]'] {
+  color: #171916;
+}
+
+html[data-theme='dark'] .deal-tag,
+html[data-theme='dark'] .product-badge,
+html[data-theme='dark'] .benefit-item:hover .benefit-icon,
+html[data-theme='dark'] .quick-add-btn:hover,
+html[data-theme='dark'] .wishlist-btn:hover {
+  color: #171916;
 }

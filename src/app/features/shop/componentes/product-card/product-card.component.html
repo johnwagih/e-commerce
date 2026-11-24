@@ -16,7 +16,7 @@
 
           <!-- More Details -->
           <button [routerLink]="[`/Product-Detailes`, item.id]" class="quick-add-btn">
-            More Details
+            {{ "More Details" | translate }}
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </button>
         </div>
@@ -45,7 +45,7 @@
           <!-- Add to Cart -->
           <button (click)="addToCart(item._id)" class="add-to-cart-btn">
             <i class="fa-solid fa-bag-shopping"></i>
-            Add to Cart
+            {{ "Add to Cart" | translate }}
           </button>
         </div>
       </article>
@@ -73,23 +73,22 @@
     </div>
 
     <span class="mb-4 text-[10px] font-bold uppercase tracking-[0.35em] text-[#858A82]">
-      NOVA / THE COLLECTION
+      {{ "NOVA / THE COLLECTION" | translate }}
     </span>
 
     <h2 class="text-3xl font-semibold tracking-tight text-[#202521] sm:text-5xl">
-      Nothing here
-      <span class="text-[#193C35]">yet.</span>
+      {{ "Nothing here" | translate }}
+      <span class="text-[#193C35]">{{ "yet." | translate }}</span>
     </h2>
 
     <p class="mt-5 max-w-md text-sm leading-7 text-[#858A82]">
-      Something exciting is on its way. Our collection is getting ready, so stay tuned for what's
-      next.
+      {{ "Something exciting is on its way. Our collection is getting ready, so stay tuned for what's next." | translate }}
     </p>
 
     <div class="mt-9 flex items-center gap-3">
       <span class="h-px w-8 bg-[#193C35]"></span>
       <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#193C35]">
-        FIND YOUR NEXT FAVORITE
+        {{ "FIND YOUR NEXT FAVORITE" | translate }}
       </span>
       <span class="h-px w-8 bg-[#193C35]"></span>
     </div>

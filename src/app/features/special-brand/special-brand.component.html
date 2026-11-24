@@ -29,7 +29,7 @@
             >
               <span class="w-2 h-2 rounded-full bg-[#D7F36B]"></span>
               <span class="text-[#D7F36B] text-[10px] font-bold tracking-[0.25em] uppercase">
-                Official Brand Collection
+                {{ "Official Brand Collection" | translate }}
               </span>
             </div>
 
@@ -47,14 +47,14 @@
                 <p class="text-[#D7F36B] text-3xl font-bold">
                   {{ specialBrandList().length }}
                 </p>
-                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">Products</p>
+                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">{{ "Products" | translate }}</p>
               </div>
 
               <div class="w-px h-12 bg-white/20"></div>
 
               <div>
-                <p class="text-white text-lg font-semibold">Premium</p>
-                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">Selection</p>
+                <p class="text-white text-lg font-semibold">{{ "Premium" | translate }}</p>
+                <p class="text-white/50 text-xs mt-1 uppercase tracking-wider">{{ "Selection" | translate }}</p>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             <div
               class="absolute bottom-8 right-8 md:right-14 bg-[#D7F36B] text-[#193C35] px-5 py-3 rounded-2xl shadow-xl"
             >
-              <span class="text-xs font-bold tracking-wider"> NOVA EXCLUSIVE </span>
+              <span class="text-xs font-bold tracking-wider"> {{ "NOVA EXCLUSIVE" | translate }} </span>
             </div>
           </div>
         </div>
@@ -94,12 +94,12 @@
             <div class="flex items-center gap-2 mb-3">
               <span class="w-8 h-[2px] bg-[#193C35]"></span>
               <span class="text-[#858A82] text-[10px] font-bold tracking-[0.3em] uppercase">
-                Curated Collection
+                {{ "Curated Collection" | translate }}
               </span>
             </div>
 
             <h2 class="text-3xl md:text-4xl font-bold text-[#193C35] tracking-tight">
-              Discover Products<span class="text-[#B8D94F]">.</span>
+              {{ "Discover Products" | translate }}<span class="text-[#B8D94F]">.</span>
             </h2>
 
             <p class="text-[#858A82] text-sm mt-3">
@@ -170,7 +170,7 @@
                     type="button"
                     class="w-full bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wider hover:bg-[#D7F36B] hover:text-[#193C35] transition-colors duration-300"
                   >
-                    VIEW PRODUCT
+                    {{ "VIEW PRODUCT" | translate }}
                     <i class="fa-solid fa-arrow-right ml-2"></i>
                   </button>
                 </div>
@@ -190,11 +190,11 @@
                       class="flex items-center gap-1.5 text-[9px] font-bold text-green-700 whitespace-nowrap"
                     >
                       <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                      IN STOCK
+                      {{ "IN STOCK" | translate }}
                     </span>
                   } @else {
                     <span class="text-[9px] font-bold text-red-500 whitespace-nowrap">
-                      OUT OF STOCK
+                      {{ "OUT OF STOCK" | translate }}
                     </span>
                   }
                 </div>
@@ -208,7 +208,7 @@
                 <!-- Price & Sold -->
                 <div class="mt-5 pt-4 border-t border-[#E4E5DC] flex items-end justify-between">
                   <div>
-                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">Price</p>
+                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">{{ "Price" | translate }}</p>
 
                     <p class="text-[#193C35] text-xl font-bold">
                       {{ product.price | currency: 'EGP ' }}
@@ -216,7 +216,7 @@
                   </div>
 
                   <div class="text-right">
-                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">Sold</p>
+                    <p class="text-[9px] text-[#858A82] uppercase tracking-[0.15em] mb-1">{{ "Sold" | translate }}</p>
 
                     <p class="text-[#202521] text-sm font-semibold">
                       {{ product.sold }}
@@ -231,7 +231,7 @@
                   class="w-full mt-5 flex items-center justify-center gap-2 bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wide hover:bg-[#D7F36B] hover:text-[#193C35] active:scale-[0.98] transition-all duration-300"
                 >
                   <i class="fa-solid fa-cart-shopping"></i>
-                  ADD TO CART
+                  {{ "ADD TO CART" | translate }}
                 </button>
               </div>
             </article>
@@ -265,31 +265,30 @@
         </div>
 
         <span class="text-[10px] font-bold uppercase tracking-[0.35em] text-[#D7F36B]">
-          NOVA / BRAND EXPERIENCE
+          {{ "NOVA / BRAND EXPERIENCE" | translate }}
         </span>
 
         <h2 class="mt-7 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
-          Something
-          <span class="text-[#D7F36B]">is coming.</span>
+          {{ "Something" | translate }}
+          <span class="text-[#D7F36B]">{{ "is coming." | translate }}</span>
         </h2>
 
         <p class="mx-auto mt-6 max-w-md text-sm leading-8 text-white/65 sm:text-base">
-          We're preparing something special for you. Our brand collection will be available soon.
-          Stay tuned for what's next.
+          {{ "We're preparing something special for you. Our brand collection will be available soon. Stay tuned for what's next." | translate }}
         </p>
 
         <div class="mx-auto mt-10 flex max-w-xs items-center justify-center gap-3">
           <span class="h-px flex-1 bg-white/20"></span>
 
           <span class="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D7F36B]">
-            COMING SOON
+            {{ "COMING SOON" | translate }}
           </span>
 
           <span class="h-px flex-1 bg-white/20"></span>
         </div>
 
         <div class="mt-12 text-xs font-medium tracking-[0.2em] text-white/40">
-          NOVA<span class="text-[#D7F36B]">.</span> YOUR WORLD. YOUR CHOICE.
+          NOVA<span class="text-[#D7F36B]">.</span> {{ "YOUR WORLD. YOUR CHOICE." | translate }}
         </div>
       </div>
     </div>

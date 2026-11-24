@@ -1,3 +1,4 @@
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { CategoriesSectionComponent } from '../home/components/categories-section/categories-section.component';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -12,7 +13,7 @@ import { CartServiceService } from '../../core/services/cartServices/cart-servic
 
 @Component({
   selector: 'app-special-categories',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './special-categories.component.html',
   styleUrl: './special-categories.component.css',
 })

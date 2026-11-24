@@ -5,35 +5,35 @@
       <div class="hero-top">
         <div class="hero-brand">
           <span class="brand-mark">N.</span>
-          <span>NOVA / PERSONAL SPACE</span>
+          <span>{{ "NOVA / PERSONAL SPACE" | translate }}</span>
         </div>
 
         <span class="hero-status">
           <span class="status-dot"></span>
-          YOUR SAVED COLLECTION
+          {{ "YOUR SAVED COLLECTION" | translate }}
         </span>
       </div>
 
       <div class="hero-content">
         <div class="hero-text">
-          <span class="hero-eyebrow">YOUR PERSONAL SELECTION</span>
+          <span class="hero-eyebrow">{{ "YOUR PERSONAL SELECTION" | translate }}</span>
 
           <h1>
-            Things worth<br />
-            <span>keeping.</span>
+            {{ "Things worth" | translate }}<br />
+            <span>{{ "keeping." | translate }}</span>
           </h1>
 
           <p>
-            A collection of products that caught your attention. Your favorites, all in one place.
+            {{ "A collection of products that caught your attention. Your favorites, all in one place." | translate }}
           </p>
         </div>
 
         <div class="hero-counter">
-          <span class="counter-label">SAVED ITEMS</span>
+          <span class="counter-label">{{ "SAVED ITEMS" | translate }}</span>
 
           <strong>{{ cart.data.length.toString().padStart(2, '0') }}</strong>
 
-          <span class="counter-bottom"> PRODUCTS IN YOUR COLLECTION </span>
+          <span class="counter-bottom"> {{ "PRODUCTS IN YOUR COLLECTION" | translate }} </span>
 
           <div class="counter-decoration">
             <i class="fa-solid fa-heart"></i>
@@ -42,8 +42,8 @@
       </div>
 
       <div class="hero-footer">
-        <span>NOVA — YOUR WORLD, YOUR CHOICE.</span>
-        <span>SCROLL TO EXPLORE ↓</span>
+        <span>{{ "NOVA — YOUR WORLD, YOUR CHOICE." | translate }}</span>
+        <span>{{ "SCROLL TO EXPLORE ↓" | translate }}</span>
       </div>
     </section>
 
@@ -51,15 +51,15 @@
     <section class="wishlist-collection">
       <div class="collection-header">
         <div>
-          <span class="section-eyebrow">01 / YOUR COLLECTION</span>
+          <span class="section-eyebrow">{{ "01 / YOUR COLLECTION" | translate }}</span>
 
-          <h2>Your <span>favorites.</span></h2>
+          <h2>Your <span>{{ "favorites." | translate }}</span></h2>
 
-          <p>Every product you liked, gathered in one place.</p>
+          <p>{{ "Every product you liked, gathered in one place." | translate }}</p>
         </div>
 
         <div class="collection-total">
-          <span>COLLECTION SIZE</span>
+          <span>{{ "COLLECTION SIZE" | translate }}</span>
           <strong>{{ cart.data.length.toString().padStart(2, '0') }}</strong>
         </div>
       </div>
@@ -78,7 +78,7 @@
 
               <span class="favorite-badge">
                 <i class="fa-solid fa-heart"></i>
-                FAVORITE
+                {{ "FAVORITE" | translate }}
               </span>
 
               <button
@@ -90,7 +90,7 @@
               </button>
 
               <div class="image-bottom-label">
-                <span>NOVA SELECTION</span>
+                <span>{{ "NOVA SELECTION" | translate }}</span>
                 <span>✳</span>
               </div>
             </div>
@@ -131,7 +131,7 @@
               <!-- PRICE -->
               <div class="card-price-area">
                 <div>
-                  <span class="price-label">CURRENT PRICE</span>
+                  <span class="price-label">{{ "CURRENT PRICE" | translate }}</span>
 
                   <strong class="product-price">
                     {{ Product.price | number }}
@@ -147,13 +147,13 @@
               <!-- CARD ACTIONS -->
               <div class="card-actions">
                 <button  [routerLink]="[`/Product-Detailes`,Product._id]" class="explore-button">
-                  <span>EXPLORE PRODUCT</span>
+                  <span>{{ "EXPLORE PRODUCT" | translate }}</span>
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </button>
 
                 <button (click)="removeProductFromWishlist(Product._id)" class="remove-button">
                   <i class="fa-solid fa-trash-can"></i>
-                  <span>REMOVE</span>
+                  <span>{{ "REMOVE" | translate }}</span>
                 </button>
               </div>
             </div>
@@ -165,12 +165,12 @@
               <i class="fa-regular fa-heart"></i>
             </div>
 
-            <span class="empty-eyebrow">YOUR COLLECTION IS EMPTY</span>
+            <span class="empty-eyebrow">{{ "YOUR COLLECTION IS EMPTY" | translate }}</span>
 
-            <h3>Nothing saved <span>yet.</span></h3>
+            <h3>{{ "Nothing saved" | translate }} <span>{{ "yet." | translate }}</span></h3>
 
             <p>
-              When something catches your eye, save it here and come back to it whenever you want.
+              {{ "When something catches your eye, save it here and come back to it whenever you want." | translate }}
             </p>
           </div>
         }
@@ -183,13 +183,13 @@
 
       <div class="footer-content">
         <div>
-          <span class="footer-brand">NOVA.</span>
-          <p>GOOD TASTE STARTS WITH GOOD CHOICES.</p>
+          <span class="footer-brand">{{ "NOVA." | translate }}</span>
+          <p>{{ "GOOD TASTE STARTS WITH GOOD CHOICES." | translate }}</p>
         </div>
 
         <div class="footer-message">
           <i class="fa-solid fa-heart"></i>
-          <span>KEEP WHAT YOU LOVE.</span>
+          <span>{{ "KEEP WHAT YOU LOVE." | translate }}</span>
         </div>
       </div>
     </section>

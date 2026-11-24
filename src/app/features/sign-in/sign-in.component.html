@@ -42,31 +42,31 @@
       <div class="lamp-hint" [class.hide-hint]="isLightOn">
         <span class="hint-dot"></span>
 
-        <span>PULL TO WAKE NOVA</span>
+        <span>{{ "PULL TO WAKE NOVA" | translate }}</span>
       </div>
 
       <!-- Light Status -->
       <div class="light-status" [class.show-status]="isLightOn">
         <span></span>
-        NOVA EYE · LIGHT ON
+        {{ "NOVA EYE · LIGHT ON" | translate }}
       </div>
     </div>
 
     <!-- Intro and Form Share One Panel -->
     <div class="experience-panel">
       <div class="experience-intro" [class.hide-intro]="isLightOn" [attr.aria-hidden]="isLightOn">
-        <span class="intro-eyebrow">A DIFFERENT WAY TO SIGN IN</span>
+        <span class="intro-eyebrow">{{ "A DIFFERENT WAY TO SIGN IN" | translate }}</span>
 
         <h1>
-          YOUR WORLD<br />
-          IS <span>WAITING.</span>
+          {{ "YOUR WORLD" | translate }}<br />
+          {{ "IS" | translate }} <span>{{ "WAITING." | translate }}</span>
         </h1>
 
-        <p>A little light. A whole new world. Switch on your NOVA experience.</p>
+        <p>{{ "A little light. A whole new world. Switch on your NOVA experience." | translate }}</p>
 
         <div class="intro-register-prompt">
-          <span>New to NOVA?</span>
-          <a routerLink="/register">Create an account <i class="fa-solid fa-arrow-right"></i></a>
+          <span>{{ "New to NOVA?" | translate }}</span>
+          <a routerLink="/register">{{ "Create an account" | translate }} <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
 
@@ -78,21 +78,21 @@
           <i class="fa-solid fa-arrow-right-to-bracket"></i>
         </div>
 
-        <span class="card-eyebrow">WELCOME BACK TO NOVA</span>
+        <span class="card-eyebrow">{{ "WELCOME BACK TO NOVA" | translate }}</span>
 
         <h2>
-          Good to see<br />
-          <span>you again.</span>
+          {{ "Good to see" | translate }}<br />
+          <span>{{ "you again." | translate }}</span>
         </h2>
 
-        <p>Sign in and pick up where your style left off.</p>
+        <p>{{ "Sign in and pick up where your style left off." | translate }}</p>
       </div>
 
       <!-- Sign In Form -->
       <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <!-- Email -->
         <div class="input-group">
-          <label for="email">EMAIL ADDRESS</label>
+          <label for="email">{{ "EMAIL ADDRESS" | translate }}</label>
 
           <div class="input-wrapper">
             <i class="fa-regular fa-envelope"></i>
@@ -111,9 +111,9 @@
           @if (signInForm.controls.email.touched && signInForm.controls.email.invalid) {
             <div class="validation-messages" aria-live="polite">
               @if (signInForm.controls.email.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Email is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Email is required." | translate }}</span></small>
               } @else if (signInForm.controls.email.hasError('email')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Please enter a valid email address.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Please enter a valid email address." | translate }}</span></small>
               }
             </div>
           }
@@ -122,9 +122,9 @@
         <!-- Password -->
         <div class="input-group">
           <div class="password-label">
-            <label for="password">PASSWORD</label>
+            <label for="password">{{ "PASSWORD" | translate }}</label>
 
-            <a routerLink="/forgot-password">Forgot password?</a>
+            <a routerLink="/forgot-password">{{ "Forgot password?" | translate }}</a>
           </div>
 
           <div class="input-wrapper">
@@ -148,7 +148,7 @@
           @if (signInForm.controls.password.touched && signInForm.controls.password.invalid) {
             <div class="validation-messages" aria-live="polite">
               @if (signInForm.controls.password.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Password is required." | translate }}</span></small>
               }
             </div>
           }
@@ -160,18 +160,9 @@
           </div>
         }
 
-        <!-- Remember Me -->
-        <div class="remember-row">
-          <label class="remember-label">
-            <input type="checkbox" />
-            <span class="custom-checkbox"></span>
-            <span>Remember me</span>
-          </label>
-        </div>
-
         <!-- Submit Button -->
         <button type="submit" class="signin-button">
-          <span>ENTER NOVA</span>
+          <span>{{ "ENTER NOVA" | translate }}</span>
 
           <span class="button-icon">
             <i class="fa-solid fa-arrow-right"></i>
@@ -181,18 +172,18 @@
 
       <!-- Register Link -->
       <div class="register-prompt">
-        <span>New to NOVA?</span>
+        <span>{{ "New to NOVA?" | translate }}</span>
 
         <a routerLink="/register">
-          Create an account
+          {{ "Create an account" | translate }}
           <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </a>
       </div>
 
       <!-- Card Footer -->
       <div class="card-footer">
-        <span>YOUR STYLE. YOUR WORLD.</span>
-        <span>© NOVA 2026</span>
+        <span>{{ "YOUR STYLE. YOUR WORLD." | translate }}</span>
+        <span>{{ "© NOVA 2026" | translate }}</span>
       </div>
       </div>
     </div>
@@ -200,11 +191,11 @@
 
   <!-- Bottom Footer -->
   <footer class="signin-footer">
-    <span>FASHION FIRST. EVERYTHING ELSE, CURATED.</span>
+    <span>{{ "FASHION FIRST. EVERYTHING ELSE, CURATED." | translate }}</span>
 
     <span class="footer-indicator">
       <span></span>
-      DESIGNED TO STAND OUT
+      {{ "DESIGNED TO STAND OUT" | translate }}
     </span>
   </footer>
 </main>

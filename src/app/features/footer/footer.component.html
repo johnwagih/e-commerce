@@ -3,18 +3,18 @@
   <div class="newsletter-section">
     <div class="newsletter-container">
       <div class="newsletter-content">
-        <span class="section-eyebrow">THE NOVA COMMUNITY</span>
+        <span class="section-eyebrow">{{ "THE NOVA COMMUNITY" | translate }}</span>
 
-        <h2>Stay in the <span>loop.</span></h2>
+        <h2>{{ "Stay in the" | translate }} <span>{{ "loop." | translate }}</span></h2>
 
-        <p>Get first access to new drops, exclusive offers and everything worth discovering.</p>
+        <p>{{ "Get first access to new drops, exclusive offers and everything worth discovering." | translate }}</p>
       </div>
 
       <form class="newsletter-form">
         <input type="email" placeholder="Enter your email address" aria-label="Email address" />
 
         <button type="button">
-          JOIN US
+          {{ "JOIN US" | translate }}
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </form>
@@ -29,8 +29,7 @@
         <a routerLink="/home" class="footer-logo"> NOVA<span>.</span> </a>
 
         <p class="brand-description">
-          Your style. Your world. Your rules. Discover a curated collection of fashion, footwear,
-          accessories and everyday essentials. Everything you love, all in one place.
+          {{ "Your style. Your world. Your rules. Discover a curated collection of fashion, footwear, accessories and everyday essentials. Everything you love, all in one place." | translate }}
         </p>
 
         <!-- Contact -->
@@ -88,32 +87,32 @@
 
       <!-- Explore -->
       <div class="footer-column">
-        <h3>EXPLORE</h3>
+        <h3>{{ "EXPLORE" | translate }}</h3>
 
         <ul>
           <li>
-            <a routerLink="/shop">Shop All</a>
+            <a routerLink="/shop">{{ "Shop All" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/categories">Categories</a>
+            <a routerLink="/categories">{{ "Categories" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/brands">Our Brands</a>
+            <a routerLink="/brands">{{ "Our Brands" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/shop">New Arrivals</a>
+            <a routerLink="/shop">{{ "New Arrivals" | translate }}</a>
           </li>
 
           <li>
-            <a [routerLink]="[`/Special-Categories`, `6439d5b90049ad0b52b90048`]">Men's Fashion</a>
+            <a [routerLink]="[`/Special-Categories`, `6439d5b90049ad0b52b90048`]">{{ "Men's Fashion" | translate }}</a>
           </li>
 
           <li>
             <a [routerLink]="[`/Special-Categories`, `6439d58a0049ad0b52b9003f`]"
-              >Women's Fashion</a
+              >{{ "Women's Fashion" | translate }}</a
             >
           </li>
         </ul>
@@ -121,77 +120,77 @@
 
       <!-- Account -->
       <div class="footer-column">
-        <h3>YOUR ACCOUNT</h3>
+        <h3>{{ "YOUR ACCOUNT" | translate }}</h3>
 
         <ul>
           <li>
-            <a routerLink="/allorders">Order History</a>
+            <a routerLink="/allorders">{{ "Order History" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/wishlist">Wishlist</a>
+            <a routerLink="/wishlist">{{ "Wishlist" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/cart">Shopping Cart</a>
+            <a routerLink="/cart">{{ "Shopping Cart" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/sign-in">Sign In</a>
+            <a routerLink="/sign-in">{{ "Sign In" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/register">Create Account</a>
+            <a routerLink="/register">{{ "Create Account" | translate }}</a>
           </li>
         </ul>
       </div>
 
       <!-- Customer Care -->
       <div class="footer-column">
-        <h3>CUSTOMER CARE</h3>
+        <h3>{{ "CUSTOMER CARE" | translate }}</h3>
 
         <ul>
           <li>
-            <a routerLink="/contact">Contact Us</a>
+            <a routerLink="/contact">{{ "Contact Us" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/contact">Help Center</a>
+            <a routerLink="/contact">{{ "Help Center" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/contact">Shipping Information</a>
+            <a routerLink="/contact">{{ "Shipping Information" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/contact">Returns & Refunds</a>
+            <a routerLink="/contact">{{ "Returns & Refunds" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/contact">Track Your Order</a>
+            <a routerLink="/contact">{{ "Track Your Order" | translate }}</a>
           </li>
         </ul>
       </div>
 
       <!-- More Links -->
       <div class="footer-column">
-        <h3>MORE LINKS</h3>
+        <h3>{{ "MORE LINKS" | translate }}</h3>
 
         <ul>
           <li>
-            <a routerLink="/home">Home</a>
+            <a routerLink="/home">{{ "Home" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/shop">Discover Products</a>
+            <a routerLink="/shop">{{ "Discover Products" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/brands">Discover Brands</a>
+            <a routerLink="/brands">{{ "Discover Brands" | translate }}</a>
           </li>
 
           <li>
-            <a routerLink="/contact">Get Support</a>
+            <a routerLink="/contact">{{ "Get Support" | translate }}</a>
           </li>
         </ul>
       </div>
@@ -207,22 +206,22 @@
   <!-- Footer Bottom -->
   <div class="footer-bottom">
     <div class="footer-bottom-container">
-      <p class="copyright">© 2026 NOVA. All rights reserved.</p>
+      <p class="copyright">{{ "© 2026 NOVA. All rights reserved." | translate }}</p>
 
       <!-- Payment Methods -->
       <div class="payment-methods">
-        <span class="payment-label">WE ACCEPT</span>
+        <span class="payment-label">{{ "WE ACCEPT" | translate }}</span>
 
         <span class="payment-item">VISA</span>
 
-        <span class="payment-item mastercard"> Mastercard </span>
+        <span class="payment-item mastercard"> {{ "Mastercard" | translate }} </span>
 
         <span class="payment-item"> CASH </span>
       </div>
 
       <!-- Back To Top -->
       <button type="button" class="back-to-top" (click)="scrollToTop()">
-        BACK TO TOP
+        {{ "BACK TO TOP" | translate }}
         <i class="fa-solid fa-arrow-up"></i>
       </button>
     </div>

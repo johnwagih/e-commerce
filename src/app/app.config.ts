@@ -8,6 +8,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { loadingInterceptor } from './interceptor/loading/loading-interceptor';
 import { headerInterceptorInterceptor } from './interceptor/headerInterceptor/header-interceptor-interceptor';
+import { provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +21,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch() , withInterceptors([loadingInterceptor , headerInterceptorInterceptor])),
     importProvidersFrom(NgxSpinnerModule),
       provideToastr(),
+      provideTranslateService({
+        fallbackLang: 'en',
+        loader: provideTranslateHttpLoader({ prefix: '/assets/i18n/', suffix: '.json' }),
+      }),
   ]
 };

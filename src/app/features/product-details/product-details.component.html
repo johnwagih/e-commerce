@@ -1,9 +1,9 @@
 <main class="product-page">
   <!-- Breadcrumb -->
   <nav class="breadcrumb">
-    <a routerLink="/home">Home</a>
+    <a routerLink="/home">{{ "Home" | translate }}</a>
     <i class="fa-solid fa-chevron-right"></i>
-    <a routerLink="/shop">Shop</a>
+    <a routerLink="/shop">{{ "Shop" | translate }}</a>
     <i class="fa-solid fa-chevron-right"></i>
     <span>{{ productesList().category.name }}</span>
   </nav>
@@ -13,8 +13,8 @@
     <!-- Product Gallery -->
     <div class="gallery-section">
       <div class="gallery-heading">
-        <span>NOVA / PRODUCT COLLECTION</span>
-        <span> GALLERY</span>
+        <span>{{ "NOVA / PRODUCT COLLECTION" | translate }}</span>
+        <span> {{ "GALLERY" | translate }}</span>
       </div>
 
       <div class="main-gallery-wrapper">
@@ -37,7 +37,7 @@
           }
         </swiper-container>
 
-        <span class="image-label">NOVA SELECTION</span>
+        <span class="image-label">{{ "NOVA SELECTION" | translate }}</span>
       </div>
 
       <!-- Thumbnails -->
@@ -57,8 +57,8 @@
       </swiper-container>
 
       <!-- <div class="gallery-footer">
-        <span>SELECTED WITH INTENTION.</span>
-        <span>DESIGNED TO STAND OUT.</span>
+        <span>{{ "SELECTED WITH INTENTION." | translate }}</span>
+        <span>{{ "DESIGNED TO STAND OUT." | translate }}</span>
       </div> -->
     </div>
 
@@ -115,7 +115,7 @@
       <!-- Price -->
       <div class="product-price-card">
         <div class="price-information">
-          <span class="price-label">CURRENT PRICE</span>
+          <span class="price-label">{{ "CURRENT PRICE" | translate }}</span>
 
           <div class="product-price">
             {{ productesList().price }}
@@ -125,7 +125,7 @@
 
         <div class="stock-status">
           <span class="stock-dot"></span>
-          In Stock
+          {{ "In Stock" | translate }}
         </div>
       </div>
 
@@ -136,7 +136,7 @@
         </div>
 
         <div class="availability-information">
-          <span>Availability</span>
+          <span>{{ "Availability" | translate }}</span>
           <strong>{{ productesList().quantity }} Pieces Available</strong>
         </div>
       </div>
@@ -144,31 +144,31 @@
       <!-- Actions -->
       <div class="product-actions">
         <button (click)="addToCart(productesList()._id)" class="add-to-cart-button">
-          <span>Add to Cart</span>
+          <span>{{ "Add to Cart" | translate }}</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
       <!-- Secure Checkout -->
       <div class="product-note">
         <i class="fa-solid fa-shield-halved"></i>
-        <span>Secure checkout. Shop with confidence.</span>
+        <span>{{ "Secure checkout. Shop with confidence." | translate }}</span>
       </div>
 
       <!-- Quick Services -->
       <div class="product-services">
         <div class="service-item">
           <i class="fa-solid fa-truck-fast"></i>
-          <span>Delivery</span>
+          <span>{{ "Delivery" | translate }}</span>
         </div>
 
         <div class="service-item">
           <i class="fa-solid fa-arrow-rotate-left"></i>
-          <span>Easy Returns</span>
+          <span>{{ "Easy Returns" | translate }}</span>
         </div>
 
         <div class="service-item">
           <i class="fa-solid fa-lock"></i>
-          <span>Secure Payment</span>
+          <span>{{ "Secure Payment" | translate }}</span>
         </div>
       </div>
     </aside>
@@ -181,11 +181,11 @@
     <!-- Section Heading -->
     <div class="details-section-heading">
       <div>
-        <span class="section-eyebrow">THE DETAILS MATTER</span>
-        <h2>Everything you need <span>to know.</span></h2>
+        <span class="section-eyebrow">{{ "THE DETAILS MATTER" | translate }}</span>
+        <h2>{{ "Everything you need" | translate }} <span>{{ "to know." | translate }}</span></h2>
       </div>
 
-      <span class="section-index">02 / PRODUCT INFO</span>
+      <span class="section-index">{{ "02 / PRODUCT INFO" | translate }}</span>
     </div>
 
     <!-- CSS Tabs -->
@@ -200,18 +200,18 @@
       <div class="tabs-navigation">
         <label for="tab-details">
           <i class="fa-regular fa-rectangle-list"></i>
-          Product Details
+          {{ "Product Details" | translate }}
         </label>
 
         <label for="tab-reviews">
           <i class="fa-regular fa-star"></i>
-          Reviews
+          {{ "Reviews" | translate }}
           <span>{{ productesList().ratingsQuantity }}</span>
         </label>
 
         <label for="tab-shipping">
           <i class="fa-solid fa-truck-fast"></i>
-          Shipping & Returns
+          {{ "Shipping & Returns" | translate }}
         </label>
       </div>
 
@@ -220,9 +220,9 @@
         <!-- PRODUCT DETAILS -->
         <div class="tab-panel details-panel">
           <div class="details-description">
-            <span class="panel-eyebrow"> OVERVIEW</span>
+            <span class="panel-eyebrow"> {{ "OVERVIEW" | translate }}</span>
 
-            <h3>About this <span>product.</span></h3>
+            <h3>{{ "About this" | translate }} <span>{{ "product." | translate }}</span></h3>
 
             <p>
               {{ productesList().description }}
@@ -230,28 +230,28 @@
           </div>
 
           <div class="details-information">
-            <span class="panel-eyebrow">02 — INFORMATION</span>
+            <span class="panel-eyebrow">{{ "02 — INFORMATION" | translate }}</span>
 
-            <h3>Product information</h3>
+            <h3>{{ "Product information" | translate }}</h3>
 
             <div class="information-list">
               <div class="information-row">
-                <span>Category</span>
+                <span>{{ "Category" | translate }}</span>
                 <strong>{{ productesList().category.name }}</strong>
               </div>
 
               <div class="information-row">
-                <span>Brand</span>
+                <span>{{ "Brand" | translate }}</span>
                 <strong>{{ productesList().brand.name }}</strong>
               </div>
 
               <div class="information-row">
-                <span>Availability</span>
+                <span>{{ "Availability" | translate }}</span>
                 <strong>{{ productesList().quantity }} Pieces</strong>
               </div>
 
               <div class="information-row">
-                <span>Customer Rating</span>
+                <span>{{ "Customer Rating" | translate }}</span>
                 <strong> {{ productesList().ratingsAverage }} / 5 </strong>
               </div>
             </div>
@@ -261,9 +261,9 @@
         <!-- REVIEWS -->
         <div class="tab-panel reviews-panel">
           <div class="reviews-overview">
-            <span class="panel-eyebrow">CUSTOMER EXPERIENCE</span>
+            <span class="panel-eyebrow">{{ "CUSTOMER EXPERIENCE" | translate }}</span>
 
-            <h3>What people <span>think.</span></h3>
+            <h3>{{ "What people" | translate }} <span>{{ "think." | translate }}</span></h3>
 
             <div class="reviews-rating">
               <strong>{{ productesList().ratingsAverage }}</strong>
@@ -287,11 +287,10 @@
               <i class="fa-regular fa-comment-dots"></i>
             </div>
 
-            <h4>Customer reviews</h4>
+            <h4>{{ "Customer reviews" | translate }}</h4>
 
             <p>
-              Individual customer reviews are not available yet. Check back later for more
-              experiences.
+              {{ "Individual customer reviews are not available yet. Check back later for more experiences." | translate }}
             </p>
           </div>
         </div>
@@ -299,9 +298,9 @@
         <!-- SHIPPING & RETURNS -->
         <div class="tab-panel shipping-panel">
           <div class="shipping-intro">
-            <span class="panel-eyebrow">SHOP WITH CONFIDENCE</span>
+            <span class="panel-eyebrow">{{ "SHOP WITH CONFIDENCE" | translate }}</span>
 
-            <h3>Delivery made <span>simple.</span></h3>
+            <h3>{{ "Delivery made" | translate }} <span>{{ "simple." | translate }}</span></h3>
 
             <p>
               Everything you need to know about receiving your order and getting support after your
@@ -316,9 +315,9 @@
               </div>
 
               <div>
-                <h4>Delivery Information</h4>
+                <h4>{{ "Delivery Information" | translate }}</h4>
 
-                <p>Your order will be delivered to the address provided during checkout.</p>
+                <p>{{ "Your order will be delivered to the address provided during checkout." | translate }}</p>
               </div>
 
               <span>01</span>
@@ -330,9 +329,9 @@
               </div>
 
               <div>
-                <h4>Order Packaging</h4>
+                <h4>{{ "Order Packaging" | translate }}</h4>
 
-                <p>Your items are prepared and packaged before being handed over for delivery.</p>
+                <p>{{ "Your items are prepared and packaged before being handed over for delivery." | translate }}</p>
               </div>
 
               <span>02</span>
@@ -344,11 +343,10 @@
               </div>
 
               <div>
-                <h4>Returns & Support</h4>
+                <h4>{{ "Returns & Support" | translate }}</h4>
 
                 <p>
-                  Need help with your order? Contact customer support for assistance with returns
-                  and order-related questions.
+                  {{ "Need help with your order? Contact customer support for assistance with returns and order-related questions." | translate }}
                 </p>
               </div>
 
@@ -361,10 +359,10 @@
               </div>
 
               <div>
-                <h4>Secure Shopping</h4>
+                <h4>{{ "Secure Shopping" | translate }}</h4>
 
                 <p>
-                  Enjoy a shopping experience designed with your security and confidence in mind.
+                  {{ "Enjoy a shopping experience designed with your security and confidence in mind." | translate }}
                 </p>
               </div>
 

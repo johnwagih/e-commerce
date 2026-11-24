@@ -3,23 +3,23 @@
     <!-- Section Heading -->
     <div class="products-heading">
       <div>
-        <span class="section-eyebrow">THE NOVA SELECTION</span>
-        <h2>Picked For <span>You.</span></h2>
-        <p>Pieces worth adding to your everyday collection.</p>
+        <span class="section-eyebrow">{{ "THE NOVA SELECTION" | translate }}</span>
+        <h2>{{ "Picked For" | translate }} <span>{{ "You." | translate }}</span></h2>
+        <p>{{ "Pieces worth adding to your everyday collection." | translate }}</p>
       </div>
 
       <a routerLink="/shop" class="view-all-link">
-        View All Products
+        {{ "View All Products" | translate }}
         <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
 
     <!-- Category Filters -->
     <!-- <div class="product-filters">
-      <button class="filter-btn active">All Products</button>
-      <button class="filter-btn">New Arrivals</button>
-      <button class="filter-btn">Best Sellers</button>
-      <button class="filter-btn">On Sale</button>
+      <button class="filter-btn active">{{ "All Products" | translate }}</button>
+      <button class="filter-btn">{{ "New Arrivals" | translate }}</button>
+      <button class="filter-btn">{{ "Best Sellers" | translate }}</button>
+      <button class="filter-btn">{{ "On Sale" | translate }}</button>
     </div> -->
 
     <!-- Products Grid -->
@@ -32,22 +32,22 @@
             alt="Women's fashion outfit"
           />
 
-          <span class="product-badge new-badge">NEW ARRIVAL</span>
+          <span class="product-badge new-badge">{{ "NEW ARRIVAL" | translate }}</span>
           <!-- 
           <button class="wishlist-btn" aria-label="Add to wishlist">
             <i class="fa-regular fa-heart"></i>
           </button> -->
 
           <!-- <button class="quick-add-btn">
-            Quick Add
+            {{ "Quick Add" | translate }}
             <i class="fa-solid fa-plus"></i>
           </button> -->
         </div>
 
         <div class="product-info">
-          <div class="product-category">WOMEN'S FASHION</div>
+          <div class="product-category">{{ "WOMEN'S FASHION" | translate }}</div>
 
-          <h3>Modern Everyday Outfit</h3>
+          <h3>{{ "Modern Everyday Outfit" | translate }}</h3>
 
           <div class="product-rating">
             <span class="stars">★★★★★</span>
@@ -70,15 +70,15 @@
             alt="Red sneakers"
           />
 
-          <span class="product-badge bestseller-badge">BEST SELLER</span>
+          <span class="product-badge bestseller-badge">{{ "BEST SELLER" | translate }}</span>
 
 
         </div>
 
         <div class="product-info">
-          <div class="product-category">SNEAKERS</div>
+          <div class="product-category">{{ "SNEAKERS" | translate }}</div>
 
-          <h3>Urban Classic Sneakers</h3>
+          <h3>{{ "Urban Classic Sneakers" | translate }}</h3>
 
           <div class="product-rating">
             <span class="stars">★★★★★</span>
@@ -101,15 +101,15 @@
             alt="Basic cotton t-shirt"
           />
 
-          <span class="product-badge new-badge">NEW ARRIVAL</span>
+          <span class="product-badge new-badge">{{ "NEW ARRIVAL" | translate }}</span>
 
 
         </div>
 
         <div class="product-info">
-          <div class="product-category">MEN'S FASHION</div>
+          <div class="product-category">{{ "MEN'S FASHION" | translate }}</div>
 
-          <h3>Essential Cotton T-Shirt</h3>
+          <h3>{{ "Essential Cotton T-Shirt" | translate }}</h3>
 
           <div class="product-rating">
             <span class="stars">★★★★☆</span>
@@ -132,15 +132,15 @@
             alt="Fashion handbag"
           />
 
-          <span class="product-badge limited-badge">LIMITED</span>
+          <span class="product-badge limited-badge">{{ "LIMITED" | translate }}</span>
 
 
         </div>
 
         <div class="product-info">
-          <div class="product-category">ACCESSORIES</div>
+          <div class="product-category">{{ "ACCESSORIES" | translate }}</div>
 
-          <h3>Minimal Leather Bag</h3>
+          <h3>{{ "Minimal Leather Bag" | translate }}</h3>
 
           <div class="product-rating">
             <span class="stars">★★★★★</span>
@@ -159,7 +159,7 @@
     <!-- Bottom Link -->
     <div class="products-bottom">
       <a routerLink="/shop" class="explore-products-btn">
-        Explore All Products
+        {{ "Explore All Products" | translate }}
         <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>

@@ -14,27 +14,27 @@
 
     <!-- Editorial Content -->
     <div class="editorial-content">
-      <span class="editorial-eyebrow"> THE NOVA EXPERIENCE — EST. 2026 </span>
+      <span class="editorial-eyebrow"> {{ "THE NOVA EXPERIENCE — EST. 2026" | translate }} </span>
 
       <h1>
-        NOT JUST<br />
-        A PURCHASE.<br />
-        <span>A STATEMENT.</span>
+        {{ "NOT JUST" | translate }}<br />
+        {{ "A PURCHASE." | translate }}<br />
+        <span>{{ "A STATEMENT." | translate }}</span>
       </h1>
 
-      <p>Discover a world where design meets identity. Explore pieces that reflect who you are.</p>
+      <p>{{ "Discover a world where design meets identity. Explore pieces that reflect who you are." | translate }}</p>
 
       <div class="editorial-bottom">
-        <span>01 / 03</span>
+        <span>{{ "01 / 03" | translate }}</span>
         <div class="editorial-line"></div>
-        <span>BEYOND SHOPPING</span>
+        <span>{{ "BEYOND SHOPPING" | translate }}</span>
       </div>
     </div>
 
     <!-- Image Footer -->
     <div class="editorial-footer">
-      <span>CURATED FOR THE UNCOMMON.</span>
-      <span>© NOVA 2026</span>
+      <span>{{ "CURATED FOR THE UNCOMMON." | translate }}</span>
+      <span>{{ "© NOVA 2026" | translate }}</span>
     </div>
   </section>
 
@@ -45,27 +45,27 @@
       <a routerLink="/home" class="mobile-logo"> NOVA<span>.</span> </a>
 
       <p>
-        Already a member?
-        <a routerLink="/sign-in">Sign in <span>↗</span></a>
+        {{ "Already a member?" | translate }}
+        <a routerLink="/sign-in">{{ "Sign in" | translate }} <span>↗</span></a>
       </p>
     </div>
 
     <!-- Form Content -->
     <div class="form-content">
       <div class="form-heading">
-        <span class="form-eyebrow"> JOIN THE NOVA WORLD </span>
+        <span class="form-eyebrow"> {{ "JOIN THE NOVA WORLD" | translate }} </span>
         <h2>
-          Create your<br />
-          <span>account.</span>
+          {{ "Create your" | translate }}<br />
+          <span>{{ "account." | translate }}</span>
         </h2>
-        <p>Your next favorite thing starts here. Let's make it personal.</p>
+        <p>{{ "Your next favorite thing starts here. Let's make it personal." | translate }}</p>
       </div>
 
       <!-- Register Form -->
       <form (ngSubmit)="submitRegisterForm()" class="register-form" [formGroup]="registerForm">
         <!-- Name -->
         <div class="form-group">
-          <label for="name">Full name</label>
+          <label for="name">{{ "Full name" | translate }}</label>
           <div class="input-icon-field">
             <i class="fa-regular fa-user" aria-hidden="true"></i>
             <input
@@ -81,13 +81,13 @@
           @if (registerForm.controls.name.invalid && registerForm.controls.name.touched) {
             <div class="validation-messages" aria-live="polite">
               @if (registerForm.controls.name.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Name is required." | translate }}</span></small>
               } @else if (registerForm.controls.name.hasError('minlength')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name must be at least 3 characters.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Name must be at least 3 characters." | translate }}</span></small>
               } @else if (registerForm.controls.name.hasError('maxlength')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Name cannot exceed 80 characters.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Name cannot exceed 80 characters." | translate }}</span></small>
               } @else if (registerForm.controls.name.hasError('pattern')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a first and last name using Arabic or English letters.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Enter a first and last name using Arabic or English letters." | translate }}</span></small>
               }
             </div>
           }
@@ -95,7 +95,7 @@
 
         <!-- Email -->
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">{{ "Email address" | translate }}</label>
 
           <div class="input-icon-field">
             <i class="fa-regular fa-envelope" aria-hidden="true"></i>
@@ -112,9 +112,9 @@
           @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
             <div class="validation-messages" aria-live="polite">
               @if (registerForm.controls.email.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Email is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Email is required." | translate }}</span></small>
               } @else if (registerForm.controls.email.hasError('email')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a valid email address.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Enter a valid email address." | translate }}</span></small>
               }
             </div>
           }
@@ -122,7 +122,7 @@
 
         <!-- Phone -->
         <div class="form-group">
-          <label for="phone">Phone number</label>
+          <label for="phone">{{ "Phone number" | translate }}</label>
 
           <div class="input-icon-field">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
@@ -139,9 +139,9 @@
           @if (registerForm.controls.phone.invalid && registerForm.controls.phone.touched) {
             <div class="validation-messages" aria-live="polite">
               @if (registerForm.controls.phone.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Phone number is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Phone number is required." | translate }}</span></small>
               } @else if (registerForm.controls.phone.hasError('pattern')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Enter a valid Egyptian mobile number, e.g. 01010700701 or +201010700701.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Enter a valid Egyptian mobile number, e.g. 01010700701 or +201010700701." | translate }}</span></small>
               }
             </div>
           }
@@ -149,7 +149,7 @@
 
         <!-- Password -->
         <div class="form-group">
-          <label for="password"><i class="fa-solid fa-lock" aria-hidden="true"></i> Password</label>
+          <label for="password"><i class="fa-solid fa-lock" aria-hidden="true"></i> {{ "Password" | translate }}</label>
 
           <div class="password-field">
             <i class="fa-solid fa-lock" aria-hidden="true"></i>
@@ -178,11 +178,11 @@
           @if (registerForm.controls.password.invalid && registerForm.controls.password.touched) {
             <div class="validation-messages" aria-live="polite">
               @if (registerForm.controls.password.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Password is required." | translate }}</span></small>
               } @else if (registerForm.controls.password.hasError('minlength')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password must be at least 8 characters.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Password must be at least 8 characters." | translate }}</span></small>
               } @else if (registerForm.controls.password.hasError('pattern')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Password must include an uppercase letter, a lowercase letter, a number, and a special character.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Password must include an uppercase letter, a lowercase letter, a number, and a special character." | translate }}</span></small>
               }
             </div>
           }
@@ -191,7 +191,7 @@
         <!-- Confirm Password -->
         <div class="form-group">
           <label for="rePassword"
-            ><i class="fa-solid fa-lock" aria-hidden="true"></i> Confirm password</label
+            ><i class="fa-solid fa-lock" aria-hidden="true"></i> {{ "Confirm password" | translate }}</label
           >
 
           <div class="input-icon-field password-field">
@@ -222,9 +222,9 @@
           @if (registerForm.controls.rePassword.touched && (registerForm.controls.rePassword.invalid || registerForm.hasError('mismatch'))) {
             <div class="validation-messages" aria-live="polite">
               @if (registerForm.controls.rePassword.hasError('required')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Confirm password is required.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Confirm password is required." | translate }}</span></small>
               } @else if (registerForm.hasError('mismatch')) {
-                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>Passwords do not match.</span></small>
+                <small class="validation-message"><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i><span>{{ "Passwords do not match." | translate }}</span></small>
               }
             </div>
           }
@@ -233,33 +233,33 @@
         <!-- Terms -->
         <div class="terms-row">
           <span>
-            By creating an account, you agree to our
-            <a href="#">Terms of Service</a>
-            and
-            <a href="#">Privacy Policy</a>.
+            {{ "By creating an account, you agree to our" | translate }}
+            <a href="#">{{ "Terms of Service" | translate }}</a>
+            {{ "and" | translate }}
+            <a href="#">{{ "Privacy Policy" | translate }}</a>.
           </span>
         </div>
 
         <!-- Submit -->
         <button type="submit" class="register-button">
-          <span>CREATE ACCOUNT</span>
+          <span>{{ "CREATE ACCOUNT" | translate }}</span>
           <span class="button-arrow">↗</span>
         </button>
       </form>
 
       <div class="form-divider">
-        <span>YOUR WORLD STARTS HERE</span>
+        <span>{{ "YOUR WORLD STARTS HERE" | translate }}</span>
       </div>
 
-      <p class="form-bottom-text">A little more you. A little more NOVA.</p>
+      <p class="form-bottom-text">{{ "A little more you. A little more NOVA." | translate }}</p>
     </div>
 
     <!-- Bottom Footer -->
     <footer class="form-footer">
-      <span>© 2026 NOVA STUDIO</span>
+      <span>{{ "© 2026 NOVA STUDIO" | translate }}</span>
 
       <div>
-        <span>DESIGNED TO STAND OUT</span>
+        <span>{{ "DESIGNED TO STAND OUT" | translate }}</span>
         <span class="footer-dot"></span>
       </div>
     </footer>

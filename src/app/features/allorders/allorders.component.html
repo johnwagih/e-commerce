@@ -6,20 +6,19 @@
         <span class="w-8 h-[2px] bg-[#D7F36B]"></span>
 
         <span class="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[#858A82] uppercase">
-          YOUR PURCHASE HISTORY
+          {{ "YOUR PURCHASE HISTORY" | translate }}
         </span>
       </div>
 
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
           <h1 class="text-4xl sm:text-5xl lg:text-7xl font-black tracking-tight text-[#193C35]">
-            My
-            <span class="text-[#858A82]">Orders.</span>
+            {{ "My" | translate }}
+            <span class="text-[#858A82]">{{ "Orders." | translate }}</span>
           </h1>
 
           <p class="text-sm sm:text-base text-[#858A82] mt-4 max-w-xl leading-7">
-            Every order tells a story. Revisit your purchases, track their progress, and keep
-            everything in one place.
+            {{ "Every order tells a story. Revisit your purchases, track their progress, and keep everything in one place." | translate }}
           </p>
         </div>
 
@@ -39,7 +38,7 @@
               </span>
 
               <span class="text-[10px] font-bold tracking-widest uppercase text-[#858A82]">
-                Total Orders
+                {{ "Total Orders" | translate }}
               </span>
             </div>
           </div>
@@ -60,9 +59,9 @@
           <div class="absolute inset-3 rounded-full bg-[#D7F36B] animate-pulse"></div>
         </div>
 
-        <h2 class="text-xl font-bold text-[#193C35] mt-7">Gathering Your Orders</h2>
+        <h2 class="text-xl font-bold text-[#193C35] mt-7">{{ "Gathering Your Orders" | translate }}</h2>
 
-        <p class="text-sm text-[#858A82] mt-2">Just a moment, we're getting everything ready.</p>
+        <p class="text-sm text-[#858A82] mt-2">{{ "Just a moment, we're getting everything ready." | translate }}</p>
       </section>
     }
 
@@ -87,7 +86,7 @@
 
                   <div>
                     <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-[#858A82]">
-                      Order Reference
+                      {{ "Order Reference" | translate }}
                     </span>
 
                     <h2 class="text-base sm:text-lg font-black text-[#193C35] mt-1 break-all">
@@ -104,14 +103,14 @@
                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 text-green-700 border border-green-100 text-[10px] font-bold uppercase tracking-wider"
                     >
                       <i class="fa-solid fa-circle-check"></i>
-                      Paid
+                      {{ "Paid" | translate }}
                     </span>
                   } @else {
                     <span
                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 text-amber-700 border border-amber-100 text-[10px] font-bold uppercase tracking-wider"
                     >
                       <i class="fa-solid fa-clock"></i>
-                      Payment Pending
+                      {{ "Payment Pending" | translate }}
                     </span>
                   }
 
@@ -121,14 +120,14 @@
                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#193C35] text-white text-[10px] font-bold uppercase tracking-wider"
                     >
                       <i class="fa-solid fa-truck-fast text-[#D7F36B]"></i>
-                      Delivered
+                      {{ "Delivered" | translate }}
                     </span>
                   } @else {
                     <span
                       class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F0F1EB] text-[#193C35] text-[10px] font-bold uppercase tracking-wider"
                     >
                       <i class="fa-solid fa-box"></i>
-                      Not Delivered
+                      {{ "Not Delivered" | translate }}
                     </span>
                   }
                 </div>
@@ -139,7 +138,7 @@
                 <!-- Date -->
                 <div class="bg-white/70 rounded-2xl p-4 border border-[#E4E5DC]/70">
                   <span class="text-[9px] uppercase tracking-widest text-[#858A82] font-bold">
-                    Order Date
+                    {{ "Order Date" | translate }}
                   </span>
 
                   <p class="text-xs sm:text-sm font-bold text-[#193C35] mt-2">
@@ -150,7 +149,7 @@
                 <!-- Payment -->
                 <div class="bg-white/70 rounded-2xl p-4 border border-[#E4E5DC]/70">
                   <span class="text-[9px] uppercase tracking-widest text-[#858A82] font-bold">
-                    Payment Method
+                    {{ "Payment Method" | translate }}
                   </span>
 
                   <p
@@ -169,7 +168,7 @@
                 <!-- Items -->
                 <div class="bg-white/70 rounded-2xl p-4 border border-[#E4E5DC]/70">
                   <span class="text-[9px] uppercase tracking-widest text-[#858A82] font-bold">
-                    Items
+                    {{ "Items" | translate }}
                   </span>
 
                   <p class="text-xs sm:text-sm font-bold text-[#193C35] mt-2">
@@ -187,7 +186,7 @@
                   <span
                     class="text-[9px] uppercase tracking-widest text-white/50 font-bold relative z-10"
                   >
-                    Order Total
+                    {{ "Order Total" | translate }}
                   </span>
 
                   <p class="text-sm sm:text-base font-black text-[#D7F36B] mt-2 relative z-10">
@@ -207,7 +206,7 @@
                 </span>
 
                 <h3 class="text-sm font-black text-[#193C35] uppercase tracking-wider">
-                  Order Items
+                  {{ "Order Items" | translate }}
                 </h3>
 
                 <span class="h-px flex-1 bg-[#E4E5DC]"></span>
@@ -261,7 +260,7 @@
                       class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-center gap-2 sm:min-w-20"
                     >
                       <span class="text-[9px] uppercase tracking-widest text-[#858A82] font-bold">
-                        Quantity
+                        {{ "Quantity" | translate }}
                       </span>
 
                       <span
@@ -274,7 +273,7 @@
                     <!-- Price -->
                     <div class="sm:min-w-28 sm:text-right">
                       <span class="text-[9px] uppercase tracking-widest text-[#858A82] font-bold">
-                        Item Price
+                        {{ "Item Price" | translate }}
                       </span>
 
                       <p class="text-sm font-black text-[#193C35] mt-2">
@@ -295,14 +294,14 @@
                   </div>
 
                   <h3 class="text-xs font-black text-[#193C35] uppercase tracking-wider">
-                    Shipping Details
+                    {{ "Shipping Details" | translate }}
                   </h3>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div>
                     <span class="text-[9px] font-bold uppercase tracking-widest text-[#858A82]">
-                      City
+                      {{ "City" | translate }}
                     </span>
 
                     <p class="text-xs text-[#193C35] font-semibold mt-1.5 break-words">
@@ -312,7 +311,7 @@
 
                   <div>
                     <span class="text-[9px] font-bold uppercase tracking-widest text-[#858A82]">
-                      Phone
+                      {{ "Phone" | translate }}
                     </span>
 
                     <p class="text-xs text-[#193C35] font-semibold mt-1.5 break-words">
@@ -322,7 +321,7 @@
 
                   <div class="sm:col-span-2 lg:col-span-1">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-[#858A82]">
-                      Address
+                      {{ "Address" | translate }}
                     </span>
 
                     <p class="text-xs text-[#193C35] font-semibold mt-1.5 break-words">
@@ -339,7 +338,7 @@
                 <div class="flex flex-wrap gap-4 text-[10px] font-semibold text-[#858A82]">
                   <span class="flex items-center gap-2">
                     <i class="fa-solid fa-shield-halved text-[#193C35]"></i>
-                    Secure Order
+                    {{ "Secure Order" | translate }}
                   </span>
 
                   <span class="flex items-center gap-2">
@@ -381,24 +380,23 @@
           </div>
 
           <span class="block text-[10px] font-bold tracking-[0.25em] text-[#D7F36B] uppercase mt-8">
-            A New Journey Awaits
+            {{ "A New Journey Awaits" | translate }}
           </span>
 
           <h2 class="text-3xl sm:text-5xl font-black text-white mt-4">
-            No Orders
-            <span class="text-[#D7F36B]">Yet.</span>
+            {{ "No Orders" | translate }}
+            <span class="text-[#D7F36B]">{{ "Yet." | translate }}</span>
           </h2>
 
           <p class="text-sm text-white/60 max-w-md mx-auto mt-5 leading-7">
-            Looks like you haven't found your favorites yet. Explore our collection and make your
-            first order.
+            {{ "Looks like you haven't found your favorites yet. Explore our collection and make your first order." | translate }}
           </p>
 
           <a
             routerLink="/products"
             class="inline-flex items-center gap-3 mt-8 px-7 py-4 rounded-xl bg-[#D7F36B] text-[#193C35] font-bold text-xs hover:bg-white hover:-translate-y-1 transition-all duration-300"
           >
-            EXPLORE COLLECTION
+            {{ "EXPLORE COLLECTION" | translate }}
             <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -420,16 +418,16 @@
           </div>
 
           <span class="block text-[10px] font-bold tracking-[0.25em] text-[#858A82] uppercase mt-8">
-            CONNECTION INTERRUPTED
+            {{ "CONNECTION INTERRUPTED" | translate }}
           </span>
 
           <h2 class="text-3xl sm:text-5xl font-black text-[#193C35] mt-4">
-            Orders Couldn't
-            <span class="text-[#858A82]">Load.</span>
+            {{ "Orders Couldn't" | translate }}
+            <span class="text-[#858A82]">{{ "Load." | translate }}</span>
           </h2>
 
           <p class="text-sm text-[#858A82] max-w-md mx-auto mt-5 leading-7">
-            Something went wrong while retrieving your orders. Please try again in a moment.
+            {{ "Something went wrong while retrieving your orders. Please try again in a moment." | translate }}
           </p>
 
           <button
@@ -438,7 +436,7 @@
             class="inline-flex items-center gap-3 mt-8 px-7 py-4 rounded-xl bg-[#193C35] text-white font-bold text-xs hover:bg-[#D7F36B] hover:text-[#193C35] hover:-translate-y-1 active:scale-95 transition-all duration-300"
           >
             <i class="fa-solid fa-rotate-right"></i>
-            TRY AGAIN
+            {{ "TRY AGAIN" | translate }}
           </button>
         </div>
       </section>

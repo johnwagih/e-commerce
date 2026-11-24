@@ -36,7 +36,7 @@
               <span class="w-10 h-px bg-white/30"></span>
 
               <span class="text-white/70 text-xs sm:text-sm font-bold tracking-[0.4em] uppercase">
-                Lost In Space
+                {{ "Lost In Space" | translate }}
               </span>
 
               <span class="w-10 h-px bg-white/30"></span>
@@ -62,7 +62,7 @@
 
           <div class="absolute bottom-8 left-8 right-8 flex justify-between items-center">
             <span class="text-white/40 text-[10px] font-bold tracking-[0.2em]">
-              NOVA / ERROR 404
+              {{ "NOVA / ERROR 404" | translate }}
             </span>
 
             <span class="w-2 h-2 rounded-full bg-[#D7F36B] animate-ping"></span>
@@ -74,10 +74,10 @@
           class="absolute -bottom-5 -left-3 sm:-left-7 bg-[#D7F36B] px-6 py-4 rounded-2xl shadow-xl -rotate-6"
         >
           <p class="text-[10px] font-black tracking-[0.2em] uppercase text-[#193C35]/60">
-            NOVA SYSTEM
+            {{ "NOVA SYSTEM" | translate }}
           </p>
 
-          <p class="font-black text-[#193C35] mt-1">Page not found!</p>
+          <p class="font-black text-[#193C35] mt-1">{{ "Page not found!" | translate }}</p>
         </div>
       </div>
 
@@ -89,19 +89,18 @@
           <span class="w-2 h-2 rounded-full bg-red-400"></span>
 
           <span class="text-[10px] sm:text-xs font-black tracking-[0.2em] uppercase">
-            Something went wrong
+            {{ "Something went wrong" | translate }}
           </span>
         </div>
 
         <h2 class="text-5xl sm:text-6xl lg:text-7xl font-black tracking-[-0.07em] leading-[0.95]">
-          OOPS!
+          {{ "OOPS!" | translate }}
 
-          <span class="block mt-3 text-[#193C35]"> WRONG TURN. </span>
+          <span class="block mt-3 text-[#193C35]"> {{ "WRONG TURN." | translate }} </span>
         </h2>
 
         <p class="text-[#858A82] text-base sm:text-lg leading-8 mt-8 max-w-lg mx-auto lg:mx-0">
-          Looks like you've wandered into an unknown corner of NOVA. The page you're looking for
-          doesn't exist or may have moved.
+          {{ "Looks like you've wandered into an unknown corner of NOVA. The page you're looking for doesn't exist or may have moved." | translate }}
         </p>
 
         <!-- Error Details -->
@@ -113,9 +112,9 @@
           </div>
 
           <div class="text-left">
-            <p class="text-xs font-black">Lost your destination?</p>
+            <p class="text-xs font-black">{{ "Lost your destination?" | translate }}</p>
 
-            <p class="text-xs text-[#858A82] mt-1">Let's get you back on track.</p>
+            <p class="text-xs text-[#858A82] mt-1">{{ "Let's get you back on track." | translate }}</p>
           </div>
         </div>
 
@@ -127,7 +126,7 @@
           >
             <i class="fa-solid fa-house"></i>
 
-            Back to Home
+            {{ "Back to Home" | translate }}
 
             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
           </a>
@@ -139,19 +138,19 @@
           >
             <i class="fa-solid fa-arrow-left"></i>
 
-            Go Back
+            {{ "Go Back" | translate }}
           </button>
         </div>
 
         <!-- Bottom Note -->
         <div class="mt-12 pt-7 border-t border-[#E4E5DC]">
           <p class="text-xs text-[#858A82]">
-            Need help finding something?
+            {{ "Need help finding something?" | translate }}
             <a
               href="/contact"
               class="text-[#193C35] font-black hover:text-[#858A82] transition-colors"
             >
-              Contact NOVA Support
+              {{ "Contact NOVA Support" | translate }}
             </a>
           </p>
         </div>

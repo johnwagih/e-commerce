@@ -5,7 +5,7 @@
 .brands-hero {
   position: relative;
   overflow: hidden;
-  background: #f5f4ef;
+  background: var(--theme-background-f5f4ef);
   padding: 28px 0 90px;
 }
 
@@ -22,17 +22,17 @@
   gap: 12px;
   margin-bottom: 65px;
   font-size: 13px;
-  color: #92938b;
+  color: var(--theme-text-92938b);
 }
 
 .breadcrumb a {
-  color: #77796f;
+  color: var(--theme-text-77796f);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .breadcrumb a:hover {
-  color: #171916;
+  color: var(--theme-text-171916);
 }
 
 .breadcrumb span:nth-child(2) {
@@ -40,7 +40,7 @@
 }
 
 .breadcrumb .current {
-  color: #171916;
+  color: var(--theme-text-171916);
   font-weight: 600;
 }
 
@@ -64,7 +64,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -78,7 +78,7 @@
 }
 
 .hero-info h1 {
-  color: #171916;
+  color: var(--theme-text-171916);
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(44px, 5.2vw, 72px);
   font-weight: 700;
@@ -98,7 +98,7 @@
 .hero-info > p {
   max-width: 440px;
   margin: 25px 0 35px;
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 16px;
   line-height: 1.8;
 }
@@ -150,7 +150,7 @@
 }
 
 .brands-count strong {
-  color: #171916;
+  color: var(--theme-text-171916);
   font-family: 'Space Grotesk', sans-serif;
   font-size: 25px;
   line-height: 1;
@@ -161,7 +161,7 @@
 }
 
 .brands-count > span {
-  color: #92938b;
+  color: var(--theme-text-92938b);
   font-size: 11px;
 }
 
@@ -190,8 +190,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: #ffffff;
-  border: 1px solid #e5e4dc;
+  background: var(--theme-background-ffffff);
+  border: 1px solid var(--theme-border-e5e4dc);
   box-shadow: 0 20px 50px rgba(23, 25, 22, 0.07);
   transition:
     transform 0.4s ease,
@@ -232,14 +232,14 @@
 
 .card-number,
 .card-category {
-  color: #92938b;
+  color: var(--theme-text-92938b);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
 }
 
 .brand-name {
-  color: #171916;
+  color: var(--theme-text-171916);
   text-align: center;
 }
 
@@ -273,7 +273,7 @@
 
 .card-apple i {
   font-size: 32px;
-  color: #171916;
+  color: var(--theme-text-171916);
 }
 
 .card-apple span {
@@ -302,7 +302,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #77796f;
+  color: var(--theme-text-77796f);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -328,7 +328,7 @@
   justify-content: center;
   background: #c6f36a;
   border-radius: 50%;
-  color: #171916;
+  color: var(--theme-text-171916);
   transform: rotate(12deg);
   box-shadow: 0 10px 25px rgba(23, 25, 22, 0.1);
 }
