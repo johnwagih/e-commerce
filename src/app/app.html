@@ -1,9 +1,12 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="site-container">
+  <router-outlet></router-outlet>
+</div>
 <app-footer></app-footer>
-<ngx-spinner
-  bdColor="rgba(245, 244, 239, 0.97)"
-  [fullScreen]="true"
-  [template]="novaLoaderTemplate"
->
-</ngx-spinner>
+  <ngx-spinner
+    bdColor="rgba(245, 244, 239, 0.97)"
+    [fullScreen]="true"
+    [template]="novaLoaderTemplate"
+  >
+  </ngx-spinner>
+  

@@ -4,31 +4,71 @@
     <div class="announcement-content">
       <span class="announcement-label">NOVA EXCLUSIVE</span>
       <span>Free shipping on orders above $100</span>
-      <a routerLink="/products">SHOP NOW ↗</a>
+      <a routerLink="/shop">SHOP NOW ↗</a>
     </div>
   </div>
 
   <!-- Main Navigation -->
-  <div class="main-navbar">
+  <div class=" main-navbar">
     <div class="navbar-container">
       <!-- Logo -->
       <a routerLink="/" class="nova-logo"> NOVA<span>.</span> </a>
 
-      <!-- Search -->
-      <form class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
+      <!-- Search (Temporarily Disabled) -->
+      <!--
+      <div class="relative">
+        <form class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
 
-        <input type="search" placeholder="Search for products, brands and more..." />
+          <input
+            [formControl]="searchControl"
+            type="search"
+            placeholder="Search for products, brands and more..."
+          />
 
-        <span class="search-shortcut">SEARCH</span>
-      </form>
+          <span class="search-shortcut">SEARCH</span>
+        </form>
+
+        Search Dropdown
+        <div
+          class="absolute top-full left-0 w-full z-50 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden"
+        >
+          <p class="p-4 text-black">
+            Products: {{ searchResults().length }}
+          </p>
+
+          @for (product of searchResults(); track product._id) {
+            <div
+              class="flex items-center gap-3 p-3 hover:bg-gray-50 cursor-pointer transition"
+            >
+              <img
+                [src]="product.imageCover"
+                [alt]="product.title"
+                class="w-12 h-12 object-cover rounded-lg"
+              />
+
+              <div class="flex-1 min-w-0">
+                <h4 class="text-sm font-semibold text-gray-800 truncate">
+                  {{ product.title }}
+                </h4>
+
+                <p class="text-sm text-gray-500">
+                  {{ product.price }} EGP
+                </p>
+              </div>
+
+              <i class="fa-solid fa-arrow-up-right-from-square text-gray-400"></i>
+            </div>
+          }
+        </div>
+      </div>
+      -->
 
       <!-- Actions -->
       <div class="navbar-actions">
         <!-- Support -->
         <a routerLink="/contact" class="nav-action support-action">
           <i class="fa-regular fa-circle-question"></i>
-
           <span>Support</span>
         </a>
 
@@ -42,31 +82,31 @@
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="cart-count">{{ cartCounter() }}</span>
         </a>
-        <!-- Account -->
-        <!-- Account -->
+
+        <!-- Desktop Account -->
         @if (!isLogged()) {
           <a routerLink="/sign-in" class="account-button">
             <i class="fa-regular fa-user"></i>
             <span>Sign In</span>
           </a>
         } @else {
-          <!-- Change Password -->
           <a routerLink="/Change-Password" class="nav-action" title="Change Password">
             <i class="fa-solid fa-lock"></i>
             <span>Change Password</span>
           </a>
 
-          <!-- Sign Out -->
           <a (click)="signOut()" class="cursor-pointer account-button">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
             <span>Sign Out</span>
           </a>
         }
 
-        <a routerLink="/register" class="create-account-button">
-          <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
-          <span>Create account</span>
-        </a>
+        @if (!isLogged()) {
+          <a routerLink="/register" class="create-account-button">
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            <span>Create account</span>
+          </a>
+        }
 
         <!-- Mobile Menu -->
         <details class="mobile-menu" #mobileMenu>
@@ -183,6 +223,7 @@
               </div>
             </details>
 
+            <!-- Other Links -->
             <a routerLink="/brands" (click)="mobileMenu.open = false">
               <i class="fa-solid fa-tags"></i>
               <span>Brands</span>
@@ -203,21 +244,34 @@
               <span>Support</span>
             </a>
 
+            <!-- Account Actions -->
             <div class="mobile-menu-divider"></div>
 
-            <a routerLink="/sign-in" (click)="mobileMenu.open = false">
-              <i class="fa-regular fa-user"></i>
-              <span>Sign In</span>
-            </a>
+            @if (isLogged()) {
+              <a routerLink="/Change-Password" (click)="mobileMenu.open = false">
+                <i class="fa-solid fa-lock"></i>
+                <span>Change Password</span>
+              </a>
 
-            <a
-              routerLink="/register"
-              class="mobile-register-link"
-              (click)="mobileMenu.open = false"
-            >
-              <i class="fa-solid fa-user-plus"></i>
-              <span>Create Account</span>
-            </a>
+              <a class="mobile-signout-link" (click)="signOut(); mobileMenu.open = false">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Sign Out</span>
+              </a>
+            } @else {
+              <a routerLink="/sign-in" (click)="mobileMenu.open = false">
+                <i class="fa-regular fa-user"></i>
+                <span>Sign In</span>
+              </a>
+
+              <a
+                routerLink="/register"
+                class="mobile-register-link"
+                (click)="mobileMenu.open = false"
+              >
+                <i class="fa-solid fa-user-plus"></i>
+                <span>Create Account</span>
+              </a>
+            }
           </div>
         </details>
       </div>

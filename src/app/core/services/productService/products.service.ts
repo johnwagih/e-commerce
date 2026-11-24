@@ -25,4 +25,8 @@ export class ProductsService {
     getSpecificCategory(brandId:any):Observable<any>{
     return this.httpClient.get(`${environment.basUrl}products?category[in]=${brandId}`)
   }
+  // Sereach
+    searchProducts(keyword:string):Observable<any>{
+    return this.httpClient.get(`${environment.basUrl}products?keyword=${keyword}`)
+  }
 }

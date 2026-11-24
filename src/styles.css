@@ -19,7 +19,10 @@
 /* =========================================
    NOVA — 3D PREMIUM LOADER
 ========================================= */
-
+.site-container {
+  width: min(100% - 40px, 1280px);
+  margin-inline: auto;
+}
 .nova-loader {
   position: relative;
   width: 100%;
