@@ -445,7 +445,7 @@
 .add-to-cart-button {
   border: 1px solid #c6f36a;
   background: #c6f36a;
-  color: var(--theme-text-171916);
+  color: #171916;
 }
 
 .add-to-cart-button i {

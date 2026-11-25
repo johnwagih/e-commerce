@@ -1,0 +1,10 @@
+:host-context(html[data-theme='dark']) .special-category-view-button:hover,
+:host-context(html[data-theme='dark']) .special-category-action:hover {
+  background-color: #d7f36b;
+  color: #171916;
+}
+
+:host-context(html[data-theme='dark']) .special-category-view-button:hover *,
+:host-context(html[data-theme='dark']) .special-category-action:hover * {
+  color: #171916;
+}
