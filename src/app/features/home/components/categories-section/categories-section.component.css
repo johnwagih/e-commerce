@@ -61,7 +61,7 @@
 }
 
 .view-all-link:hover {
-  color: #718b30;
+  color: var(--theme-text-193c35);
   border-color: #c6f36a;
 }
 

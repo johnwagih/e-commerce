@@ -41,7 +41,7 @@
           <div class="flex flex-wrap items-center gap-4 mt-10">
             <a
               href="#contact-form"
-              class="group inline-flex items-center gap-4 bg-[#193C35] text-white px-7 py-4 rounded-full font-bold text-sm hover:bg-[#D7F36B] hover:text-[#193C35] transition-all duration-300"
+              class="support-start-conversation group inline-flex items-center gap-4 bg-[#193C35] text-white px-7 py-4 rounded-full font-bold text-sm hover:bg-[#D7F36B] hover:text-[#193C35] transition-all duration-300"
             >
               {{ "Start a Conversation" | translate }}
 
@@ -92,9 +92,9 @@
 
             <!-- Main Icon -->
             <div
-              class="relative z-10 w-36 h-36 sm:w-48 sm:h-48 rounded-[35px] sm:rounded-[45px] bg-[#D7F36B] flex items-center justify-center rotate-[-8deg] shadow-2xl shadow-black/20"
+              class="support-headset-tile relative z-10 w-36 h-36 sm:w-48 sm:h-48 rounded-[35px] sm:rounded-[45px] bg-[#D7F36B] flex items-center justify-center rotate-[-8deg] shadow-2xl shadow-black/20"
             >
-              <i class="fa-solid fa-headset text-[#193C35] text-6xl sm:text-8xl"></i>
+              <i class="support-headset-icon fa-solid fa-headset text-[#193C35] text-6xl sm:text-8xl"></i>
             </div>
 
             <!-- Floating Message -->
@@ -138,7 +138,7 @@
 
           <!-- Decorative Badge -->
           <div
-            class="absolute -bottom-5 -left-4 sm:-left-7 bg-[#D7F36B] rounded-2xl px-5 py-4 shadow-xl rotate-[-4deg]"
+            class="support-nova-badge absolute -bottom-5 -left-4 sm:-left-7 bg-[#D7F36B] rounded-2xl px-5 py-4 shadow-xl rotate-[-4deg]"
           >
             <p class="text-[10px] font-black tracking-widest uppercase">NOVA</p>
 
@@ -324,7 +324,7 @@
             </div>
           </div>
 
-          <form #contactNgForm="ngForm" (ngSubmit)="sendMessage()" class="space-y-6">
+          <form #contactNgForm="ngForm" (ngSubmit)="sendMessage(contactNgForm)" class="space-y-6">
             <!-- Name + Email -->
             <div class="grid sm:grid-cols-2 gap-6">
               <div>
@@ -337,9 +337,25 @@
                   [(ngModel)]="contactForm.name"
                   required
                   minlength="2"
+                  maxlength="100"
+                  pattern=".*\S.*"
+                  #nameControl="ngModel"
+                  [attr.aria-invalid]="nameControl.invalid && (nameControl.touched || formSubmitted)"
+                  [class.support-field-invalid]="nameControl.invalid && (nameControl.touched || formSubmitted)"
                   placeholder="John Doe"
                   class="w-full bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl px-5 py-4 text-sm outline-none focus:border-[#193C35] focus:ring-4 focus:ring-[#193C35]/5 transition-all"
                 />
+                @if (nameControl.invalid && (nameControl.touched || formSubmitted)) {
+                  <div class="support-field-errors" aria-live="polite">
+                    @if (nameControl.hasError('required') || nameControl.hasError('pattern')) {
+                      <small>{{ "Name is required." | translate }}</small>
+                    } @else if (nameControl.hasError('minlength')) {
+                      <small>{{ "Enter at least 2 characters." | translate }}</small>
+                    } @else if (nameControl.hasError('maxlength')) {
+                      <small>{{ "Maximum 100 characters." | translate }}</small>
+                    }
+                  </div>
+                }
               </div>
 
               <div>
@@ -354,9 +370,24 @@
                   [(ngModel)]="contactForm.email"
                   required
                   email
+                  maxlength="254"
+                  #emailControl="ngModel"
+                  [attr.aria-invalid]="emailControl.invalid && (emailControl.touched || formSubmitted)"
+                  [class.support-field-invalid]="emailControl.invalid && (emailControl.touched || formSubmitted)"
                   placeholder="john@example.com"
                   class="w-full bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl px-5 py-4 text-sm outline-none focus:border-[#193C35] focus:ring-4 focus:ring-[#193C35]/5 transition-all"
                 />
+                @if (emailControl.invalid && (emailControl.touched || formSubmitted)) {
+                  <div class="support-field-errors" aria-live="polite">
+                    @if (emailControl.hasError('required')) {
+                      <small>{{ "Email is required." | translate }}</small>
+                    } @else if (emailControl.hasError('email')) {
+                      <small>{{ "Please enter a valid email address." | translate }}</small>
+                    } @else if (emailControl.hasError('maxlength')) {
+                      <small>{{ "Maximum 254 characters." | translate }}</small>
+                    }
+                  </div>
+                }
               </div>
             </div>
 
@@ -370,9 +401,23 @@
                 name="subject"
                 [(ngModel)]="contactForm.subject"
                 required
+                maxlength="150"
+                pattern=".*\S.*"
+                #subjectControl="ngModel"
+                [attr.aria-invalid]="subjectControl.invalid && (subjectControl.touched || formSubmitted)"
+                [class.support-field-invalid]="subjectControl.invalid && (subjectControl.touched || formSubmitted)"
                 placeholder="What can we help you with?"
                 class="w-full bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl px-5 py-4 text-sm outline-none focus:border-[#193C35] focus:ring-4 focus:ring-[#193C35]/5 transition-all"
               />
+              @if (subjectControl.invalid && (subjectControl.touched || formSubmitted)) {
+                <div class="support-field-errors" aria-live="polite">
+                  @if (subjectControl.hasError('required') || subjectControl.hasError('pattern')) {
+                    <small>{{ "Subject is required." | translate }}</small>
+                  } @else if (subjectControl.hasError('maxlength')) {
+                    <small>{{ "Maximum 150 characters." | translate }}</small>
+                  }
+                </div>
+              }
             </div>
 
             <!-- Message -->
@@ -387,17 +432,32 @@
                 [(ngModel)]="contactForm.message"
                 required
                 minlength="10"
+                maxlength="2000"
+                pattern=".*\S.*"
+                #messageControl="ngModel"
+                [attr.aria-invalid]="messageControl.invalid && (messageControl.touched || formSubmitted)"
+                [class.support-field-invalid]="messageControl.invalid && (messageControl.touched || formSubmitted)"
                 rows="5"
                 placeholder="Tell us what's on your mind..."
                 class="w-full resize-none bg-[#FAFAF7] border border-[#E4E5DC] rounded-xl px-5 py-4 text-sm outline-none focus:border-[#193C35] focus:ring-4 focus:ring-[#193C35]/5 transition-all"
               ></textarea>
+              @if (messageControl.invalid && (messageControl.touched || formSubmitted)) {
+                <div class="support-field-errors" aria-live="polite">
+                  @if (messageControl.hasError('required') || messageControl.hasError('pattern')) {
+                    <small>{{ "Message is required." | translate }}</small>
+                  } @else if (messageControl.hasError('minlength')) {
+                    <small>{{ "Enter at least 10 characters." | translate }}</small>
+                  } @else if (messageControl.hasError('maxlength')) {
+                    <small>{{ "Maximum 2000 characters." | translate }}</small>
+                  }
+                </div>
+              }
             </div>
 
             <!-- Submit -->
             <button
               type="submit"
-              [disabled]="contactNgForm.invalid"
-              class="group w-full bg-[#193C35] text-white rounded-xl py-5 px-6 flex items-center justify-between font-bold text-sm hover:bg-[#D7F36B] hover:text-[#193C35] disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-300"
+              class="support-whatsapp-submit group w-full bg-[#193C35] text-white rounded-xl py-5 px-6 flex items-center justify-between font-bold text-sm hover:bg-[#D7F36B] hover:text-[#193C35] transition-all duration-300"
             >
               <span>{{ "Send Message via WhatsApp" | translate }}</span>
 

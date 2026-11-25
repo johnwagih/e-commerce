@@ -609,5 +609,16 @@
   "03 / COLLECTION": "03 / COLLECTION",
   "04 / COLLECTION": "04 / COLLECTION",
   "05 / COLLECTION": "05 / COLLECTION",
-  "06 / COLLECTION": "06 / COLLECTION"
+  "06 / COLLECTION": "06 / COLLECTION",
+  "Enter at least 2 characters.": "Enter at least 2 characters.",
+  "Maximum 100 characters.": "Maximum 100 characters.",
+  "Maximum 150 characters.": "Maximum 150 characters.",
+  "Maximum 254 characters.": "Maximum 254 characters.",
+  "Maximum 2000 characters.": "Maximum 2000 characters.",
+  "Subject is required.": "Subject is required.",
+  "Message is required.": "Message is required.",
+  "Enter at least 10 characters.": "Enter at least 10 characters.",
+  "Your wishlist couldn't load.": "Your wishlist couldn't load.",
+  "Your saved items are safe. Please try loading your wishlist again.": "Your saved items are safe. Please try loading your wishlist again.",
+  "Loading your saved collection...": "Loading your saved collection..."
 }

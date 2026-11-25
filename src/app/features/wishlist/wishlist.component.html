@@ -66,6 +66,18 @@
 
       <!-- PRODUCTS GRID -->
       <div class="wishlist-grid">
+        @if (hasError()) {
+          <div class="wishlist-fallback" role="status">
+            <span class="empty-icon"><i class="fa-solid fa-heart-crack"></i></span>
+            <span class="empty-eyebrow">{{ "CONNECTION INTERRUPTED" | translate }}</span>
+            <h3>{{ "Your wishlist couldn't load." | translate }}</h3>
+            <p>{{ "Your saved items are safe. Please try loading your wishlist again." | translate }}</p>
+            <button type="button" class="wishlist-retry-button" (click)="Getloggeduserwishlist()">
+              <i class="fa-solid fa-rotate-right"></i>
+              {{ "TRY AGAIN" | translate }}
+            </button>
+          </div>
+        } @else {
         @for (Product of cart.data; track Product._id; let i = $index) {
           <article class="wishlist-card">
             <!-- CARD IMAGE -->
@@ -174,6 +186,7 @@
             </p>
           </div>
         }
+        }
       </div>
     </section>
 
@@ -193,5 +206,10 @@
         </div>
       </div>
     </section>
+  </main>
+} @else if (isLoading()) {
+  <main class="wishlist-page wishlist-loading" aria-live="polite">
+    <div class="wishlist-loading-mark"><i class="fa-solid fa-heart"></i></div>
+    <p>{{ "Loading your saved collection..." | translate }}</p>
   </main>
 }

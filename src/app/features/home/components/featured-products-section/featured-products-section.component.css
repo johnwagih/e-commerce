@@ -61,7 +61,7 @@
 }
 
 .view-all-link:hover {
-  color: #718b30;
+  color: var(--theme-text-193c35);
   border-color: #c6f36a;
 }
 
@@ -351,8 +351,12 @@
 
 .explore-products-btn:hover {
   background: #c6f36a;
-  color: var(--theme-text-171916);
+  color: #171916;
   transform: translateY(-4px);
+}
+
+.explore-products-btn:hover * {
+  color: #171916;
 }
 
 .explore-products-btn i {

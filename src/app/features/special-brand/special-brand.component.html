@@ -145,7 +145,7 @@
                   type="button"
                   (click)="addWishlist(product._id)"
                   aria-label="Add to wishlist"
-                  class="absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#193C35] shadow-md cursor-pointer hover:bg-[#193C35] hover:text-white active:scale-90 transition-all duration-300"
+                  class="brand-detail-heart absolute top-4 right-4 z-20 w-11 h-11 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#193C35] shadow-md cursor-pointer hover:bg-[#193C35] hover:text-white active:scale-90 transition-all duration-300"
                 >
                   <i class="fa-regular fa-heart text-lg"></i>
                 </button>
@@ -168,7 +168,7 @@
                   <button
                     [routerLink]="[`/Product-Detailes`, product._id]"
                     type="button"
-                    class="w-full bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wider hover:bg-[#D7F36B] hover:text-[#193C35] transition-colors duration-300"
+                    class="brand-detail-action w-full bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wider hover:bg-[#D7F36B] hover:text-[#193C35] transition-colors duration-300"
                   >
                     {{ "VIEW PRODUCT" | translate }}
                     <i class="fa-solid fa-arrow-right ml-2"></i>
@@ -228,7 +228,7 @@
                 <button
                   type="button"
                   (click)="addToCart(product._id)"
-                  class="w-full mt-5 flex items-center justify-center gap-2 bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wide hover:bg-[#D7F36B] hover:text-[#193C35] active:scale-[0.98] transition-all duration-300"
+                  class="brand-detail-action w-full mt-5 flex items-center justify-center gap-2 bg-[#193C35] text-white py-3.5 rounded-xl text-xs font-bold tracking-wide hover:bg-[#D7F36B] hover:text-[#193C35] active:scale-[0.98] transition-all duration-300"
                 >
                   <i class="fa-solid fa-cart-shopping"></i>
                   {{ "ADD TO CART" | translate }}

@@ -187,8 +187,12 @@
 
 .editorial-button:hover {
   background: #c6f36a;
-  color: var(--theme-text-171916);
+  color: #171916;
   transform: translateY(-4px);
+}
+
+.editorial-button:hover * {
+  color: #171916;
 }
 
 .editorial-button-icon {

@@ -355,6 +355,16 @@
   transform: rotate(-45deg);
 }
 
+:host-context(html[data-theme='dark']) .shop-cta:hover {
+  background: #c6f36a;
+  color: #171916;
+}
+
+:host-context(html[data-theme='dark']) .cta-arrow {
+  background: #202822;
+  color: #d7f36b;
+}
+
 .empty-note {
   margin-top: 35px;
   display: flex;
@@ -881,6 +891,15 @@
 
 .checkout-button:hover {
   background: white;
+}
+
+:host-context(html[data-theme='dark']) .checkout-button {
+  color: #171916;
+}
+
+:host-context(html[data-theme='dark']) .checkout-button:hover {
+  background: #eff7d1;
+  color: #171916;
 }
 
 .checkout-arrow {

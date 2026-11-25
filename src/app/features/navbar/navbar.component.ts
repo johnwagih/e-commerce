@@ -62,8 +62,13 @@ export class NavbarComponent implements OnInit {
   }
   // getLoggedUserCart
   getLoggedUserCart() {
+    const token = localStorage.getItem('tokenUser');
+    if (!token) return;
+
     this.cartServiceService.getLoggedUserCart().subscribe({
       next: (res) => {
+        // Ignore responses belonging to a session that has already ended.
+        if (localStorage.getItem('tokenUser') !== token) return;
         this.cartServiceService.cartCounter.set(res.numOfCartItems)
       },
       error: (err) => {
@@ -77,6 +82,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('tokenUser');
     localStorage.removeItem('dataUser');
     localStorage.removeItem('userId');
+    this.cartServiceService.cartCounter.set(0);
     this.authServiceService.isLogged.set(false);
     this.router.navigate([`/sign-in`])
 

@@ -198,7 +198,7 @@
   align-items: center;
   gap: 25px;
   background: #c6f36a;
-  color: var(--theme-text-171916);
+  color: #171916;
   padding: 16px 20px;
   margin-top: 27px;
   text-decoration: none;
@@ -212,6 +212,7 @@
 
 .deal-button:hover {
   background: var(--theme-background-ffffff);
+  color: var(--theme-text-171916);
   transform: translateY(-4px);
   gap: 35px;
 }

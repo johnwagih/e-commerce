@@ -1,6 +1,6 @@
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { Component, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-support',
@@ -51,6 +51,8 @@ export class SupportComponent {
     message: '',
   };
 
+  formSubmitted = false;
+
   // FAQ
   activeFaq = signal<number | null>(0);
 
@@ -81,18 +83,13 @@ export class SupportComponent {
     this.activeFaq.update(current => current === index ? null : index);
   }
 
-  sendMessage(): void {
-
-    const { name, email, subject, message } = this.contactForm;
-
-    if (
-      !name.trim() ||
-      !email.trim() ||
-      !subject.trim() ||
-      !message.trim()
-    ) {
+  sendMessage(form: NgForm): void {
+    this.formSubmitted = true;
+    if (form.invalid) {
       return;
     }
+
+    const { name, email, subject, message } = this.contactForm;
 
     if (
       name.length > 100 ||

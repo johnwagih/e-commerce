@@ -3,6 +3,7 @@ import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthServiceService } from '../../core/services/authService/auth-service.service';
+import { CartServiceService } from '../../core/services/cartServices/cart-service.service';
 import { ToastrService } from 'ngx-toastr';
 import { jwtDecode } from "jwt-decode";
 import { isPlatformBrowser } from '@angular/common';
@@ -17,6 +18,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class SignInComponent  {
   private readonly router = inject(Router);
   private readonly authServiceService = inject(AuthServiceService);
+  private readonly cartServiceService = inject(CartServiceService);
   private readonly toaster = inject(ToastrService)
   private readonly platformId = inject(PLATFORM_ID)
 
@@ -68,11 +70,22 @@ export class SignInComponent  {
       next: (response) => {
         localStorage.setItem('tokenUser', response.token);
         localStorage.setItem('dataUser', JSON.stringify(response.user));
+        this.authServiceService.isLogged.set(true);
+        const signedInToken = response.token;
+        this.cartServiceService.getLoggedUserCart().subscribe({
+          next: (cartResponse) => {
+            if (localStorage.getItem('tokenUser') !== signedInToken) return;
+            this.cartServiceService.cartCounter.set(cartResponse.numOfCartItems);
+          },
+          error: () => {
+            if (localStorage.getItem('tokenUser') !== signedInToken) return;
+            this.cartServiceService.cartCounter.set(0);
+          },
+        });
         this.router.navigate(['/home']);
         this.toaster.success(response.message, "", {
           progressBar: true
         })
-         this.authServiceService.isLogged.set(true);
         interface IUserToken {
           id: string;
         }

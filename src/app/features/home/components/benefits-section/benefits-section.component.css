@@ -63,7 +63,7 @@
 
 .benefit-item:hover .benefit-icon {
   background: #c6f36a;
-  color: var(--theme-text-171916);
+  color: #171916;
   transform: rotate(-8deg) scale(1.08);
 }
 

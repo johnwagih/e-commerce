@@ -608,5 +608,16 @@
   "03 / COLLECTION": "٠٣ / التشكيلة",
   "04 / COLLECTION": "٠٤ / التشكيلة",
   "05 / COLLECTION": "٠٥ / التشكيلة",
-  "06 / COLLECTION": "٠٦ / التشكيلة"
+  "06 / COLLECTION": "٠٦ / التشكيلة",
+  "Enter at least 2 characters.": "أدخل حرفين على الأقل.",
+  "Maximum 100 characters.": "الحد الأقصى ١٠٠ حرف.",
+  "Maximum 150 characters.": "الحد الأقصى ١٥٠ حرفًا.",
+  "Maximum 254 characters.": "الحد الأقصى ٢٥٤ حرفًا.",
+  "Maximum 2000 characters.": "الحد الأقصى ٢٠٠٠ حرف.",
+  "Subject is required.": "الموضوع مطلوب.",
+  "Message is required.": "الرسالة مطلوبة.",
+  "Enter at least 10 characters.": "أدخل ١٠ أحرف على الأقل.",
+  "Your wishlist couldn't load.": "تعذر تحميل قائمة أمنياتك.",
+  "Your saved items are safe. Please try loading your wishlist again.": "عناصر قائمتك محفوظة. حاول تحميل قائمة الأمنيات مجددًا.",
+  "Loading your saved collection...": "جارٍ تحميل العناصر المحفوظة..."
 }

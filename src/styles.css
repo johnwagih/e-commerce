@@ -257,8 +257,8 @@
   color: #171916;
 }
 
-:root[data-theme='dark'] app-contact form input,
-:root[data-theme='dark'] app-contact form textarea,
+:root[data-theme='dark'] app-support form input,
+:root[data-theme='dark'] app-support form textarea,
 :root[data-theme='dark'] app-pay form input,
 :root[data-theme='dark'] app-pay form textarea {
   background-color: #151b17;
@@ -279,16 +279,16 @@
   opacity: 1;
 }
 
-:root[data-theme='dark'] app-contact form input::placeholder,
-:root[data-theme='dark'] app-contact form textarea::placeholder,
+:root[data-theme='dark'] app-support form input::placeholder,
+:root[data-theme='dark'] app-support form textarea::placeholder,
 :root[data-theme='dark'] app-pay form input::placeholder,
 :root[data-theme='dark'] app-pay form textarea::placeholder {
   color: #a6b0a5;
   opacity: 1;
 }
 
-:root[data-theme='dark'] app-contact form input:focus,
-:root[data-theme='dark'] app-contact form textarea:focus,
+:root[data-theme='dark'] app-support form input:focus,
+:root[data-theme='dark'] app-support form textarea:focus,
 :root[data-theme='dark'] app-pay form input:focus,
 :root[data-theme='dark'] app-pay form textarea:focus {
   background-color: #202822;
@@ -848,4 +848,126 @@ html[data-theme='dark'] .benefit-item:hover .benefit-icon,
 html[data-theme='dark'] .quick-add-btn:hover,
 html[data-theme='dark'] .wishlist-btn:hover {
   color: #171916;
+}
+
+/* Dark theme fixes for category and brand product actions. */
+html[data-theme='dark'] app-special-brand .brand-detail-action:hover,
+html[data-theme='dark'] app-special-categories .special-category-action:hover {
+  background-color: #d7f36b;
+  color: #171916;
+}
+
+html[data-theme='dark'] app-special-brand .brand-detail-heart,
+html[data-theme='dark'] app-special-categories .special-category-heart {
+  border-color: #465349;
+  background-color: #202822;
+  color: #d7f36b;
+}
+
+html[data-theme='dark'] app-special-brand .brand-detail-heart:hover,
+html[data-theme='dark'] app-special-categories .special-category-heart:hover {
+  border-color: #d7f36b;
+  background-color: #d7f36b;
+  color: #171916;
+  transform: scale(1.08);
+}
+
+/* Keep cart call-to-action labels legible on lime surfaces. */
+html[data-theme='dark'] app-cart .checkout-button {
+  color: #171916;
+}
+
+html[data-theme='dark'] app-cart .checkout-button:hover {
+  background-color: #eff7d1;
+  color: #171916;
+}
+
+html[data-theme='dark'] app-cart .shop-cta:hover {
+  background-color: #c6f36a;
+  color: #171916;
+}
+
+html[data-theme='dark'] app-cart .cta-arrow {
+  background-color: #202822;
+  color: #d7f36b;
+}
+
+/* Support page dark-mode callouts, controls, and field validation. */
+:root[data-theme='dark'] app-support .support-start-conversation:hover,
+:root[data-theme='dark'] app-support .support-whatsapp-submit:hover {
+  background-color: #d7f36b;
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-support .support-headset-icon {
+  color: #193c35;
+  filter: drop-shadow(0 4px 3px rgba(25, 60, 53, .16));
+}
+
+:root[data-theme='dark'] app-support .support-nova-badge {
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-support .support-start-conversation:hover,
+:root[data-theme='dark'] app-support .support-start-conversation:hover *,
+:root[data-theme='dark'] app-support .support-whatsapp-submit:hover,
+:root[data-theme='dark'] app-support .support-whatsapp-submit:hover * {
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-support .support-whatsapp-submit:hover span:last-child {
+  background-color: rgba(23, 25, 22, .12);
+}
+
+:root[data-theme='dark'] app-support .support-field-invalid {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, .12);
+}
+
+.support-field-errors {
+  margin-top: 7px;
+  color: #b42318;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+:root[data-theme='dark'] app-support .support-field-errors {
+  color: #fca5a5;
+}
+
+:root[data-theme='dark'] app-support .support-whatsapp-submit:disabled {
+  background-color: #303a33;
+  color: #849187;
+}
+
+/* Keep the wishlist image labels and heart icon distinct from lime surfaces. */
+:root[data-theme='dark'] app-wishlist .card-index {
+  background-color: #202822;
+  border-color: #536052;
+  color: #f3f5ef;
+}
+
+:root[data-theme='dark'] app-wishlist .favorite-badge {
+  background-color: #d7f36b;
+  color: #171916;
+}
+
+:root[data-theme='dark'] app-wishlist .favorite-badge i,
+:root[data-theme='dark'] app-wishlist .wishlist-card:hover .price-heart,
+:root[data-theme='dark'] app-wishlist .wishlist-card:hover .price-heart i {
+  color: #171916;
+}
+
+/* Give the support headset a clearer silhouette against the hero panel. */
+app-support .support-headset-tile {
+  border: 1px solid rgba(255, 255, 255, .38);
+  box-shadow: 0 24px 55px rgba(0, 0, 0, .32), inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+
+app-support .support-headset-icon {
+  font-size: clamp(4.25rem, 8vw, 7rem);
+  line-height: 1;
+  color: #193c35;
+  filter: drop-shadow(0 3px 2px rgba(25, 60, 53, .22));
 }
